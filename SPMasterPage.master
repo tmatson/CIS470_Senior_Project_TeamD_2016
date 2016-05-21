@@ -56,7 +56,7 @@
 
             <div class="content">
                 <ul style="width: 167px">
-                    <li><strong>Company</strong></li>
+                    <li><strong>Company</strong></li><!-- Suggest moving this to a footer??-->
                     <li><asp:LinkButton ID="LinkButton6" runat="server" CssClass="footerLink" PostBackUrl="~/pgIndex.aspx">Home</asp:LinkButton></li>
                     <li><asp:LinkButton ID="LinkButton7" runat="server" CssClass="footerLink" PostBackUrl="~/pgProduct.aspx">Product Catalog</asp:LinkButton></li>
                     <li><asp:LinkButton ID="LinkButton11" runat="server" CssClass="footerLink" PostBackUrl="~/pgOrder.aspx">Place an Order</asp:LinkButton></li>
