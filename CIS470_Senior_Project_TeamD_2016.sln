@@ -21,27 +21,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CIS470_Senior_Project_TeamD
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "28874"
-	EndProjectSection
-EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CIS470_Senior_Project_TeamD_2016", ".", "{1ED3BCF6-152D-42DE-9CC6-FF6394E0661D}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_55435"
-		Debug.AspNetCompiler.PhysicalPath = "..\CIS470_Senior_Project_TeamD_2016\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55435\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_55435"
-		Release.AspNetCompiler.PhysicalPath = "..\CIS470_Senior_Project_TeamD_2016\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55435\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "55435"
-		SlnRelativePath = "..\CIS470_Senior_Project_TeamD_2016\"
+		SlnRelativePath = "E:\GitHub\CIS470_Senior_Project_TeamD_2016\"
 	EndProjectSection
 EndProject
 Global
@@ -51,8 +31,6 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2E20FEC3-071A-4797-A5D7-301427D38FA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2E20FEC3-071A-4797-A5D7-301427D38FA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1ED3BCF6-152D-42DE-9CC6-FF6394E0661D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1ED3BCF6-152D-42DE-9CC6-FF6394E0661D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
