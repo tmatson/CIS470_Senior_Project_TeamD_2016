@@ -22,8 +22,26 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CIS470_Senior_Project_TeamD
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "28874"
 	EndProjectSection
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_28874"
+		Debug.AspNetCompiler.PhysicalPath = "E:\GitHub\CIS470_Senior_Project_TeamD_2016\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_28874\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_28874"
+		Release.AspNetCompiler.PhysicalPath = "E:\GitHub\CIS470_Senior_Project_TeamD_2016\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_28874\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "28874"
+	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CIS470_Senior_Project_TeamD_2016", ".", "{F269F312-6369-41CA-8BA7-2180AA07C480}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CIS470_Senior_Project_TeamD_2016", ".", "{93FC3208-62F0-4DDF-A65F-B9466D99E17E}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_64202"
@@ -51,8 +69,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2E20FEC3-071A-4797-A5D7-301427D38FA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2E20FEC3-071A-4797-A5D7-301427D38FA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F269F312-6369-41CA-8BA7-2180AA07C480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F269F312-6369-41CA-8BA7-2180AA07C480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93FC3208-62F0-4DDF-A65F-B9466D99E17E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93FC3208-62F0-4DDF-A65F-B9466D99E17E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
