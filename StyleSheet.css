@@ -63,7 +63,16 @@ div#footer ul li strong {
     text-decoration: underline;
 	text-align: center; 
 }
-
+/*Added div class .aboutus to pgAbout.aspx - but wont appear when using browser. M.Steele*/
+.aboutus { 
+    display: inline-block;
+    width: 650px;
+    margin-left: 250px;
+    margin-bottom: 150px;
+    background-color: transparent;
+    word-wrap: break-word;
+    color: darkblue;
+}
 .content {
 display: inline-block;
 width: 176px;
