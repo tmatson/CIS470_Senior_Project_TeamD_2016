@@ -11,6 +11,12 @@ using System.Data;
 /// </summary>
 public class clsDataLayer
 {
+    OleDbConnection dbConnection;
+    public clsDataLayer(string Path)
+    {
+        dbConnection = new OleDbConnection("PROVIDER=Microsoft.Jet.OLEDB.4.0;Data Source=" + Path);
+    }
+
     public clsDataLayer()
     {
         //
@@ -18,26 +24,51 @@ public class clsDataLayer
         //
     }
 
-    //Verify User - Matt Steele
-    public static dsUserAcct VerifyUser(string Database, string UserName, string UserPassword)
+    public bool ValidateUser(string username, string password)
     {
-        //Creates the datasource DS
-        dsUserAcct DS;
-        OleDbConnection sqlConn;
-        OleDbDataAdapter sqlDA;
-        //Connects to the databse
-        sqlConn = new OleDbConnection("PROVIDER=Microsoft.ACE.OLEDB.12.0;" +
-        "Data Source=" + Database);
-        //Checks the security of the user
-        sqlDA = new OleDbDataAdapter("Select SecurityLevel from tblUserLogin " +
-        "where UserName like '" + UserName + "' " +
-        "and UserPassword like '" + UserPassword + "'", sqlConn);
-        //Adds new user
-        DS = new dsUserAcct();
-        //Fills in the tblUserAcct
-        sqlDA.Fill(DS.tblUserAcct);
-        //Returns the data
-        return DS;
+        //Opens Connection to Database
+        dbConnection.Open();
 
+        //Complier
+        string sqlStmt = "SELECT * FROM tblUserAcct Where Username = @id AND Password = @password AND Locked = FALSE";
+
+        //New Instance of the OleDbCommand Class with the Text of the Query
+        OleDbCommand dbCommand = new OleDbCommand(sqlStmt, dbConnection);
+
+        //New Instance of the OleDbParameter Class with the Parameter Name and Value
+        dbCommand.Parameters.Add(new OleDbParameter("@id", username));
+        dbCommand.Parameters.Add(new OleDbParameter("@password", password));
+
+        //Reads Data
+        OleDbDataReader dr = dbCommand.ExecuteReader();
+
+        Boolean isValidAccount = dr.Read();
+
+        //Closes DataBase Connection
+        dbConnection.Close();
+
+        return isValidAccount;
     }
+
+    public void LockUserAccount(string username)
+    {
+        //Opens Connection to Database
+        dbConnection.Open();
+
+        //Complier
+        string sqlStmt = "UPDATE tblUserAcct SET Locked = True WHERE Username = @id";
+
+        //New Instance of the OleDbCommand Class with the Text of the Query
+        OleDbCommand dbCommand = new OleDbCommand(sqlStmt, dbConnection);
+
+        //New Instance of the OleDbParameter Class with the Parameter Name and Value
+        dbCommand.Parameters.Add(new OleDbParameter("@id", username));
+
+        //Writes Data to Database
+        dbCommand.ExecuteNonQuery();
+
+        //Closes DataBase Connection
+        dbConnection.Close();
+    }
+ 
 }

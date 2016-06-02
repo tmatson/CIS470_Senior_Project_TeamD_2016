@@ -1,15 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="dsDatebase" targetNamespace="http://tempuri.org/dsDatebase.xsd" xmlns:mstns="http://tempuri.org/dsDatebase.xsd" xmlns="http://tempuri.org/dsDatebase.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="dsDatabase" targetNamespace="http://tempuri.org/dsDatabase.xsd" xmlns:mstns="http://tempuri.org/dsDatabase.xsd" xmlns="http://tempuri.org/dsDatabase.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="WSCDatabaseConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="WSCDatabaseConnectionString (Web.config)" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.WSCDatabaseConnectionString.ConnectionString" Provider="System.Data.OleDb" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="WSCDatabase_mdbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="WSCDatabase_mdbConnectionString (Web.config)" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.WSCDatabase_mdbConnectionString.ConnectionString" Provider="System.Data.OleDb" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="WSCDatabase_accdbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="WSCDatabase_accdbConnectionString (Web.config)" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.WSCDatabase_accdbConnectionString.ConnectionString" Provider="System.Data.OleDb" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblCCardTableAdapter" GeneratorDataComponentClassName="tblCCardTableAdapter" Name="tblCCard" UserDataComponentName="tblCCardTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WSCDatabaseConnectionString (Web.config)" DbObjectName="tblCCard" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WSCDatabase_mdbConnectionString (Web.config)" DbObjectName="tblCCard" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM `tblCCard` WHERE ((`CustomerID` = ?))</CommandText>
@@ -63,7 +64,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblOrdersTableAdapter" GeneratorDataComponentClassName="tblOrdersTableAdapter" Name="tblOrders" UserDataComponentName="tblOrdersTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WSCDatabaseConnectionString (Web.config)" DbObjectName="tblOrders" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WSCDatabase_mdbConnectionString (Web.config)" DbObjectName="tblOrders" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM `tblOrders` WHERE ((`OrderID` = ?))</CommandText>
@@ -117,7 +118,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblProductsTableAdapter" GeneratorDataComponentClassName="tblProductsTableAdapter" Name="tblProducts" UserDataComponentName="tblProductsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WSCDatabaseConnectionString (Web.config)" DbObjectName="tblProducts" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WSCDatabase_mdbConnectionString (Web.config)" DbObjectName="tblProducts" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM `tblProducts` WHERE ((`ProductID` = ?))</CommandText>
@@ -165,7 +166,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblReviewTableAdapter" GeneratorDataComponentClassName="tblReviewTableAdapter" Name="tblReview" UserDataComponentName="tblReviewTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WSCDatabaseConnectionString (Web.config)" DbObjectName="tblReview" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WSCDatabase_mdbConnectionString (Web.config)" DbObjectName="tblReview" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM `tblReview` WHERE ((`CustomerID` = ?))</CommandText>
@@ -216,7 +217,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblUserAcctTableAdapter" GeneratorDataComponentClassName="tblUserAcctTableAdapter" Name="tblUserAcct" UserDataComponentName="tblUserAcctTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WSCDatabaseConnectionString (Web.config)" DbObjectName="tblUserAcct" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WSCDatabase_mdbConnectionString (Web.config)" DbObjectName="tblUserAcct" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM `tblUserAcct` WHERE ((`CustomerID` = ?))</CommandText>
@@ -294,10 +295,10 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="dsDatebase" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsDatebase" msprop:Generator_DataSetName="dsDatebase">
+  <xs:element name="dsDatabase" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="dsDatabase" msprop:Generator_UserDSName="dsDatabase">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="tblCCard" msprop:Generator_TableClassName="tblCCardDataTable" msprop:Generator_TableVarName="tabletblCCard" msprop:Generator_TablePropName="tblCCard" msprop:Generator_RowDeletingName="tblCCardRowDeleting" msprop:Generator_RowChangingName="tblCCardRowChanging" msprop:Generator_RowEvHandlerName="tblCCardRowChangeEventHandler" msprop:Generator_RowDeletedName="tblCCardRowDeleted" msprop:Generator_UserTableName="tblCCard" msprop:Generator_RowChangedName="tblCCardRowChanged" msprop:Generator_RowEvArgName="tblCCardRowChangeEvent" msprop:Generator_RowClassName="tblCCardRow">
+        <xs:element name="tblCCard" msprop:Generator_TableClassName="tblCCardDataTable" msprop:Generator_TableVarName="tabletblCCard" msprop:Generator_RowChangedName="tblCCardRowChanged" msprop:Generator_TablePropName="tblCCard" msprop:Generator_RowDeletingName="tblCCardRowDeleting" msprop:Generator_RowChangingName="tblCCardRowChanging" msprop:Generator_RowEvHandlerName="tblCCardRowChangeEventHandler" msprop:Generator_RowDeletedName="tblCCardRowDeleted" msprop:Generator_RowClassName="tblCCardRow" msprop:Generator_UserTableName="tblCCard" msprop:Generator_RowEvArgName="tblCCardRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CustomerID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCustomerID" msprop:Generator_ColumnPropNameInRow="CustomerID" msprop:Generator_ColumnPropNameInTable="CustomerIDColumn" msprop:Generator_UserColumnName="CustomerID" type="xs:int" />
@@ -339,7 +340,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tblOrders" msprop:Generator_TableClassName="tblOrdersDataTable" msprop:Generator_TableVarName="tabletblOrders" msprop:Generator_TablePropName="tblOrders" msprop:Generator_RowDeletingName="tblOrdersRowDeleting" msprop:Generator_RowChangingName="tblOrdersRowChanging" msprop:Generator_RowEvHandlerName="tblOrdersRowChangeEventHandler" msprop:Generator_RowDeletedName="tblOrdersRowDeleted" msprop:Generator_UserTableName="tblOrders" msprop:Generator_RowChangedName="tblOrdersRowChanged" msprop:Generator_RowEvArgName="tblOrdersRowChangeEvent" msprop:Generator_RowClassName="tblOrdersRow">
+        <xs:element name="tblOrders" msprop:Generator_TableClassName="tblOrdersDataTable" msprop:Generator_TableVarName="tabletblOrders" msprop:Generator_RowChangedName="tblOrdersRowChanged" msprop:Generator_TablePropName="tblOrders" msprop:Generator_RowDeletingName="tblOrdersRowDeleting" msprop:Generator_RowChangingName="tblOrdersRowChanging" msprop:Generator_RowEvHandlerName="tblOrdersRowChangeEventHandler" msprop:Generator_RowDeletedName="tblOrdersRowDeleted" msprop:Generator_RowClassName="tblOrdersRow" msprop:Generator_UserTableName="tblOrders" msprop:Generator_RowEvArgName="tblOrdersRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="OrderID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnOrderID" msprop:Generator_ColumnPropNameInRow="OrderID" msprop:Generator_ColumnPropNameInTable="OrderIDColumn" msprop:Generator_UserColumnName="OrderID" type="xs:int" />
@@ -381,7 +382,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tblProducts" msprop:Generator_TableClassName="tblProductsDataTable" msprop:Generator_TableVarName="tabletblProducts" msprop:Generator_TablePropName="tblProducts" msprop:Generator_RowDeletingName="tblProductsRowDeleting" msprop:Generator_RowChangingName="tblProductsRowChanging" msprop:Generator_RowEvHandlerName="tblProductsRowChangeEventHandler" msprop:Generator_RowDeletedName="tblProductsRowDeleted" msprop:Generator_UserTableName="tblProducts" msprop:Generator_RowChangedName="tblProductsRowChanged" msprop:Generator_RowEvArgName="tblProductsRowChangeEvent" msprop:Generator_RowClassName="tblProductsRow">
+        <xs:element name="tblProducts" msprop:Generator_TableClassName="tblProductsDataTable" msprop:Generator_TableVarName="tabletblProducts" msprop:Generator_RowChangedName="tblProductsRowChanged" msprop:Generator_TablePropName="tblProducts" msprop:Generator_RowDeletingName="tblProductsRowDeleting" msprop:Generator_RowChangingName="tblProductsRowChanging" msprop:Generator_RowEvHandlerName="tblProductsRowChangeEventHandler" msprop:Generator_RowDeletedName="tblProductsRowDeleted" msprop:Generator_RowClassName="tblProductsRow" msprop:Generator_UserTableName="tblProducts" msprop:Generator_RowEvArgName="tblProductsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ProductID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProductID" msprop:Generator_ColumnPropNameInRow="ProductID" msprop:Generator_ColumnPropNameInTable="ProductIDColumn" msprop:Generator_UserColumnName="ProductID" type="xs:int" />
@@ -409,7 +410,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tblReview" msprop:Generator_TableClassName="tblReviewDataTable" msprop:Generator_TableVarName="tabletblReview" msprop:Generator_TablePropName="tblReview" msprop:Generator_RowDeletingName="tblReviewRowDeleting" msprop:Generator_RowChangingName="tblReviewRowChanging" msprop:Generator_RowEvHandlerName="tblReviewRowChangeEventHandler" msprop:Generator_RowDeletedName="tblReviewRowDeleted" msprop:Generator_UserTableName="tblReview" msprop:Generator_RowChangedName="tblReviewRowChanged" msprop:Generator_RowEvArgName="tblReviewRowChangeEvent" msprop:Generator_RowClassName="tblReviewRow">
+        <xs:element name="tblReview" msprop:Generator_TableClassName="tblReviewDataTable" msprop:Generator_TableVarName="tabletblReview" msprop:Generator_RowChangedName="tblReviewRowChanged" msprop:Generator_TablePropName="tblReview" msprop:Generator_RowDeletingName="tblReviewRowDeleting" msprop:Generator_RowChangingName="tblReviewRowChanging" msprop:Generator_RowEvHandlerName="tblReviewRowChangeEventHandler" msprop:Generator_RowDeletedName="tblReviewRowDeleted" msprop:Generator_RowClassName="tblReviewRow" msprop:Generator_UserTableName="tblReview" msprop:Generator_RowEvArgName="tblReviewRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CustomerID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCustomerID" msprop:Generator_ColumnPropNameInRow="CustomerID" msprop:Generator_ColumnPropNameInTable="CustomerIDColumn" msprop:Generator_UserColumnName="CustomerID" type="xs:int" />
@@ -444,7 +445,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tblUserAcct" msprop:Generator_TableClassName="tblUserAcctDataTable" msprop:Generator_TableVarName="tabletblUserAcct" msprop:Generator_TablePropName="tblUserAcct" msprop:Generator_RowDeletingName="tblUserAcctRowDeleting" msprop:Generator_RowChangingName="tblUserAcctRowChanging" msprop:Generator_RowEvHandlerName="tblUserAcctRowChangeEventHandler" msprop:Generator_RowDeletedName="tblUserAcctRowDeleted" msprop:Generator_UserTableName="tblUserAcct" msprop:Generator_RowChangedName="tblUserAcctRowChanged" msprop:Generator_RowEvArgName="tblUserAcctRowChangeEvent" msprop:Generator_RowClassName="tblUserAcctRow">
+        <xs:element name="tblUserAcct" msprop:Generator_TableClassName="tblUserAcctDataTable" msprop:Generator_TableVarName="tabletblUserAcct" msprop:Generator_RowChangedName="tblUserAcctRowChanged" msprop:Generator_TablePropName="tblUserAcct" msprop:Generator_RowDeletingName="tblUserAcctRowDeleting" msprop:Generator_RowChangingName="tblUserAcctRowChanging" msprop:Generator_RowEvHandlerName="tblUserAcctRowChangeEventHandler" msprop:Generator_RowDeletedName="tblUserAcctRowDeleted" msprop:Generator_RowClassName="tblUserAcctRow" msprop:Generator_UserTableName="tblUserAcct" msprop:Generator_RowEvArgName="tblUserAcctRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CustomerID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCustomerID" msprop:Generator_ColumnPropNameInRow="CustomerID" msprop:Generator_ColumnPropNameInTable="CustomerIDColumn" msprop:Generator_UserColumnName="CustomerID" type="xs:int" />

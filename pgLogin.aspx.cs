@@ -13,46 +13,45 @@ public partial class pgLogin : System.Web.UI.Page
     {
 
     }
-    //Log in authentication - Matt Steele
-    protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
+
+
+    //Method to Get Control Value for Username
+    public TextBox Username
+    { get { return txtUsername; } }
+
+    //Method to Get Control Value for password
+    public TextBox Password
+    { get { return txtPassword; } }
+
+    protected void btnLogin_Click(object sender, EventArgs e)
     {
-        //Creates a dataset for the User Login
-        dsUserAcct dsUserLogin;
-        //Sets the string variable SecurityLevel
-        string SecurityLevel;
-        //Verifies the UserName and Password
-        dsUserLogin = clsDataLayer.VerifyUser(Server.MapPath("~/App_Data/WSCDatabase_mdb.mdb"),
-            Login1.UserName, Login1.Password);
-        //Validates the user iformation for the 
-        //table information, if less than 1, returns
-        //user is not authenticated.
-        if (dsUserLogin.tblUserAcct.Count < 1)
+        //Declaring new instance if clsBusinessLayer
+        clsBusinessLayer myBusinessLayer = new clsBusinessLayer(Server.MapPath("~/"));
+
+        //Checks Users Current Credentials
+        bool isValidUser = myBusinessLayer.CheckUserCredentials(Session, txtUsername.Text, txtPassword.Text);
+
+        //If Statement for User Crednetials 
+        if (isValidUser)
         {
-            e.Authenticated = false;
-            Login1.FailureText = Login1.FailureText +
-                " Your incorrect login information was sent to receiver@receiverdomain.com";
-            return;
+            //Stores Username For Next Page
+            Response.Cookies["User"].Value = txtUsername.Text;
+            Response.Cookies["User"].Expires = DateTime.Now.AddMinutes(10); //Expires in 10 Minutes
+
+            //User Logs In
+            Response.Redirect("~/pgAcctInfo.aspx");
         }
-        //Acceptable authetication
-        SecurityLevel = dsUserLogin.tblUserAcct[0].SecurityLevel.ToString();
-        //Checks the different security levels - A or U
-        switch (SecurityLevel)
+        else if (Convert.ToBoolean(Session["LockedSession"]))
         {
-            case "A":
-                //Sets the authetication level to "A"
-                e.Authenticated = true;
-                FormsAuthentication.RedirectFromLoginPage(Login1.UserName, false);
-                Session["SecurityLevel"] = "A";
-                break;
-            case "U":
-                //Sets the authentication level to "U"
-                e.Authenticated = true;
-                FormsAuthentication.RedirectFromLoginPage(Login1.UserName, false);
-                Session["SecurityLevel"] = "U";
-                break;
-            default:
-                e.Authenticated = false;
-                break;
+            Master.UserFeedBack.Text = "Account is disabled. Contact System Administrator";
+
+            //Hide Login Button
+            btnLogin.Visible = false;
+        }
+        else
+        {
+            //User Information is incorrect
+            Master.UserFeedBack.Text = "The User ID and/or Password supplied is incorrect. Please try again!";
         }
     }
 }
