@@ -10,6 +10,6 @@
     <br />
     <asp:Label ID="Label2" runat="server" Text="Product Type Bought and Reviewed"></asp:Label>
     <br />
-    <asp:Label ID="Label3" runat="server" Text="Comment"
+    <asp:Label ID="Label3" runat="server" Text="Comment"></asp:Label>
 </asp:Content>
 
