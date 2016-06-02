@@ -11,4 +11,9 @@ public partial class pgAcctInfo : System.Web.UI.Page
     {
 
     }
+
+    //Haven't made a table yet to show only one cusomters info, will
+    //implement when I get the information for a single customer.
+
+    //All I know is how to display ALL USERS in a table at this time.
 }
