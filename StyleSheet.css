@@ -73,6 +73,51 @@ div#footer ul li strong {
     word-wrap: break-word;
     color: darkblue;
 }
+
+.label, .textbox {
+    display: inline;
+}
+
+.container {
+    width: 96%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    float: left;
+    display: block;
+    box-sizing: border-box;
+}
+
+.grid_2{
+    width: 15%;
+    float: left;
+	display: inline-block;
+	box-sizing:border-box;
+    padding: 5px;
+}
+
+.grid_4 {
+    width: 32%;
+    float: left;
+	display: inline-block;
+	box-sizing:border-box;
+    padding: 5px;
+}
+
+.grid_8 {
+    width: 66%;
+    float: left;
+	display: inline-block;
+	box-sizing:border-box;
+    padding: 5px;
+}
+
+.grid_10 {
+    width: 83%;
+    float: left;
+	display: inline-block;
+	box-sizing:border-box;
+    padding: 5px;
+}
 .content {
     display: inline-block;
     width: 176px;
