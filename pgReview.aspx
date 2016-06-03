@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <!-- Pretty straightforward; labels, textboxes and radio buttons in order to capture data for a review. -->
     <p>Did you like our service? Share your experience with our product!</p>
     <br />
     <asp:Label ID="lblUsername" runat="server" Text="Username:"></asp:Label>
