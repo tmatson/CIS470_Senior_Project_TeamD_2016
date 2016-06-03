@@ -3,13 +3,24 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <!--This is just going to be a page of placeholders. When the database is somewhat complete, we can add some fake data
-        in and pull that data into these labels. Basically, the username will be pulled and the username label will be
-        overwritten with it, etc. - Lennon May -->
-    <asp:Label ID="Label1" runat="server" Text="Username"></asp:Label>
+    <p>Did you like our service? Share your experience with our product!</p>
     <br />
-    <asp:Label ID="Label2" runat="server" Text="Product Type Bought and Reviewed"></asp:Label>
+    <asp:Label ID="lblUsername" runat="server" Text="Username:"></asp:Label>
     <br />
-    <asp:Label ID="Label3" runat="server" Text="Comment"></asp:Label>
+    <asp:TextBox ID="txtUsername" runat="server" Text=""></asp:TextBox>
+    <br />
+    <br />
+    <asp:Label ID="lblJob" runat="server" Text="Job Type"></asp:Label>
+    <asp:RadioButtonList ID="rbtnJob" runat="server">
+        <asp:ListItem Text="Printing"></asp:ListItem>
+        <asp:ListItem Text="Engraving"></asp:ListItem>
+    </asp:RadioButtonList>
+    <br />
+    <asp:Label ID="lblMedia" runat="server" Text="Media Type"></asp:Label>
+    <asp:RadioButtonList ID="rbtnMedia" runat="server">
+        <asp:ListItem Text="Clothing"></asp:ListItem>
+        <asp:ListItem Text="Plaque"></asp:ListItem>
+        <asp:ListItem Text="Trophy"></asp:ListItem>
+    </asp:RadioButtonList>
 </asp:Content>
 
