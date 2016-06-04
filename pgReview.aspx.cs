@@ -16,14 +16,16 @@ public partial class pgReview : System.Web.UI.Page
 
     protected void btnSubmitReview_Click(object sender, EventArgs e)
     {
+        string username;
         string jobType;
         string mediaType;
         string comment;
 
+        //Declaring new instance of clsDataLayer
+        clsDataLayer myDataLayer = new clsDataLayer(Server.MapPath("~/"));
+
         //Declaring new instance of clsBusinessLayer
         clsBusinessLayer myBusinessLayer = new clsBusinessLayer(Server.MapPath("~/"));
-
-        
 
         //Refresh page with new comment
         Response.Redirect("~/pgReview.aspx");
