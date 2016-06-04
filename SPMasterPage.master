@@ -47,7 +47,12 @@
         <div>
             <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
         </div>
-    
+        
+        <!-- User feedback label -->
+        <div>
+            <asp:Label ID="lblUserFeedBack" runat="server" CssClass="userFeedbackCenter" Text=" "></asp:Label>
+        </div>
+
         <!-- Footer -->
         <div id="footer">
          

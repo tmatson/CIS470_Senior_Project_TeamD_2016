@@ -11,4 +11,12 @@ public partial class SPMasterPage : System.Web.UI.MasterPage
     {
 
     }
+
+    //Label for feedback displayed to the user
+    public Label UserFeedBack
+    {
+        get { return lblUserFeedBack; }
+        set { lblUserFeedBack = value; }
+    }
+    
 }

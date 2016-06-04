@@ -119,17 +119,17 @@ div#footer ul li strong {
     padding: 5px;
 }
 .content {
-display: inline-block;
-width: 176px;
-height: 177px;
-background-color: transparent;
-word-wrap: break-word;
-float: left;
-margin-right: 0px;
-margin-top: 4px;
-font-size: 25px;
-opacity: 1;
-margin-left: 18px;
+    display: inline-block;
+    width: 176px;
+    height: 177px;
+    background-color: transparent;
+    word-wrap: break-word;
+    float: left;
+    margin-right: 0px;
+    margin-top: 4px;
+    font-size: 25px;
+    opacity: 1;
+    margin-left: 18px;
 }
 
 .floatLeft {
@@ -146,6 +146,26 @@ margin-left: 18px;
     width: 704px;
     min-height: 120px;
     height: auto;
+}
+
+/*Added div class .aboutus to pgAbout.aspx - but wont appear when using browser. M.Steele*/
+.login { 
+    display: inline-block;
+    text-align: center;
+    width: 650px;
+    margin: auto;  
+    padding: 1%;  
+    background-color: transparent;
+    word-wrap: break-word;
+    color: darkblue;
+}
+
+.loginCenter { 
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin: auto;    
+    background-color: transparent;   
 }
 
 .navbar {		
@@ -172,6 +192,13 @@ margin-left: 18px;
     left: 20%;
 	top: 50%;	
     height: auto;
+}
+
+.userFeedbackCenter {	
+    display: inline-block;   
+    margin: auto;
+    text-align: center;
+    width: 100%;
 }
 
 /*Hyperlink and Linkbutton style*/
