@@ -23,8 +23,7 @@ public partial class pgLogin : System.Web.UI.Page
     { get { return txtPassword; } }
 
     protected void btnLogin_Click(object sender, EventArgs e)
-    {        
-        string securityLevel;
+    {          
         bool CompAppError = false;        
 
         //Declaring new instance if clsBusinessLayer

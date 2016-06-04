@@ -8,7 +8,6 @@
             <%-- Label and Textbox for Username --%>
             <asp:Label ID="Label1" runat="server" Text="Username " Width="120px"></asp:Label>
                 <asp:TextBox ID="txtUsername" runat="server" Width="150px"></asp:TextBox><br />
-
             
             <%-- Panel, Label and Textbox for Password. Panel allows the use of hitting the 'Enter key' inside password text field to activate login button --%>
             <asp:Panel ID="Panel1" runat="server" DefaultButton="btnLogin">
@@ -24,7 +23,4 @@
             <asp:Label ID="Label3" runat="server" Text="(Not registered? Create an account here.) " Width="375px"></asp:Label><br /><br />
         </div>
     </div>
-
-    
-
 </asp:Content>

@@ -76,7 +76,7 @@ public class clsDataLayer
     //Store user information function
     public dsDatabase StoreUser(string Username)
     {
-        //Query Data from tblUsers by Username
+        //Query Data from tblUserAcct by Username
         string sqlStmt = "select * from tblUserAcct where Username like '" + Username + "'";
         OleDbDataAdapter sqlDataAdapter = new OleDbDataAdapter(sqlStmt, dbConnection);
 
