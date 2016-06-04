@@ -7,16 +7,15 @@ using System.Web.UI.WebControls;
 
 public partial class pgReview : System.Web.UI.Page
 {
-    public object rdbtnJob { get; private set; }
-
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        //This will eventually include database pulls that populate the page with reviews upon loadup
     }
 
     protected void btnSubmitReview_Click(object sender, EventArgs e)
     {
-        string username = "Username not found";
+        bool refresh = false;
+        string username = "";
         string jobType;
         string mediaType;
         string comment;
@@ -40,8 +39,16 @@ public partial class pgReview : System.Web.UI.Page
         //Set the comment based on the text entered in the textarea
         comment = Request.Form["txtComment"];
 
-        //Refresh page with new comment
-        if (Request.Cookies["Username"] != null) { Response.Redirect("~/pgReview.aspx"); }
+        //Validation for null strings
+        if(jobType == null) { message.Visible = true; message.InnerHtml = "You did not pick a Job Type!"; }
+        if(mediaType == null) { message.Visible = true; message.InnerHtml = "You did not pick a Media Type!"; }
+        if (comment == null) { message.Visible = true; message.InnerHtml = "You did not enter a Review!"; }
+
+        //Set refresh to true if all strings are populated
+        if (comment != null && jobType != null && mediaType != null && username != "") { refresh = true; }
+
+        //Refresh page with new review
+        if (refresh == true) { Response.Redirect("~/pgReview.aspx"); }
     }
 }
 
