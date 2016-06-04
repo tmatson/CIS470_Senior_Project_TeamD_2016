@@ -8,20 +8,20 @@
     <br />
     <asp:Label ID="lblJob" runat="server" Text="Job Type"></asp:Label>
     <asp:RadioButtonList ID="rbtnJob" runat="server">
-        <asp:ListItem Text="Printing"></asp:ListItem>
-        <asp:ListItem Text="Engraving"></asp:ListItem>
+        <asp:ListItem Text="Printing" Value="1"></asp:ListItem>
+        <asp:ListItem Text="Engraving" Value="2"></asp:ListItem>
     </asp:RadioButtonList>
     <br />
     <asp:Label ID="lblMedia" runat="server" Text="Media Type"></asp:Label>
     <asp:RadioButtonList ID="rbtnMedia" runat="server">
-        <asp:ListItem Text="Clothing"></asp:ListItem>
-        <asp:ListItem Text="Plaque"></asp:ListItem>
-        <asp:ListItem Text="Trophy"></asp:ListItem>
+        <asp:ListItem Text="Clothing" Value="1"></asp:ListItem>
+        <asp:ListItem Text="Plaque" Value="2"></asp:ListItem>
+        <asp:ListItem Text="Trophy" Value="3"></asp:ListItem>
     </asp:RadioButtonList>
     <br />
     <asp:Label ID="lblComment" runat="server" Text="Enter Your Comment Here:"></asp:Label>
     <br />
-    <asp:TextBox ID="txtComment" runat="server" Width="300" Height="150"></asp:TextBox>
+    <textarea id="txtComment" cols="20" rows="2"></textarea>
     <br />
     <asp:Button ID="btnSubmitReview" runat="server" Text="Submit" OnClick="btnSubmitReview_Click" />
 </asp:Content>

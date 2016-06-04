@@ -21,11 +21,22 @@ public partial class pgReview : System.Web.UI.Page
         string mediaType;
         string comment;
 
-        //Declaring new instance of clsDataLayer
-        clsDataLayer myDataLayer = new clsDataLayer(Server.MapPath("~/"));
-
         //Declaring new instance of clsBusinessLayer
         clsBusinessLayer myBusinessLayer = new clsBusinessLayer(Server.MapPath("~/"));
+
+        if(Request.Cookies["Username"]["Font"] != null) {
+            username = Request.Cookies["Username"]["Font"];
+        }
+
+        //Set the jobType based on selected value in radio button
+        if(rbtnJob.SelectedValue == "1") { jobType = "Printing"; }
+        else { jobType = "Engraving"; }
+
+        //Set the mediaType based on selected value in radio button
+        if (rbtnMedia.SelectedValue == "1") { mediaType = "Clothing"; }
+        else if(rbtnMedia.SelectedValue == "2") { mediaType = "Plaque"; }
+        else { mediaType = "Trophy"; }
+
 
         //Refresh page with new comment
         Response.Redirect("~/pgReview.aspx");
