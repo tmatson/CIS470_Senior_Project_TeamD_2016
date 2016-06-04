@@ -9,7 +9,7 @@ public partial class pgAcctInfo : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        Label1.Text = Request.Cookies["User"].Value;
     }
 
     //Haven't made a table yet to show only one cusomters info, will

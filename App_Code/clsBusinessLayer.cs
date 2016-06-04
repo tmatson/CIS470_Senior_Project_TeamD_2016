@@ -45,6 +45,58 @@ public class clsBusinessLayer
         return isValid;
     }
 
+    //Stores user information upon login
+    public dsDatabase StoreUser(string UserName)
+    {
+        //Fills empty database fields
+        String emptyFiller = "-";
+
+        //Set User
+        dsDatabase dsUserInfo= myDataLayer.StoreUser(UserName);
+
+        //References Table
+        if (dsUserInfo.tblUserAcct.Rows.Count > 0)
+        {
+            //Sets NULL Values to Empty String
+            System.Data.DataRow userRecord = dsUserInfo.tblUserAcct.Rows[0];
+
+            if (userRecord["Username"] == DBNull.Value)
+                userRecord["Username"] = emptyFiller;
+
+            if (userRecord["Password"] == DBNull.Value)
+                userRecord["Password"] = emptyFiller;
+
+            if (userRecord["Firstname"] == DBNull.Value)
+                userRecord["Firstname"] = emptyFiller;
+
+            if (userRecord["Lastname"] == DBNull.Value)
+                userRecord["Lastname"] = emptyFiller;
+
+            if (userRecord["Address1"] == DBNull.Value)
+                userRecord["Address1"] = emptyFiller;
+
+            if (userRecord["Address2"] == DBNull.Value)
+                userRecord["Address2"] = emptyFiller;
+
+            if (userRecord["City"] == DBNull.Value)
+                userRecord["City"] = emptyFiller;
+
+            if (userRecord["State"] == DBNull.Value)
+                userRecord["State"] = emptyFiller;
+
+            if (userRecord["Email"] == DBNull.Value)
+                userRecord["Email"] = emptyFiller;
+
+            if (userRecord["PhoneNumber"] == DBNull.Value)
+                userRecord["PhoneNumber"] = emptyFiller;
+
+            if (userRecord["SecurityLevel"] == DBNull.Value)
+                userRecord["SecurityLevel"] = emptyFiller;
+        }
+        return dsUserInfo;
+    }
+
+
     public clsBusinessLayer()
     {
         //

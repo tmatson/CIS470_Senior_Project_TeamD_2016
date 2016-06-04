@@ -24,6 +24,7 @@ public class clsDataLayer
         //
     }
 
+    //Validate user function
     public bool ValidateUser(string username, string password)
     {
         //Opens Connection to Database
@@ -50,6 +51,7 @@ public class clsDataLayer
         return isValidAccount;
     }
 
+    //Locked user account function
     public void LockUserAccount(string username)
     {
         //Opens Connection to Database
@@ -70,5 +72,19 @@ public class clsDataLayer
         //Closes DataBase Connection
         dbConnection.Close();
     }
- 
+
+    //Store user information function
+    public dsDatabase StoreUser(string Username)
+    {
+        //Query Data from tblUsers by Username
+        string sqlStmt = "select * from tblUserAcct where Username like '" + Username + "'";
+        OleDbDataAdapter sqlDataAdapter = new OleDbDataAdapter(sqlStmt, dbConnection);
+
+        //Retrieves Data From Table
+        dsDatabase userDataSet = new dsDatabase();
+        sqlDataAdapter.Fill(userDataSet.tblUserAcct);
+
+        //Returns Data from Table
+        return userDataSet;
+    }
 }

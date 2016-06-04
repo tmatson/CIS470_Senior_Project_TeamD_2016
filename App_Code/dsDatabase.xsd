@@ -283,7 +283,7 @@
               <Mapping SourceColumn="Address2" DataSetColumn="Address2" />
               <Mapping SourceColumn="City" DataSetColumn="City" />
               <Mapping SourceColumn="State" DataSetColumn="State" />
-              <Mapping SourceColumn="E-mail" DataSetColumn="E-mail" />
+              <Mapping SourceColumn="E-mail" DataSetColumn="Email" />
               <Mapping SourceColumn="PhoneNumber" DataSetColumn="PhoneNumber" />
               <Mapping SourceColumn="SecurityLevel" DataSetColumn="SecurityLevel" />
               <Mapping SourceColumn="Locked" DataSetColumn="Locked" />
@@ -505,7 +505,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="E-mail" msprop:Generator_ColumnVarNameInTable="_columnE_mail" msprop:Generator_ColumnPropNameInRow="_E_mail" msprop:Generator_ColumnPropNameInTable="_E_mailColumn" msprop:Generator_UserColumnName="E-mail" minOccurs="0">
+              <xs:element name="Email" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_UserColumnName="Email" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
