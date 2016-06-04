@@ -6,11 +6,6 @@
     <!-- Pretty straightforward; labels, textboxes and radio buttons in order to capture data for a review. -->
     <p>Did you like our service? Share your experience with our product!</p>
     <br />
-    <asp:Label ID="lblUsername" runat="server" Text="Username:"></asp:Label>
-    <br />
-    <asp:TextBox ID="txtUsername" runat="server" Text=""></asp:TextBox>
-    <br />
-    <br />
     <asp:Label ID="lblJob" runat="server" Text="Job Type"></asp:Label>
     <asp:RadioButtonList ID="rbtnJob" runat="server">
         <asp:ListItem Text="Printing"></asp:ListItem>
@@ -23,5 +18,11 @@
         <asp:ListItem Text="Plaque"></asp:ListItem>
         <asp:ListItem Text="Trophy"></asp:ListItem>
     </asp:RadioButtonList>
+    <br />
+    <asp:Label ID="lblComment" runat="server" Text="Enter Your Comment Here:"></asp:Label>
+    <br />
+    <asp:TextBox ID="txtComment" runat="server" Width="300" Height="150"></asp:TextBox>
+    <br />
+    <asp:Button ID="btnSubmitReview" runat="server" Text="Submit" OnClick="btnSubmitReview_Click" />
 </asp:Content>
 
