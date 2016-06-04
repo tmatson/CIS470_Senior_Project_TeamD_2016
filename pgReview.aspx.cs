@@ -16,7 +16,7 @@ public partial class pgReview : System.Web.UI.Page
 
     protected void btnSubmitReview_Click(object sender, EventArgs e)
     {
-        string username;
+        string username = "Username not found";
         string jobType;
         string mediaType;
         string comment;
@@ -24,9 +24,9 @@ public partial class pgReview : System.Web.UI.Page
         //Declaring new instance of clsBusinessLayer
         clsBusinessLayer myBusinessLayer = new clsBusinessLayer(Server.MapPath("~/"));
 
-        if(Request.Cookies["Username"]["Font"] != null) {
-            username = Request.Cookies["Username"]["Font"];
-        }
+        //Set username based on cookie, otherwise display a message and make submit button invisible
+        if(Request.Cookies["Username"] == null) { btnSubmitReview.Visible = false;  message.Visible = true; }
+        else { username = Request.Cookies["Username"]["Font"]; }
 
         //Set the jobType based on selected value in radio button
         if(rbtnJob.SelectedValue == "1") { jobType = "Printing"; }
@@ -37,9 +37,11 @@ public partial class pgReview : System.Web.UI.Page
         else if(rbtnMedia.SelectedValue == "2") { mediaType = "Plaque"; }
         else { mediaType = "Trophy"; }
 
+        //Set the comment based on the text entered in the textarea
+        comment = Request.Form["txtComment"];
 
         //Refresh page with new comment
-        Response.Redirect("~/pgReview.aspx");
+        if (Request.Cookies["Username"] != null) { Response.Redirect("~/pgReview.aspx"); }
     }
 }
 
