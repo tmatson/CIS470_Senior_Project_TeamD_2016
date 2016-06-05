@@ -37,6 +37,7 @@ div#headerbar ul li {
 	display: inline-block;	
 	font-size: 20px;
 	padding-right: 25px;
+    width: 88px;
 }
 
 #footer {
@@ -179,7 +180,7 @@ div#footer ul li strong {
 
 .navbar2 {	          		
 	z-index:1;
-    width: 596px;    
+    width: 665px;    
     height: auto;     
     margin-left: auto;
     margin-right: auto;
