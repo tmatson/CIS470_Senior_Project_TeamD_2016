@@ -24,7 +24,7 @@ public partial class pgReview : System.Web.UI.Page
         clsBusinessLayer myBusinessLayer = new clsBusinessLayer(Server.MapPath("~/"));
 
         //Set username based on cookie, otherwise display a message and make submit button invisible
-        if(Request.Cookies["Username"] == null) { btnSubmitReview.Visible = false;  message.Visible = true; }
+        if(Request.Cookies["Username"] == null) { btnSubmitReview.Visible = false;  message1.Visible = true; }
         else { username = Request.Cookies["Username"]["Font"]; }
 
         //Set the jobType based on selected value in radio button
@@ -37,12 +37,13 @@ public partial class pgReview : System.Web.UI.Page
         else { mediaType = "Trophy"; }
 
         //Set the comment based on the text entered in the textarea
-        comment = Request.Form["txtComment"];
+        if(Request.Form["txtComment"] != null) { comment = Request.Form["txtComment"]; }
+        else { comment = null; }
 
         //Validation for null strings
-        if(jobType == null) { message.Visible = true; message.InnerHtml = "You did not pick a Job Type!"; }
-        if(mediaType == null) { message.Visible = true; message.InnerHtml = "You did not pick a Media Type!"; }
-        if (comment == null) { message.Visible = true; message.InnerHtml = "You did not enter a Review!"; }
+        if(jobType == null) { message2.Visible = true; message2.InnerHtml = "You did not pick a Job Type!"; }
+        if(mediaType == null) { message3.Visible = true; message3.InnerHtml = "You did not pick a Media Type!"; }
+        if (comment == null) { message4.Visible = true; message4.InnerHtml = "You did not enter a Review!"; }
 
         //Set refresh to true if all strings are populated
         if (comment != null && jobType != null && mediaType != null && username != "") { refresh = true; }

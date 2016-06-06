@@ -26,7 +26,10 @@
         <br />
         <asp:Button ID="btnSubmitReview" runat="server" Text="Submit" OnClick="btnSubmitReview_Click" />
         <br />
-        <p id="message" runat="server" style="color:red" visible="false">Login to leave a review!</p>
+        <p id="message1" runat="server" style="color:red" visible="false">Login to leave a review!</p>
+        <p id="message2" runat="server" style="color:red" visible="false"></p>
+        <p id="message3" runat="server" style="color:red" visible="false"></p>
+        <p id="message4" runat="server" style="color:red" visible="false"></p>
     </div>
 </asp:Content>
 
