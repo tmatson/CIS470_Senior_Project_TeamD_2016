@@ -37,12 +37,12 @@
         <!-- Navigation bar #2 & links -->
         <div id="headerbar">
 	        <div class="navbar2">
-			    <ul style="width: 613px">
+			    <ul style="width: 708px">
                     <li><asp:LinkButton ID="lbIndex" runat="server" CssClass="navbarLink" PostBackUrl="~/pgIndex.aspx">Home</asp:LinkButton></li>					    
-			        <li><asp:LinkButton ID="lbProduct" runat="server" CssClass="navbarLink" PostBackUrl="~/pgProduct.aspx">Product Catalog</asp:LinkButton></li>
-					<li><asp:LinkButton ID="lbOrder" runat="server" CssClass="navbarLink" PostBackUrl="~/pgOrder.aspx">Place an Order</asp:LinkButton></li>
+			        <li><asp:LinkButton ID="lbProduct" runat="server" CssClass="navbarLink" PostBackUrl="~/pgProduct.aspx" Width="135px">Product Catalog</asp:LinkButton></li>
+					<li><asp:LinkButton ID="lbOrder" runat="server" CssClass="navbarLink" PostBackUrl="~/pgOrder.aspx" Width="135px">Place an Order</asp:LinkButton></li>
 					<li><asp:LinkButton ID="lbAbout" runat="server" CssClass="navbarLink" PostBackUrl="~/pgAbout.aspx">Our Story</asp:LinkButton></li>	
-                    <li><asp:LinkButton ID="lbContactInfo" runat="server" CssClass="navbarLink" PostBackUrl="~/pgContactInfo.aspx">Contact Us</asp:LinkButton></li>				
+                    <li><asp:LinkButton ID="lbContactInfo" runat="server" CssClass="navbarLink" PostBackUrl="~/pgContactInfo.aspx" Width="120px">Contact Us</asp:LinkButton></li>				
 				 </ul>
 		    </div>
 		</div>    
