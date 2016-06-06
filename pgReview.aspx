@@ -27,7 +27,7 @@
         <asp:Button ID="btnSubmitReview" runat="server" Text="Submit" OnClick="btnSubmitReview_Click" />
         <br />
         <br />
-        <asp:Button ID="btnLoginRedirect" runat="server" Text="Login" OnClick="btnLoginRedirect_Click" />
+        <asp:Button ID="btnLoginRedirect" runat="server" Visible="false" Text="Login" OnClick="btnLoginRedirect_Click" />
         <br />
         <p id="message1" runat="server" style="color:red" visible="false">Login to leave a review!</p>
         <p id="message2" runat="server" style="color:red" visible="false">You did not pick a Job Type!</p>

@@ -10,6 +10,7 @@ public partial class pgReview : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //This will eventually include database pulls that populate the page with reviews upon loadup
+        
     }
 
     protected void btnSubmitReview_Click(object sender, EventArgs e)
@@ -21,8 +22,9 @@ public partial class pgReview : System.Web.UI.Page
         string mediaType = null;
         string comment = null;
 
-        //Declaring new instance of clsBusinessLayer
+        //Declaring new instance of layers
         clsBusinessLayer myBusinessLayer = new clsBusinessLayer(Server.MapPath("~/"));
+        clsDataLayer myDataLayer = new clsDataLayer();
 
         //Set the jobType based on selected value in radio button
         if (rbtnJob.SelectedValue == "1") { jobType = "Printing"; }
@@ -38,9 +40,9 @@ public partial class pgReview : System.Web.UI.Page
 
         //Set username based on cookie, otherwise display a message and make submit button invisible
         //If username is not null, check other variables; checking them otherwise it is unnecessary.
-        if (Request.Cookies["Username"] == null) { btnSubmitReview.Visible = false; message1.Visible = true; }
+        if (Request.Cookies["User"] == null) { btnSubmitReview.Visible = false; btnLoginRedirect.Visible = true; message1.Visible = true; }
         else {
-            username = Request.Cookies["Username"]["Font"];
+            username = Request.Cookies["User"]["Font"];
             if (jobType == null) { message2.Visible = true; }
             if (mediaType == null) { message3.Visible = true; }
             if (comment == null) { message4.Visible = true; }
