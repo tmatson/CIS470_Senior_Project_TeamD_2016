@@ -22,14 +22,17 @@
         <br />
         <asp:Label ID="lblComment" runat="server" Text="Enter Your Comment Here:"></asp:Label>
         <br />
-        <textarea id="txtComment" name="message" cols="20" rows="2"></textarea>
+        <textarea id="txtComment" name="txtComment" cols="20" rows="2"></textarea>
         <br />
         <asp:Button ID="btnSubmitReview" runat="server" Text="Submit" OnClick="btnSubmitReview_Click" />
         <br />
+        <br />
+        <asp:Button ID="btnLoginRedirect" runat="server" Text="Login" OnClick="btnLoginRedirect_Click" />
+        <br />
         <p id="message1" runat="server" style="color:red" visible="false">Login to leave a review!</p>
-        <p id="message2" runat="server" style="color:red" visible="false"></p>
-        <p id="message3" runat="server" style="color:red" visible="false"></p>
-        <p id="message4" runat="server" style="color:red" visible="false"></p>
+        <p id="message2" runat="server" style="color:red" visible="false">You did not pick a Job Type!</p>
+        <p id="message3" runat="server" style="color:red" visible="false">You did not pick a Media Type!</p>
+        <p id="message4" runat="server" style="color:red" visible="false">You did not enter a Review!</p>
     </div>
 </asp:Content>
 
