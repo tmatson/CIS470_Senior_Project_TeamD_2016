@@ -21,10 +21,11 @@ public partial class pgReview : System.Web.UI.Page
         string jobType = null;
         string mediaType = null;
         string comment = null;
+        string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|/WSCDatabase_mdb.mdb";
 
         //Declaring new instance of layers
         clsBusinessLayer myBusinessLayer = new clsBusinessLayer(Server.MapPath("~/"));
-        clsDataLayer myDataLayer = new clsDataLayer();
+        clsDataLayer myDataLayer = new clsDataLayer(connectionString);
 
         //Set the jobType based on selected value in radio button
         if (rbtnJob.SelectedValue == "1") { jobType = "Printing"; }
@@ -42,7 +43,7 @@ public partial class pgReview : System.Web.UI.Page
         //If username is not null, check other variables; checking them otherwise it is unnecessary.
         if (Request.Cookies["User"] == null) { btnSubmitReview.Visible = false; btnLoginRedirect.Visible = true; message1.Visible = true; }
         else {
-            username = Request.Cookies["User"]["Font"];
+            username = Request.Cookies["User"].Value;
             if (jobType == null) { message2.Visible = true; }
             if (mediaType == null) { message3.Visible = true; }
             if (comment == null) { message4.Visible = true; }
@@ -54,8 +55,11 @@ public partial class pgReview : System.Web.UI.Page
         //Set refresh to true if all strings are populated
         if (comment != null && jobType != null && mediaType != null && username != null) { refresh = true; }
 
-        //Refresh page with new review (will eventually be database stuff in here, so if conditions aren't met no data will be submitted)
-        if (refresh == true && userError == false) { Response.Redirect("~/pgReview.aspx"); }
+        //Refresh page with new review, send variables to data layer to be put into database
+        if (refresh == true && userError == false) {
+            myDataLayer.StoreReview(username, jobType, mediaType, comment);
+            Response.Redirect("~/pgReview.aspx");
+        }
     }
 
     protected void btnLoginRedirect_Click(object sender, EventArgs e)
