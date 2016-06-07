@@ -28,6 +28,7 @@
                             <asp:Label ID="lblUserName" runat="server" CssClass="headerLink" Text=" "></asp:Label>
                             </asp:LinkButton></li> 
 					    <li><asp:LinkButton ID="lbOrderStatus" runat="server" CssClass="headerLink" PostBackUrl="~/pgOrderStatus.aspx">Order Status</asp:LinkButton></li>
+                        <li><asp:LinkButton ID="lbReview" runat="server" CssClass="headerLink" PostBackUrl="~/pgReview.aspx">Feedback</asp:LinkButton></li>
                         <li><asp:LinkButton ID="lbLogout" runat="server" CssClass="headerLink" OnClick="lbLogout_Click">Log Out</asp:LinkButton></li>	                  
 				    </ul>
 		        </div> 
@@ -82,7 +83,12 @@
                     <li><strong>My Account</strong></li>
                     <li><asp:LinkButton ID="lbLoginFooter" runat="server" CssClass="footerLink" PostBackUrl="~/pgLogin.aspx">Log In</asp:LinkButton></li>
                     <li><asp:LinkButton ID="lbAcctCreateFooter" runat="server" CssClass="footerLink" PostBackUrl="~/pgAcctCreate.aspx">Create Account</asp:LinkButton></li>
-                    <li><asp:LinkButton ID="lbOrderStatusFooter" runat="server" CssClass="footerLink" PostBackUrl="~/pgOrderStatus.aspx">Order Status</asp:LinkButton></li>                    
+                    <li><asp:LinkButton ID="lbAcctInfoFooter" runat="server" CssClass="footerLink" PostBackUrl="~/pgAcctInfo.aspx"> 
+                            <asp:Label ID="lblUserNameFooter" runat="server" CssClass="footerLink" Text=" "></asp:Label>
+                            </asp:LinkButton></li> 
+                    <li><asp:LinkButton ID="lbOrderStatusFooter" runat="server" CssClass="footerLink" PostBackUrl="~/pgOrderStatus.aspx">Order Status</asp:LinkButton></li>
+                    <li><asp:LinkButton ID="lbReviewFooter" runat="server" CssClass="footerLink" PostBackUrl="~/pgReview.aspx">Feedback</asp:LinkButton></li>
+                    <li><asp:LinkButton ID="lbLogoutFooter" runat="server" CssClass="footerLink" OnClick="lbLogout_Click">Log Out</asp:LinkButton></li>
                 </ul>
             </div>
         

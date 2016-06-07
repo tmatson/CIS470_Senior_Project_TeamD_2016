@@ -12,18 +12,34 @@ public partial class SPMasterPage : System.Web.UI.MasterPage
         if (Request.Cookies["User"] == null)
         {
             lbLogin.Visible = true;
+            lbLoginFooter.Visible = true;
             lbAcctCreate.Visible = true;
+            lbAcctCreateFooter.Visible = true;
             lbLogout.Visible = false;
+            lbLogoutFooter.Visible = false;
             lblUserName.Visible = false;
+            lblUserNameFooter.Visible = false;
             lbOrderStatus.Visible = false;
+            lbOrderStatusFooter.Visible = false;
+            lbReview.Visible = false;
+            lbReviewFooter.Visible = false;
         }
         else
         {
             lbLogin.Visible = false;
+            lbLoginFooter.Visible = false;
             lbLogout.Visible = true;
+            lbLogoutFooter.Visible = true;
             lblUserName.Visible = true;
             lblUserName.Text = Request.Cookies["User"].Value;
-            lbAcctCreate.Visible = false;            
+            lblUserNameFooter.Visible = true;
+            lblUserNameFooter.Text = Request.Cookies["User"].Value;
+            lbAcctCreate.Visible = false;
+            lbAcctCreateFooter.Visible = false;
+            lbOrderStatus.Visible = true;
+            lbOrderStatusFooter.Visible = true;
+            lbReview.Visible = true;
+            lbReviewFooter.Visible = true;
         }
     }
 
