@@ -24,7 +24,7 @@
             <asp:TextBox ID="txtAddress2" runat="server"></asp:TextBox><br />
             <asp:TextBox ID="txtCity" runat="server"></asp:TextBox><br />
             <asp:TextBox ID="txtState" runat="server"></asp:TextBox><br />
-            <asp:TextBox ID="txtPhoneNumber" runat="server"></asp:TextBox><br />
+            <asp:TextBox ID="txtPhoneNumber" runat="server" TextMode="Phone"></asp:TextBox><br />
         </div>
     </div>
     <h2>Login Information</h2>
@@ -35,9 +35,9 @@
             *<asp:Label ID="lblconfpswd" runat="server" Text="Confirm Password "></asp:Label><br />
         </div>
         <div class="grid_10">
-            <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox><br />
-            <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox><br />
-            <asp:TextBox ID="txtConfPassword" runat="server"></asp:TextBox><br />
+            <asp:Label ID="lblStoredUsername" runat="server"></asp:Label><br />
+            <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox><br />
+            <asp:TextBox ID="txtConfPassword" runat="server" TextMode="Password"></asp:TextBox><br />
         </div>
     </div>
     <asp:Button ID="btnSubmit" runat="server" Text="Submit" /><br />

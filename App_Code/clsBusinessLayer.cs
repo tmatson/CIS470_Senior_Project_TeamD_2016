@@ -52,7 +52,7 @@ public class clsBusinessLayer
         String emptyFiller = "-";
 
         //Set User
-        dsDatabase dsUserInfo= myDataLayer.StoreUser(UserName);
+        dsDatabase dsUserInfo = myDataLayer.StoreUser(UserName);
 
         //References Table
         if (dsUserInfo.tblUserAcct.Rows.Count > 0)
@@ -102,5 +102,13 @@ public class clsBusinessLayer
         //
         // TODO: Add constructor logic here
         //
+    }
+
+    public void Continue(string lblUserName, string lblFirstName, string lblLastName,
+        string lblEmail, string lblAddress1, string lblAddress2, string lblCity,
+        string lblState, string lblPhoneNum, int lblUser)
+    {
+        myDataLayer.Continue(lblUserName, lblFirstName, lblLastName, lblEmail,
+            lblAddress1, lblAddress2, lblCity, lblState, lblPhoneNum, lblUser);
     }
 }
