@@ -28,7 +28,7 @@ public partial class pgAcctInfo : System.Web.UI.Page
         {
             if (PreviousPage.IsCrossPagePostBack)
             {
-                //lblUserName.Text = PreviousPage.User.Text;//Doing something wrong here
+                lblUserName.Text = PreviousPage.Username.Text;
                 txtFirstName.Text = PreviousPage.FirstName.Text;
                 txtLastName.Text = PreviousPage.LastName.Text;
                 txtEmail.Text = PreviousPage.Email.Text;
