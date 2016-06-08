@@ -9,7 +9,14 @@ public partial class pgAcctCreate : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Request.Cookies["User"] == null)
+        {
+            Response.Redirect("~/pgLogin.aspx");
+        }
+        else
+        {
 
+        }
     }
     
     //Get methods for fields - Matt Steele

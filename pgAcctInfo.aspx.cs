@@ -12,6 +12,15 @@ public partial class pgAcctInfo : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+
+        if (Request.Cookies["User"] == null)
+        {
+            Response.Redirect("~/pgLogin.aspx");
+        }
+        else
+        {
+
+        }
         Label1.Text = Request.Cookies["User"].Value;
 
         //Loads and Displays User Information from user input fields - MSteele
