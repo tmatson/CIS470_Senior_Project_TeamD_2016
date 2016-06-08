@@ -117,4 +117,45 @@ public class clsDataLayer
         dbConnection.Close();
     }
 
+    public void Continue(string username, string firstname, string lastname,
+        string email, string address1, string address2, string city, string state,
+        string phonenum, int userID)
+    {
+        //Opens connection to database
+        dbConnection.Open();
+
+        //Compiler
+        string sqlStmt = "UPDATE tblUserAcct SET Username0 = @username, "
+            + "Firstname = @firstname"
+            + "Lastname = @lastname, "
+            + "Address1 = @address1, "
+            + "Address2 = @address2, "
+            + "City = @city, "
+            + "State = @state, "
+            + "Email = @email, "
+            + "PhoneNumber = @phonenum, "
+            + "WHERE (tblUserAcct.CustomerID = @id)";
+
+        //New instance of OleDbCommand
+        OleDbCommand dbCommand = new OleDbCommand(sqlStmt, dbConnection);
+
+        //New instance of OleDbParameter Class
+        OleDbParameter param = new OleDbParameter("@username", username);
+        dbCommand.Parameters.Add(param);
+        dbCommand.Parameters.Add(new OleDbParameter("@firstname", firstname));
+        dbCommand.Parameters.Add(new OleDbParameter("@lasttname", lastname));
+        dbCommand.Parameters.Add(new OleDbParameter("@address1", address1));
+        dbCommand.Parameters.Add(new OleDbParameter("@address2", address2));
+        dbCommand.Parameters.Add(new OleDbParameter("@city", city));
+        dbCommand.Parameters.Add(new OleDbParameter("@state", firstname));
+        dbCommand.Parameters.Add(new OleDbParameter("@email",email));
+        dbCommand.Parameters.Add(new OleDbParameter("@phonenum", phonenum));
+        dbCommand.Parameters.Add(new OleDbParameter("@id", userID));
+
+        //Writes data to database
+        dbCommand.ExecuteNonQuery();
+
+        //Closes database
+        dbConnection.Close();
+    }
 }
