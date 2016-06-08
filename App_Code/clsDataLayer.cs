@@ -88,45 +88,33 @@ public class clsDataLayer
         return userDataSet;
     }
 
-    public void Continue(string username, string firstname, string lastname,
-        string email, string address1, string address2, string city, string state,
-        string phonenum, int userID)
+    //Store review information, also runs a query to get customer id
+    public void StoreReview(string username, string jobType, string mediaType, string comment)
     {
-        //Opes the database connection
+        //set to zero to offset errors
+        int customerId = 0;
+        string sqlStmt = "SELECT CustomerID FROM tblUserAcct WHERE Username = @user";
+
+        //retrieve customer id to put into review table
+        OleDbCommand command = new OleDbCommand(sqlStmt, dbConnection);
         dbConnection.Open();
+        command.Parameters.Add(new OleDbParameter("@user", username));
+        customerId = (int)command.ExecuteScalar();
 
-        //Compiler
-        string sqlStmt = "UPDATE tblUserAcct SET Username = @user, "
-                                            + "Firstname = @firstname, "
-                                            + "Lastname = @lastname, "
-                                            + "Email = @email, "
-                                            + "Address1 = @address1, "
-                                            + "Address2 = @address2, "
-                                            + "City = @city, "
-                                            + "State = @state, "
-                                            + "PhoneNum = @phone, "
-                                            + "WHERE (tblUserAccts.CustomerID = @id)";
+        dbConnection.Close();
 
-        //New instance of OleDbCommand Class with query
+        //insert review data into table
+        sqlStmt = "INSERT INTO tblReview (CustomerID, Username, JobType, MediaType, Comments) VALUES (@id, @user, @job, @media, @comment)";
+
         OleDbCommand dbCommand = new OleDbCommand(sqlStmt, dbConnection);
-
-        //New instance of OleDbCommand with the Parameters
-        OleDbParameter param = new OleDbParameter("@user", username);
-        dbCommand.Parameters.Add(param);
-        dbCommand.Parameters.Add(new OleDbParameter("@firstname", firstname));
-        dbCommand.Parameters.Add(new OleDbParameter("@lastname", lastname));
-        dbCommand.Parameters.Add(new OleDbParameter("@email", email));
-        dbCommand.Parameters.Add(new OleDbParameter("@address1", address1));
-        dbCommand.Parameters.Add(new OleDbParameter("@address2", address2));
-        dbCommand.Parameters.Add(new OleDbParameter("@city", city));
-        dbCommand.Parameters.Add(new OleDbParameter("@state", state));
-        dbCommand.Parameters.Add(new OleDbParameter("@phone", phonenum));
-        dbCommand.Parameters.Add(new OleDbParameter("@id", userID));
-
-        //Writes to the database
+        dbConnection.Open();
+        dbCommand.Parameters.Add(new OleDbParameter("@id", customerId));
+        dbCommand.Parameters.Add(new OleDbParameter("@user", username));
+        dbCommand.Parameters.Add(new OleDbParameter("@job", jobType));
+        dbCommand.Parameters.Add(new OleDbParameter("@media", mediaType));
+        dbCommand.Parameters.Add(new OleDbParameter("@comment", comment));
         dbCommand.ExecuteNonQuery();
-
-        //Closes the data base conection
         dbConnection.Close();
     }
+
 }

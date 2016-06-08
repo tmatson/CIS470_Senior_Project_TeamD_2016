@@ -21,11 +21,15 @@
                 
                 <!-- Navigation bar & links-->
 		        <div class="navbar">
-				    <ul style="height: 10px; margin-bottom: 4px; width: 500px;">
-                        <li><asp:LinkButton ID="lbIndex" runat="server" CssClass="headerLink" PostBackUrl="~/pgIndex.aspx">Home</asp:LinkButton></li>
+				    <ul style="height: 10px; margin-bottom: 4px; width: 500px;">                                               
 					    <li><asp:LinkButton ID="lbLogin" runat="server" CssClass="headerLink" PostBackUrl="~/pgLogin.aspx">Log In</asp:LinkButton></li>
 					    <li><asp:LinkButton ID="lbAcctCreate" runat="server" CssClass="headerLink" PostBackUrl="~/pgAcctCreate.aspx">Create Account</asp:LinkButton></li>
-					    <li><asp:LinkButton ID="lbOrderStatus" runat="server" CssClass="headerLink" PostBackUrl="~/pgOrderStatus.aspx">Order Status</asp:LinkButton></li>                  
+                        <li><asp:LinkButton ID="lbAcctInfo" runat="server" CssClass="headerLink" PostBackUrl="~/pgAcctInfo.aspx"> 
+                            <asp:Label ID="lblUserName" runat="server" CssClass="headerLink" Text=" "></asp:Label>
+                            </asp:LinkButton></li> 
+					    <li><asp:LinkButton ID="lbOrderStatus" runat="server" CssClass="headerLink" PostBackUrl="~/pgOrderStatus.aspx">Order Status</asp:LinkButton></li>
+                        <li><asp:LinkButton ID="lbReview" runat="server" CssClass="headerLink" PostBackUrl="~/pgReview.aspx">Feedback</asp:LinkButton></li>
+                        <li><asp:LinkButton ID="lbLogout" runat="server" CssClass="headerLink" OnClick="lbLogout_Click">Log Out</asp:LinkButton></li>	                  
 				    </ul>
 		        </div> 
             </div>            
@@ -34,11 +38,12 @@
         <!-- Navigation bar #2 & links -->
         <div id="headerbar">
 	        <div class="navbar2">
-			    <ul style="width: 549px">					    
-			        <li><asp:LinkButton ID="lbProduct" runat="server" CssClass="navbarLink" PostBackUrl="~/pgProduct.aspx">Product Catalog</asp:LinkButton></li>
-					<li><asp:LinkButton ID="lbOrder" runat="server" CssClass="navbarLink" PostBackUrl="~/pgOrder.aspx">Place an Order</asp:LinkButton></li>
+			    <ul style="width: 708px">
+                    <li><asp:LinkButton ID="lbIndex" runat="server" CssClass="navbarLink" PostBackUrl="~/pgIndex.aspx">Home</asp:LinkButton></li>					    
+			        <li><asp:LinkButton ID="lbProduct" runat="server" CssClass="navbarLink" PostBackUrl="~/pgProduct.aspx" Width="135px">Product Catalog</asp:LinkButton></li>
+					<li><asp:LinkButton ID="lbOrder" runat="server" CssClass="navbarLink" PostBackUrl="~/pgOrder.aspx" Width="135px">Place an Order</asp:LinkButton></li>
 					<li><asp:LinkButton ID="lbAbout" runat="server" CssClass="navbarLink" PostBackUrl="~/pgAbout.aspx">Our Story</asp:LinkButton></li>	
-                    <li><asp:LinkButton ID="lbContactInfo" runat="server" CssClass="navbarLink" PostBackUrl="~/pgContactInfo.aspx">Contact Us</asp:LinkButton></li>				
+                    <li><asp:LinkButton ID="lbContactInfo" runat="server" CssClass="navbarLink" PostBackUrl="~/pgContactInfo.aspx" Width="120px">Contact Us</asp:LinkButton></li>				
 				 </ul>
 		    </div>
 		</div>    
@@ -78,7 +83,12 @@
                     <li><strong>My Account</strong></li>
                     <li><asp:LinkButton ID="lbLoginFooter" runat="server" CssClass="footerLink" PostBackUrl="~/pgLogin.aspx">Log In</asp:LinkButton></li>
                     <li><asp:LinkButton ID="lbAcctCreateFooter" runat="server" CssClass="footerLink" PostBackUrl="~/pgAcctCreate.aspx">Create Account</asp:LinkButton></li>
-                    <li><asp:LinkButton ID="lbOrderStatusFooter" runat="server" CssClass="footerLink" PostBackUrl="~/pgOrderStatus.aspx">Order Status</asp:LinkButton></li>                    
+                    <li><asp:LinkButton ID="lbAcctInfoFooter" runat="server" CssClass="footerLink" PostBackUrl="~/pgAcctInfo.aspx"> 
+                            <asp:Label ID="lblUserNameFooter" runat="server" CssClass="footerLink" Text=" "></asp:Label>
+                            </asp:LinkButton></li> 
+                    <li><asp:LinkButton ID="lbOrderStatusFooter" runat="server" CssClass="footerLink" PostBackUrl="~/pgOrderStatus.aspx">Order Status</asp:LinkButton></li>
+                    <li><asp:LinkButton ID="lbReviewFooter" runat="server" CssClass="footerLink" PostBackUrl="~/pgReview.aspx">Feedback</asp:LinkButton></li>
+                    <li><asp:LinkButton ID="lbLogoutFooter" runat="server" CssClass="footerLink" OnClick="lbLogout_Click">Log Out</asp:LinkButton></li>
                 </ul>
             </div>
         
