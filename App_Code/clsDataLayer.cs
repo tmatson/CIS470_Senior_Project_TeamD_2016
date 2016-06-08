@@ -117,7 +117,8 @@ public class clsDataLayer
         dbConnection.Close();
     }
 
-    public void Continue(string username, string firstname, string lastname,
+    //Updates **EXISTING** user in tblUserAccts - Matt S.
+    public void Update(string username, string firstname, string lastname,
         string email, string address1, string address2, string city, string state,
         string phonenum, int userID)
     {
@@ -156,6 +157,39 @@ public class clsDataLayer
         dbCommand.ExecuteNonQuery();
 
         //Closes database
+        dbConnection.Close();
+    }
+
+    //Insert **NEW** user to tblUserAccts - Matt S.
+    public void InsertCustomer(string Firstname, string Lastname, string Address1,
+        string Address2, string City, string State, string Email, string PhoneNumber, string UserName)
+    {
+        //Opens Database connection
+        dbConnection.Open();
+
+        //SQL INSERT statement
+        string sqlStemt = "INSERT INTO tblUserAccts (Firstname, Lastname, Address1, Address2, City, State, Email, PhoneNumber, Username) ";
+        sqlStemt += "VALUES (@first, @last, @address1, @address2, @city, @state, @email, @phonenum, @username) ";
+
+        //Access Database
+        OleDbCommand dbCommand = new OleDbCommand(sqlStemt, dbConnection);
+
+        //Adds parameters for insert statement
+        OleDbParameter param = new OleDbParameter("@first", Firstname);
+        dbCommand.Parameters.Add(param);
+        dbCommand.Parameters.Add(new OleDbParameter("@last", Lastname));
+        dbCommand.Parameters.Add(new OleDbParameter("@address1", Address1));
+        dbCommand.Parameters.Add(new OleDbParameter("@address2", Address2));
+        dbCommand.Parameters.Add(new OleDbParameter("@city", City));
+        dbCommand.Parameters.Add(new OleDbParameter("@state", State));
+        dbCommand.Parameters.Add(new OleDbParameter("@email", Email));
+        dbCommand.Parameters.Add(new OleDbParameter("@phone", PhoneNumber));
+        dbCommand.Parameters.Add(new OleDbParameter("@username", UserName));
+
+        //Executes insert statement
+        dbCommand.ExecuteNonQuery();
+
+        //Closes DB connection
         dbConnection.Close();
     }
 }

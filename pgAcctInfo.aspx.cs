@@ -29,14 +29,14 @@ public partial class pgAcctInfo : System.Web.UI.Page
             if (PreviousPage.IsCrossPagePostBack)
             {
                 //lblUserName.Text = PreviousPage.User.Text;//Doing something wrong here
-                lblFirstName.Text = PreviousPage.FirstName.Text;
-                lblLastName.Text = PreviousPage.LastName.Text;
-                lblEmail.Text = PreviousPage.Email.Text;
-                lblAddress1.Text = PreviousPage.Address1.Text;
-                lblAddress2.Text = PreviousPage.Address2.Text;
-                lblCity.Text = PreviousPage.City.Text;
-                lblState.Text = PreviousPage.State.Text;
-                lblPhoneNum.Text = PreviousPage.PhoneNum.Text;
+                txtFirstName.Text = PreviousPage.FirstName.Text;
+                txtLastName.Text = PreviousPage.LastName.Text;
+                txtEmail.Text = PreviousPage.Email.Text;
+                txtAddress1.Text = PreviousPage.Address1.Text;
+                txtAddress2.Text = PreviousPage.Address2.Text;
+                txtCity.Text = PreviousPage.City.Text;
+                txtState.Text = PreviousPage.State.Text;
+                txtPhoneNum.Text = PreviousPage.PhoneNum.Text;
             }
         }
         catch (Exception error)
@@ -46,8 +46,41 @@ public partial class pgAcctInfo : System.Web.UI.Page
         myBusinessLayer = new clsBusinessLayer(Server.MapPath("~/"));
     }
 
-    //Button Click - Continue
-    protected void btnContinue_Click(object sender, EventArgs e)
+    public TextBox ConfimrFirstName
+    {
+        get { return txtFirstName; }
+    }
+    public TextBox ConfirmLastName
+    {
+        get { return txtLastName; }
+    }
+    public TextBox ConfirmEmail
+    {
+        get { return txtEmail; }
+    }
+    public TextBox ConfirmAddress1
+    {
+        get { return txtAddress1; }
+    }
+    public TextBox ConfirmAddress2
+    {
+        get { return txtAddress2; }
+    }
+    public TextBox ConfirmCity
+    {
+        get { return txtCity; }
+    }
+    public TextBox ConfirmState
+    {
+        get { return txtState; }
+    }
+    public TextBox ConfirmPhoneNum
+    {
+        get { return txtPhoneNum; }
+    }
+
+    //Button Click - Update
+    protected void btnUpdate_Click(object sender, EventArgs e)
     {
         //Sets UserUpdateError to false
         bool userUpdateError = false;
@@ -55,20 +88,20 @@ public partial class pgAcctInfo : System.Web.UI.Page
         //Tries to update user through the business layer
         try
         {
-            myBusinessLayer.Continue(lblUserName.Text, lblFirstName.Text, lblLastName.Text,
-                lblEmail.Text, lblAddress1.Text, lblAddress2.Text, lblCity.Text, lblState.Text,
-                lblPhoneNum.Text, Convert.ToInt32(lblUser.Text));
+            myBusinessLayer.ConfirmUpdate(lblUserName.Text, txtFirstName.Text, txtLastName.Text,
+                txtEmail.Text, txtAddress1.Text, txtAddress2.Text, txtCity.Text, txtState.Text,
+                txtPhoneNum.Text, Convert.ToInt32(CustomerID.Text));
 
         }
         catch (Exception error)
         {
             userUpdateError = true;
             string message = "Error Updating your information, please check form data. ";
-            Master.UserFeedBack.Text = message + error.Message;
+            Master.lblUserFeedBack.Text = message + error.Message;
         }
         if (!userUpdateError)
         {
-            Master.UserFeedBack.Text = "Information updated successfully.";
+            Master.lblUserFeedBack.Text = "Information updated successfully.";
         }
     }
 

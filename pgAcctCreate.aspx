@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SPMasterPage.master" AutoEventWireup="true" CodeFile="pgAcctCreate.aspx.cs" Inherits="pgAcctCreate" %>
+<%@ MasterType VirtualPath="~/SPMasterPage.master" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -40,7 +42,7 @@
             <asp:TextBox ID="txtConfPassword" runat="server" TextMode="Password"></asp:TextBox><br />
         </div>
     </div>
-    <asp:Button ID="btnSubmit" runat="server" Text="Submit" /><br />
+    <asp:Button ID="btnSubmit" runat="server" Text="Submit" onclick="btnSubmit_Click"/><br />
     <asp:Label ID="lblrequired" runat="server" Text="* Required Fields" ForeColor="Red"></asp:Label>
         
 

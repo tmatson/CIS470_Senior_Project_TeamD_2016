@@ -104,11 +104,19 @@ public class clsBusinessLayer
         //
     }
 
-    public void Continue(string lblUserName, string lblFirstName, string lblLastName,
-        string lblEmail, string lblAddress1, string lblAddress2, string lblCity,
-        string lblState, string lblPhoneNum, int lblUser)
+    public void ConfirmUpdate(string lblUserName, string txtFirstName, string txtLastName,
+        string txtEmail, string txtAddress1, string txtAddress2, string txtCity,
+        string txtState, string txtPhoneNum, int userID)
     {
-        myDataLayer.Continue(lblUserName, lblFirstName, lblLastName, lblEmail,
-            lblAddress1, lblAddress2, lblCity, lblState, lblPhoneNum, lblUser);
+        myDataLayer.Update(lblUserName, txtFirstName, txtLastName, txtEmail,
+            txtAddress1, txtAddress2, txtCity, txtState, txtPhoneNum, userID);
+    }
+
+    public string InsertCustomer(string txtFirstname, string txtLastname, //I dont know why there is not a return for a value????? HELP????
+        string txtAddress1, string txtAddress2, string txtCity, string txtState,
+        string txtEmail, string txtPhonenumber, string txtUserName)
+    {
+        myDataLayer.InsertCustomer(txtFirstname, txtLastname, txtAddress1,
+            txtAddress2, txtCity, txtState, txtEmail, txtPhonenumber, txtUserName);
     }
 }
