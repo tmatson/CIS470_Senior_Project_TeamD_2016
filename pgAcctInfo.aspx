@@ -22,11 +22,10 @@
     <asp:textbox ID="txtCity" runat="server"></asp:textbox><br />
     <strong><asp:Label ID="State" runat="server" Text="State: "></asp:Label></strong>
     <asp:textbox ID="txtState" runat="server"></asp:textbox><br />
-    <strong><asp:Label ID ="Phone" runat="server"></asp:Label></strong>
+    <strong><asp:Label ID ="Phone" runat="server" Text="Phone"></asp:Label></strong>
     <asp:textbox ID="txtPhoneNum" runat="server"></asp:textbox><br />
     <br />
-    <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" /><br />
-    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+    <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" /><br />    
     
 </asp:Content>
 

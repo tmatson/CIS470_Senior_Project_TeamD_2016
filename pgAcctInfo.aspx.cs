@@ -21,37 +21,21 @@ public partial class pgAcctInfo : System.Web.UI.Page
     }
 
     public TextBox ConfimrFirstName
-    {
-        get { return txtFirstName; }
-    }
+    { get { return txtFirstName; } }
     public TextBox ConfirmLastName
-    {
-        get { return txtLastName; }
-    }
+    { get { return txtLastName; } }
     public TextBox ConfirmEmail
-    {
-        get { return txtEmail; }
-    }
+    { get { return txtEmail; } }
     public TextBox ConfirmAddress1
-    {
-        get { return txtAddress1; }
-    }
+    { get { return txtAddress1; } }
     public TextBox ConfirmAddress2
-    {
-        get { return txtAddress2; }
-    }
+    { get { return txtAddress2; } }
     public TextBox ConfirmCity
-    {
-        get { return txtCity; }
-    }
+    { get { return txtCity; } }
     public TextBox ConfirmState
-    {
-        get { return txtState; }
-    }
+    { get { return txtState; } }
     public TextBox ConfirmPhoneNum
-    {
-        get { return txtPhoneNum; }
-    }
+    { get { return txtPhoneNum; } }
 
     //Button Click - Update
     protected void btnUpdate_Click(object sender, EventArgs e)
@@ -80,6 +64,20 @@ public partial class pgAcctInfo : System.Web.UI.Page
         {
             Master.UserFeedBack.Text = "Information updated successfully.";
         }
+    }
+
+    protected void Page_PreRender(object sender, EventArgs e)
+    {
+        //Loads and Displays Information From User Input Fields                
+        lblUserName.Text = Request.Cookies["User"].Value;
+        txtFirstName.Text = Request.Cookies["Firstname"].Value;
+        txtLastName.Text = Request.Cookies["Lastname"].Value;
+        txtEmail.Text = Request.Cookies["E-mail"].Value;
+        txtAddress1.Text = Request.Cookies["Address1"].Value;
+        txtAddress2.Text = Request.Cookies["Address2"].Value;
+        txtCity.Text = Request.Cookies["City"].Value;
+        txtState.Text = Request.Cookies["State"].Value;
+        txtPhoneNum.Text = Request.Cookies["Phonenumber"].Value;
     }
 
 
