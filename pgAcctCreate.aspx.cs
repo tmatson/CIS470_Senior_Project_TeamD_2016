@@ -7,9 +7,6 @@ using System.Web.UI.WebControls;
 
 public partial class pgAcctCreate : System.Web.UI.Page
 {
-
-    clsBusinessLayer myBusinessLayer;
-
     protected void Page_Load(object sender, EventArgs e)
     {
         
@@ -34,49 +31,29 @@ public partial class pgAcctCreate : System.Web.UI.Page
     
     //Get methods for fields - Matt Steele
     public TextBox FirstName
-    {
-        get { return txtFirstname; }
-    }
+    { get { return txtFirstname; } }
     public TextBox LastName
-    {
-        get { return txtLastname; }
-    }
+    { get { return txtLastname; } }
     public TextBox Email
-    {
-        get { return txtEmail; }
-    }
+    { get { return txtEmail; } }
     public TextBox Address1
-    {
-        get { return txtAddress1; }
-    }
+    { get { return txtAddress1; } }
     public TextBox Address2
-    {
-        get { return txtAddress2; }
-    }
+    { get { return txtAddress2; } }
     public TextBox City
-    {
-        get { return txtCity; }
-    }
+    { get { return txtCity; } }
     public TextBox State
-    {
-        get { return txtState; }
-    }
+    { get { return txtState; } }
+    public TextBox ZipCode
+    { get { return txtZipCode; } }
     public TextBox PhoneNum
-    {
-        get { return txtPhoneNumber; }
-    }
+    { get { return txtPhoneNumber; } }
     public TextBox UserName
-    {
-        get { return txtUsername; }
-    }
+    { get { return txtUsername; } }
     public TextBox Password
-    {
-        get { return txtPassword; }
-    }
+    { get { return txtPassword; } }
     public TextBox PasswordConf
-    {
-        get { return txtConfPassword; }
-    }
+    { get { return txtConfPassword; } }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
@@ -89,9 +66,9 @@ public partial class pgAcctCreate : System.Web.UI.Page
         //Tries to insert user through the business layer
         try
         {
-            myBusinessLayer.InsertCustomer(txtFirstname.Text, txtLastname.Text,
-               txtAddress1.Text, txtAddress2.Text, txtCity.Text, txtState.Text,
-               txtEmail.Text, txtPhoneNumber.Text, txtUsername.Text);
+            myBusinessLayer.InsertUser(txtUsername.Text, txtPassword.Text, txtFirstname.Text, 
+               txtLastname.Text, txtAddress1.Text, txtAddress2.Text, txtCity.Text, txtState.Text, 
+               txtZipCode.Text, txtEmail.Text, txtPhoneNumber.Text);
         }
         catch (Exception error)
         {
@@ -100,6 +77,7 @@ public partial class pgAcctCreate : System.Web.UI.Page
             string message = "Error adding information, please contact administrator.";
             Master.UserFeedBack.Text = message + error.Message;
         }
+
         if (!userAddError)
         {
             //Store user information to dsUserInfo
@@ -128,6 +106,9 @@ public partial class pgAcctCreate : System.Web.UI.Page
 
             Response.Cookies["State"].Value = dsUserInfo.tblUserAcct[0].State;
             Response.Cookies["State"].Expires = DateTime.Now.AddMinutes(60); //Expires in 60 Minutes
+
+            Response.Cookies["ZipCode"].Value = dsUserInfo.tblUserAcct[0].ZipCode;
+            Response.Cookies["ZipCode"].Expires = DateTime.Now.AddMinutes(60); //Expires in 60 Minutes
 
             Response.Cookies["E-mail"].Value = dsUserInfo.tblUserAcct[0].Email;
             Response.Cookies["E-mail"].Expires = DateTime.Now.AddMinutes(60); //Expires in 60 Minutes

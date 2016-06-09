@@ -7,9 +7,6 @@ using System.Web.UI.WebControls;
 
 public partial class pgAcctInfo : System.Web.UI.Page
 {
-
-    clsBusinessLayer myBusinessLayer;
-
     protected void Page_Load(object sender, EventArgs e)
     {
 

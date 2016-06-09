@@ -16,6 +16,7 @@
             *<asp:Label ID="lbladdress2" runat="server" Text="Address 2 "></asp:Label><br />
             *<asp:Label ID="lblcity" runat="server" Text="City "></asp:Label><br />
             *<asp:Label ID="lblstate" runat="server" Text="State "></asp:Label><br />
+            *<asp:Label ID="lblzipcode" runat="server" Text="Zip Code "></asp:Label><br />
             *<asp:Label ID="lblphnum" runat="server" Text="Phone Number "></asp:Label><br />
         </div>
         <div class="grid_10">
@@ -26,7 +27,8 @@
             <asp:TextBox ID="txtAddress2" runat="server"></asp:TextBox><br />
             <asp:TextBox ID="txtCity" runat="server"></asp:TextBox><br />
             <asp:TextBox ID="txtState" runat="server"></asp:TextBox><br />
-            <asp:TextBox ID="txtPhoneNumber" runat="server" TextMode="Phone"></asp:TextBox><br />
+            <asp:TextBox ID="txtZipCode" runat="server"></asp:TextBox><br />
+            <asp:TextBox ID="txtPhoneNumber" runat="server"></asp:TextBox><br />
         </div>
     </div>
     <h2>Login Information</h2>
