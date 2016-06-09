@@ -20,30 +20,7 @@ public partial class pgAcctInfo : System.Web.UI.Page
         else
         {
 
-        }
-        Label1.Text = Request.Cookies["User"].Value;
-
-        //Loads and Displays User Information from user input fields - MSteele
-        try
-        {
-            if (PreviousPage.IsCrossPagePostBack)
-            {
-                lblUserName.Text = PreviousPage.Username.Text;
-                txtFirstName.Text = PreviousPage.FirstName.Text;
-                txtLastName.Text = PreviousPage.LastName.Text;
-                txtEmail.Text = PreviousPage.Email.Text;
-                txtAddress1.Text = PreviousPage.Address1.Text;
-                txtAddress2.Text = PreviousPage.Address2.Text;
-                txtCity.Text = PreviousPage.City.Text;
-                txtState.Text = PreviousPage.State.Text;
-                txtPhoneNum.Text = PreviousPage.PhoneNum.Text;
-            }
-        }
-        catch (Exception error)
-        {
-
-        }
-        myBusinessLayer = new clsBusinessLayer(Server.MapPath("~/"));
+        }                  
     }
 
     public TextBox ConfimrFirstName
@@ -85,23 +62,26 @@ public partial class pgAcctInfo : System.Web.UI.Page
         //Sets UserUpdateError to false
         bool userUpdateError = false;
 
+        //Declaring new instance if clsBusinessLayer - TMatson
+        clsBusinessLayer myBusinessLayer = new clsBusinessLayer(Server.MapPath("~/"));
+
         //Tries to update user through the business layer
         try
-        {
+        {            
             myBusinessLayer.ConfirmUpdate(lblUserName.Text, txtFirstName.Text, txtLastName.Text,
                 txtEmail.Text, txtAddress1.Text, txtAddress2.Text, txtCity.Text, txtState.Text,
-                txtPhoneNum.Text, Convert.ToInt32(CustomerID.Text));
+                txtPhoneNum.Text, Convert.ToInt32(Request.Cookies["CID"].Value));
 
         }
         catch (Exception error)
         {
             userUpdateError = true;
             string message = "Error Updating your information, please check form data. ";
-            Master.lblUserFeedBack.Text = message + error.Message;
+            Master.UserFeedBack.Text = message + error.Message;
         }
         if (!userUpdateError)
         {
-            Master.lblUserFeedBack.Text = "Information updated successfully.";
+            Master.UserFeedBack.Text = "Information updated successfully.";
         }
     }
 

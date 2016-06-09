@@ -79,7 +79,7 @@
 
             <!-- My account link buttons --> 
             <div class="content">
-                <ul style="width: 140px">
+                <ul style="width: 140px; height: 209px; margin-right: 14px;">
                     <li><strong>My Account</strong></li>
                     <li><asp:LinkButton ID="lbLoginFooter" runat="server" CssClass="footerLink" PostBackUrl="~/pgLogin.aspx">Log In</asp:LinkButton></li>
                     <li><asp:LinkButton ID="lbAcctCreateFooter" runat="server" CssClass="footerLink" PostBackUrl="~/pgAcctCreate.aspx">Create Account</asp:LinkButton></li>
