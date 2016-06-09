@@ -63,6 +63,9 @@ public partial class pgLogin : System.Web.UI.Page
             Response.Cookies["State"].Value = dsUserInfo.tblUserAcct[0].State;
             Response.Cookies["State"].Expires = DateTime.Now.AddMinutes(60); //Expires in 60 Minutes
 
+            Response.Cookies["ZipCode"].Value = dsUserInfo.tblUserAcct[0].ZipCode;
+            Response.Cookies["ZipCode"].Expires = DateTime.Now.AddMinutes(60); //Expires in 60 Minutes
+
             Response.Cookies["E-mail"].Value = dsUserInfo.tblUserAcct[0].Email;
             Response.Cookies["E-mail"].Expires = DateTime.Now.AddMinutes(60); //Expires in 60 Minutes
 

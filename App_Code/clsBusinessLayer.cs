@@ -84,6 +84,9 @@ public class clsBusinessLayer
             if (userRecord["State"] == DBNull.Value)
                 userRecord["State"] = emptyFiller;
 
+            if (userRecord["ZipCode"] == DBNull.Value)
+                userRecord["ZipCode"] = emptyFiller;
+
             if (userRecord["Email"] == DBNull.Value)
                 userRecord["Email"] = emptyFiller;
 
@@ -112,11 +115,11 @@ public class clsBusinessLayer
             txtAddress1, txtAddress2, txtCity, txtState, txtPhoneNum, userID);
     }
 
-    public void InsertCustomer(string txtFirstname, string txtLastname, //I dont know why there is not a return for a value????? HELP????
-        string txtAddress1, string txtAddress2, string txtCity, string txtState,
-        string txtEmail, string txtPhoneNumber, string txtUserName)
+    public void InsertUser(string txtUserName, string txtPassword, string txtFirstname,
+        string txtLastname, string txtAddress1, string txtAddress2, string txtCity,
+        string txtState, string txtZipCode, string txtEmail, string txtPhoneNumber)         
     {
-        myDataLayer.InsertCustomer(txtFirstname, txtLastname, txtAddress1,
-            txtAddress2, txtCity, txtState, txtEmail, txtPhoneNumber, txtUserName);        
+        myDataLayer.InsertUser(txtUserName, txtPassword, txtFirstname, txtLastname, txtAddress1, 
+            txtAddress2, txtCity, txtState, txtZipCode, txtEmail, txtPhoneNumber);      
     }
 }
