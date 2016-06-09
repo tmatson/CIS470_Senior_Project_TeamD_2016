@@ -117,6 +117,8 @@ public class clsDataLayer
         dbConnection.Close();
     }
 
+    
+
     //Updates **EXISTING** user in tblUserAccts - Matt S.
     public void Update(string username, string firstname, string lastname,
         string email, string address1, string address2, string city, string state,
