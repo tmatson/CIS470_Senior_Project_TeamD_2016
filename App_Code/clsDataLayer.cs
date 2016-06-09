@@ -24,7 +24,7 @@ public class clsDataLayer
         //
     }
 
-    //Validate user function
+    //Validate user function - TMatson
     public bool ValidateUser(string username, string password)
     {
         //Opens Connection to Database
@@ -51,7 +51,7 @@ public class clsDataLayer
         return isValidAccount;
     }
 
-    //Locked user account function
+    //Locked user account function - TMatson
     public void LockUserAccount(string username)
     {
         //Opens Connection to Database
@@ -73,7 +73,7 @@ public class clsDataLayer
         dbConnection.Close();
     }
 
-    //Store user information function
+    //Store & Finds user information function - TMaston
     public dsDatabase StoreUser(string Username)
     {
         //Query Data from tblUserAcct by Username
@@ -87,7 +87,7 @@ public class clsDataLayer
         //Returns Data from Table
         return userDataSet;
     }
-
+    
     //Store review information, also runs a query to get customer id
     public void StoreReview(string username, string jobType, string mediaType, string comment)
     {
@@ -193,5 +193,5 @@ public class clsDataLayer
 
         //Closes DB connection
         dbConnection.Close();
-    }
+    }       
 }

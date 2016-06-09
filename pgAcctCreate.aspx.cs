@@ -12,14 +12,7 @@ public partial class pgAcctCreate : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Request.Cookies["User"] == null)
-        {
-            Response.Redirect("~/pgLogin.aspx");
-        }
-        else
-        {
-
-        }
+        
     }
 
     private void ClearInputs(ControlCollection ctrls)
@@ -90,6 +83,9 @@ public partial class pgAcctCreate : System.Web.UI.Page
         //Sets UserUpdateError to false
         bool userAddError = false;
 
+        //Declaring new instance if clsBusinessLayer
+        clsBusinessLayer myBusinessLayer = new clsBusinessLayer(Server.MapPath("~/"));
+
         //Tries to insert user through the business layer
         try
         {
@@ -106,8 +102,43 @@ public partial class pgAcctCreate : System.Web.UI.Page
         }
         if (!userAddError)
         {
-            ClearInputs(Page.Controls);
-            Master.UserFeedBack.Text = "User information successfully added.";
+            //Store user information to dsUserInfo
+            dsDatabase dsUserInfo = myBusinessLayer.StoreUser(txtUsername.Text);
+
+            Response.Cookies["User"].Value = txtUsername.Text;
+            Response.Cookies["User"].Expires = DateTime.Now.AddMinutes(60); //Expires in 60 Minutes
+
+            Response.Cookies["CID"].Value = Convert.ToString(dsUserInfo.tblUserAcct[0].CustomerID);
+            Response.Cookies["CID"].Expires = DateTime.Now.AddMinutes(60); //Expires in 60 Minutes
+
+            Response.Cookies["Firstname"].Value = dsUserInfo.tblUserAcct[0].Firstname;
+            Response.Cookies["Firstname"].Expires = DateTime.Now.AddMinutes(60); //Expires in 60 Minutes
+
+            Response.Cookies["Lastname"].Value = dsUserInfo.tblUserAcct[0].Lastname;
+            Response.Cookies["Lastname"].Expires = DateTime.Now.AddMinutes(60); //Expires in 60 Minutes
+
+            Response.Cookies["Address1"].Value = dsUserInfo.tblUserAcct[0].Address1;
+            Response.Cookies["Address1"].Expires = DateTime.Now.AddMinutes(60); //Expires in 60 Minutes
+
+            Response.Cookies["Address2"].Value = dsUserInfo.tblUserAcct[0].Address2;
+            Response.Cookies["Address2"].Expires = DateTime.Now.AddMinutes(60); //Expires in 60 Minutes
+
+            Response.Cookies["City"].Value = dsUserInfo.tblUserAcct[0].City;
+            Response.Cookies["City"].Expires = DateTime.Now.AddMinutes(60); //Expires in 60 Minutes
+
+            Response.Cookies["State"].Value = dsUserInfo.tblUserAcct[0].State;
+            Response.Cookies["State"].Expires = DateTime.Now.AddMinutes(60); //Expires in 60 Minutes
+
+            Response.Cookies["E-mail"].Value = dsUserInfo.tblUserAcct[0].Email;
+            Response.Cookies["E-mail"].Expires = DateTime.Now.AddMinutes(60); //Expires in 60 Minutes
+
+            Response.Cookies["Phonenumber"].Value = dsUserInfo.tblUserAcct[0].PhoneNumber;
+            Response.Cookies["Phonenumber"].Expires = DateTime.Now.AddMinutes(60); //Expires in 60 Minutes
+
+            Response.Cookies["SecurityLevel"].Value = dsUserInfo.tblUserAcct[0].SecurityLevel;
+            Response.Cookies["SecurityLevel"].Expires = DateTime.Now.AddMinutes(60); //Expires in 60 Minutes   
+
+            Response.Redirect("~/pgAcctInfo.aspx");
         }
     }
 }

@@ -45,7 +45,7 @@ public class clsBusinessLayer
         return isValid;
     }
 
-    //Stores user information upon login
+    //Stores and Finds user information upon login or creating account
     public dsDatabase StoreUser(string UserName)
     {
         //Fills empty database fields
@@ -112,11 +112,11 @@ public class clsBusinessLayer
             txtAddress1, txtAddress2, txtCity, txtState, txtPhoneNum, userID);
     }
 
-    public string InsertCustomer(string txtFirstname, string txtLastname, //I dont know why there is not a return for a value????? HELP????
+    public void InsertCustomer(string txtFirstname, string txtLastname, //I dont know why there is not a return for a value????? HELP????
         string txtAddress1, string txtAddress2, string txtCity, string txtState,
-        string txtEmail, string txtPhonenumber, string txtUserName)
+        string txtEmail, string txtPhoneNumber, string txtUserName)
     {
         myDataLayer.InsertCustomer(txtFirstname, txtLastname, txtAddress1,
-            txtAddress2, txtCity, txtState, txtEmail, txtPhonenumber, txtUserName);
+            txtAddress2, txtCity, txtState, txtEmail, txtPhoneNumber, txtUserName);        
     }
 }
