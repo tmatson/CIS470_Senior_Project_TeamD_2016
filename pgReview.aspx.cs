@@ -23,8 +23,7 @@ public partial class pgReview : System.Web.UI.Page
         string comment = null;
         string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|/WSCDatabase_mdb.mdb";
 
-        //Declaring new instance of layers
-        clsBusinessLayer myBusinessLayer = new clsBusinessLayer(Server.MapPath("~/"));
+        //Declaring new instance of data layer
         clsDataLayer myDataLayer = new clsDataLayer(connectionString);
 
         //Set the jobType based on selected value in radio button
@@ -48,8 +47,7 @@ public partial class pgReview : System.Web.UI.Page
             if (mediaType == null) { message3.Visible = true; }
             if (comment == null) { message4.Visible = true; }
             //General checks for compatibility between variables, if not then restrict page refresh and give a message
-            if (jobType == "Printing" && mediaType == "Plaque" || mediaType == "Trophy") { message1.Visible = true; message1.InnerHtml = "You can't Print on that media type!"; userError = true; }
-            else if (jobType == "Engraving" && mediaType == "Clothing") { message1.Visible = true; message1.InnerHtml = "You can't Engrave on that media type!"; userError = true; }
+            if (jobType == "Engraving" && mediaType == "Clothing") { message1.Visible = true; message1.InnerHtml = "You can't Engrave on that media type!"; userError = true; }
         }
 
         //Set refresh to true if all strings are populated

@@ -88,11 +88,13 @@ public class clsDataLayer
         return userDataSet;
     }
     
-    //Store review information, also runs a query to get customer id
+    //Store review information, also runs a query to get customer id and product id
     public void StoreReview(string username, string jobType, string mediaType, string comment)
     {
         //set to zero to offset errors
         int customerId = 0;
+        int productId = 0;
+
         string sqlStmt = "SELECT CustomerID FROM tblUserAcct WHERE Username = @user";
 
         //retrieve customer id to put into review table
@@ -103,17 +105,27 @@ public class clsDataLayer
 
         dbConnection.Close();
 
-        //insert review data into table
-        sqlStmt = "INSERT INTO tblReview (CustomerID, Username, JobType, MediaType, Comments) VALUES (@id, @user, @job, @media, @comment)";
+        sqlStmt = "SELECT ProductID FROM tblProducts WHERE JobType = @job AND MediaType = @media";
 
-        OleDbCommand dbCommand = new OleDbCommand(sqlStmt, dbConnection);
+        //retrieve product id to put into review table
+        command = new OleDbCommand(sqlStmt, dbConnection);
         dbConnection.Open();
-        dbCommand.Parameters.Add(new OleDbParameter("@id", customerId));
-        dbCommand.Parameters.Add(new OleDbParameter("@user", username));
-        dbCommand.Parameters.Add(new OleDbParameter("@job", jobType));
-        dbCommand.Parameters.Add(new OleDbParameter("@media", mediaType));
-        dbCommand.Parameters.Add(new OleDbParameter("@comment", comment));
-        dbCommand.ExecuteNonQuery();
+        command.Parameters.Add(new OleDbParameter("@job", jobType));
+        command.Parameters.Add(new OleDbParameter("@media", mediaType));
+        productId = (int)command.ExecuteScalar();
+
+        dbConnection.Close();
+
+        //insert review data into table
+        sqlStmt = "INSERT INTO tblReview (ProductID, CustomerID, ReviewDate, Comments) VALUES (@pid, @cid, @date, @comment)";
+
+        command = new OleDbCommand(sqlStmt, dbConnection);
+        dbConnection.Open();
+        command.Parameters.Add(new OleDbParameter("@pid", productId));
+        command.Parameters.Add(new OleDbParameter("@cid", customerId));
+        command.Parameters.Add(new OleDbParameter("@date", DateTime.Now.ToShortDateString()));
+        command.Parameters.Add(new OleDbParameter("@comment", comment));
+        command.ExecuteNonQuery();
         dbConnection.Close();
     }
 
