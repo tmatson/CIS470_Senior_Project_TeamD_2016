@@ -121,8 +121,9 @@ div#footer ul li strong {
 }
 .content {
     display: inline-block;
-    width: 176px;
-    height: 177px;
+    width: 192px;
+    min-height: 217px;
+    height: auto;
     background-color: transparent;
     word-wrap: break-word;
     float: left;
@@ -147,6 +148,7 @@ div#footer ul li strong {
     width: 704px;
     min-height: 120px;
     height: auto;
+    margin-top: 84px;
 }
 
 /*Added div class .aboutus to pgAbout.aspx - but wont appear when using browser. M.Steele*/

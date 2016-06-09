@@ -29,7 +29,7 @@ public partial class pgLogin : System.Web.UI.Page
         //Declaring new instance if clsBusinessLayer
         clsBusinessLayer myBusinessLayer = new clsBusinessLayer(Server.MapPath("~/"));
 
-        //Store user information to dsUserLogin
+        //Store user information to dsUserInfo
         dsDatabase dsUserInfo = myBusinessLayer.StoreUser(txtUsername.Text);
 
         //Checks Users Current Credentials

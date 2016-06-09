@@ -37,7 +37,7 @@
             *<asp:Label ID="lblconfpswd" runat="server" Text="Confirm Password "></asp:Label><br />
         </div>
         <div class="grid_10">
-            <asp:TextBox ID="txtUsername" runat="server" ></asp:TextBox><br />
+            <asp:TextBox ID="txtUsername" runat="server" ></asp:TextBox><br />           
             <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox><br />
             <asp:TextBox ID="txtConfPassword" runat="server" TextMode="Password"></asp:TextBox><br />
         </div>
