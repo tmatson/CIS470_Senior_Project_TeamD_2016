@@ -159,41 +159,37 @@ public class clsDataLayer
         //Closes database
         dbConnection.Close();
     }
-   
+
     //Insert **NEW** user to tblUserAccts - Matt S.
-    public void InsertUser(string UserName, string Password, string Firstname, string Lastname, 
-        string Address1, string Address2, string City, string State, string ZipCode, string Email,
-        string PhoneNumber)
+    public void InsertCustomer(string Firstname, string Lastname, string Address1,
+        string Address2, string City, string State, string Email, string PhoneNumber, string UserName)
     {
         //Opens Database connection
         dbConnection.Open();
 
         //SQL INSERT statement
-        string sqlStemt = "INSERT INTO tblUserAcct (Username, [Password], Firstname, Lastname, Address1, Address2, City, State, ZipCode, Email, PhoneNumber, SecurityLevel)";
-        sqlStemt += "VALUES (@username, @password, @first, @last, @address1, @address2, @city, @state, @zip, @email, @phonenum, @securelvl)";
+        string sqlStemt = "INSERT INTO tblUserAccts (Firstname, Lastname, Address1, Address2, City, State, Email, PhoneNumber, Username) ";
+        sqlStemt += "VALUES (@first, @last, @address1, @address2, @city, @state, @email, @phonenum, @username) ";
 
         //Access Database
         OleDbCommand dbCommand = new OleDbCommand(sqlStemt, dbConnection);
 
         //Adds parameters for insert statement
-        OleDbParameter param = new OleDbParameter("@username", UserName);
-        dbCommand.Parameters.Add(param); 
-        dbCommand.Parameters.Add(new OleDbParameter("@password", Password));
-        dbCommand.Parameters.Add(new OleDbParameter("@first", Firstname));
+        OleDbParameter param = new OleDbParameter("@first", Firstname);
+        dbCommand.Parameters.Add(param);
         dbCommand.Parameters.Add(new OleDbParameter("@last", Lastname));
         dbCommand.Parameters.Add(new OleDbParameter("@address1", Address1));
         dbCommand.Parameters.Add(new OleDbParameter("@address2", Address2));
         dbCommand.Parameters.Add(new OleDbParameter("@city", City));
         dbCommand.Parameters.Add(new OleDbParameter("@state", State));
-        dbCommand.Parameters.Add(new OleDbParameter("@zip", ZipCode));
         dbCommand.Parameters.Add(new OleDbParameter("@email", Email));
-        dbCommand.Parameters.Add(new OleDbParameter("@phonenum", PhoneNumber));        
-        dbCommand.Parameters.Add(new OleDbParameter("@securelvl", "U"));
+        dbCommand.Parameters.Add(new OleDbParameter("@phone", PhoneNumber));
+        dbCommand.Parameters.Add(new OleDbParameter("@username", UserName));
 
         //Executes insert statement
         dbCommand.ExecuteNonQuery();
 
         //Closes DB connection
-        dbConnection.Close();        
+        dbConnection.Close();
     }       
 }
