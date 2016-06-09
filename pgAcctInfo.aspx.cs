@@ -34,6 +34,8 @@ public partial class pgAcctInfo : System.Web.UI.Page
     { get { return txtCity; } }
     public TextBox ConfirmState
     { get { return txtState; } }
+    public TextBox ConfirmZipCode
+    { get { return txtZipCode; } }
     public TextBox ConfirmPhoneNum
     { get { return txtPhoneNum; } }
 
@@ -77,6 +79,7 @@ public partial class pgAcctInfo : System.Web.UI.Page
         txtAddress2.Text = Request.Cookies["Address2"].Value;
         txtCity.Text = Request.Cookies["City"].Value;
         txtState.Text = Request.Cookies["State"].Value;
+        txtZipCode.Text = Request.Cookies["ZipCode"].Value;
         txtPhoneNum.Text = Request.Cookies["Phonenumber"].Value;
     }
 
