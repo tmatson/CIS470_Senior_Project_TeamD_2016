@@ -140,8 +140,8 @@ public class clsDataLayer
         dbConnection.Open();
 
         //Compiler
-        string sqlStmt = "UPDATE tblUserAcct SET Username0 = @username, "
-            + "Firstname = @firstname"
+        string sqlStmt = "UPDATE tblUserAcct SET Username = @username,"
+            + "Firstname = @firstname,"
             + "Lastname = @lastname, "
             + "Address1 = @address1, "
             + "Address2 = @address2, "
@@ -149,7 +149,7 @@ public class clsDataLayer
             + "State = @state, "
             + "ZipCode = @zip, "
             + "Email = @email, "
-            + "PhoneNumber = @phonenum, "
+            + "PhoneNumber = @phonenum "
             + "WHERE (tblUserAcct.CustomerID = @id)";
 
         //New instance of OleDbCommand
@@ -163,7 +163,7 @@ public class clsDataLayer
         dbCommand.Parameters.Add(new OleDbParameter("@address1", address1));
         dbCommand.Parameters.Add(new OleDbParameter("@address2", address2));
         dbCommand.Parameters.Add(new OleDbParameter("@city", city));
-        dbCommand.Parameters.Add(new OleDbParameter("@state", firstname));
+        dbCommand.Parameters.Add(new OleDbParameter("@state", state));
         dbCommand.Parameters.Add(new OleDbParameter("@zip", zip));
         dbCommand.Parameters.Add(new OleDbParameter("@email",email));
         dbCommand.Parameters.Add(new OleDbParameter("@phonenum", phonenum));
@@ -211,5 +211,19 @@ public class clsDataLayer
 
         //Closes DB connection
         dbConnection.Close();        
-    }       
+    }
+
+    //Get User Accounts Method - TMatson MIGHT NOT BE NEEDED NOW
+    public dsDatabase SelectUsers()
+    {
+        //Query Data from tblCompApps For ID
+        OleDbDataAdapter sqlDataAdapter = new OleDbDataAdapter("select * from tblUserAcct order by CustomerID asc;", dbConnection);
+
+        //Retrieves Data From Table
+        dsDatabase gridDataSet = new dsDatabase();
+        sqlDataAdapter.Fill(gridDataSet.tblUserAcctGV);
+
+        //Returns Data from Table
+        return gridDataSet;
+    }
 }
