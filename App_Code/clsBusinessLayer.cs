@@ -109,10 +109,10 @@ public class clsBusinessLayer
 
     public void ConfirmUpdate(string lblUserName, string txtFirstName, string txtLastName,
         string txtEmail, string txtAddress1, string txtAddress2, string txtCity,
-        string txtState, string txtPhoneNum, int userID)
+        string txtState, string txtzip, string txtPhoneNum, int userID)
     {
-        myDataLayer.Update(lblUserName, txtFirstName, txtLastName, txtEmail,
-            txtAddress1, txtAddress2, txtCity, txtState, txtPhoneNum, userID);
+        myDataLayer.Update(lblUserName, txtFirstName, txtLastName, 
+            txtAddress1, txtAddress2, txtCity, txtState, txtzip, txtEmail, txtPhoneNum, userID);
     }
 
     public void InsertUser(string txtUserName, string txtPassword, string txtFirstname,

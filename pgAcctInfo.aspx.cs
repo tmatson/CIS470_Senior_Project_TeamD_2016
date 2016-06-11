@@ -53,7 +53,7 @@ public partial class pgAcctInfo : System.Web.UI.Page
         {            
             myBusinessLayer.ConfirmUpdate(lblUserName.Text, txtFirstName.Text, txtLastName.Text,
                 txtEmail.Text, txtAddress1.Text, txtAddress2.Text, txtCity.Text, txtState.Text,
-                txtPhoneNum.Text, Convert.ToInt32(Request.Cookies["CID"].Value));
+                txtZipCode.Text, txtPhoneNum.Text, Convert.ToInt32(Request.Cookies["CID"].Value));
 
         }
         catch (Exception error)

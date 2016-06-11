@@ -133,8 +133,8 @@ public class clsDataLayer
 
     //Updates **EXISTING** user in tblUserAccts - Matt S.
     public void Update(string username, string firstname, string lastname,
-        string email, string address1, string address2, string city, string state,
-        string phonenum, int userID)
+        string address1, string address2, string city, string state,
+        string zip, string email, string phonenum, int userID)
     {
         //Opens connection to database
         dbConnection.Open();
@@ -147,6 +147,7 @@ public class clsDataLayer
             + "Address2 = @address2, "
             + "City = @city, "
             + "State = @state, "
+            + "ZipCode = @zip, "
             + "Email = @email, "
             + "PhoneNumber = @phonenum, "
             + "WHERE (tblUserAcct.CustomerID = @id)";
@@ -163,6 +164,7 @@ public class clsDataLayer
         dbCommand.Parameters.Add(new OleDbParameter("@address2", address2));
         dbCommand.Parameters.Add(new OleDbParameter("@city", city));
         dbCommand.Parameters.Add(new OleDbParameter("@state", firstname));
+        dbCommand.Parameters.Add(new OleDbParameter("@zip", zip));
         dbCommand.Parameters.Add(new OleDbParameter("@email",email));
         dbCommand.Parameters.Add(new OleDbParameter("@phonenum", phonenum));
         dbCommand.Parameters.Add(new OleDbParameter("@id", userID));
