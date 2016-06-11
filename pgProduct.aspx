@@ -16,6 +16,7 @@
                 customizable for your needs. Includes 40 letters <br />
                 of free personalization per trophy.<br />
         <asp:DropDownList ID="academicsize" runat="server">
+            <asp:ListItem Value="nullacad">Trophy Size</asp:ListItem>
             <asp:ListItem Value="smacad">Small - $</asp:ListItem>
             <asp:ListItem Value="medadad">Medium - $</asp:ListItem>
             <asp:ListItem Value="lgacad">Large - $</asp:ListItem>
@@ -29,6 +30,7 @@
                 is perfect for personal awards. Includes <br />
                 40 letters of free personalization per trophy.<br />
         <asp:DropDownList ID="baseballsize" runat="server">
+            <asp:ListItem Value="nullbase">Baseball Size</asp:ListItem>
             <asp:ListItem Value="smbase">Small - $</asp:ListItem>
             <asp:ListItem Value="medbase">Medium - $</asp:ListItem>
             <asp:ListItem Value="lgbase">Large - $</asp:ListItem>
@@ -41,6 +43,7 @@
                 on riser. Includes 40 letters of <br />
                 free personalization per trophy.<br />
         <asp:DropDownList ID="basketballsize" runat="server">
+            <asp:ListItem Value="nullbasket">Basketball Size</asp:ListItem>
             <asp:ListItem Value="smbasket">Small - $</asp:ListItem>
             <asp:ListItem Value="medbasket">Medium - $</asp:ListItem>
             <asp:ListItem Value="lgbasket">Large - $</asp:ListItem>
@@ -52,6 +55,7 @@
                 Set upon a smooth mahogany-finish base featuring <br />
                 40 letters of free personalization <br />
         <asp:DropDownList ID="golfsize" runat="server">
+            <asp:ListItem Value="nullgolf">Golf Size</asp:ListItem>
             <asp:ListItem Value="smgolf">Small - $</asp:ListItem>
             <asp:ListItem Value="medgolf">Medium - $</asp:ListItem>
             <asp:ListItem Value="lggolf">Large - $</asp:ListItem>
@@ -75,6 +79,7 @@
                 <li>Tagless label for comfort</li>
             </ul>
        <asp:DropDownList ID="teeshirtcolor" runat="server">
+           <asp:ListItem Value="nullcolor">Color</asp:ListItem>
            <asp:ListItem Value="grey">Gray</asp:ListItem>
            <asp:ListItem Value="white">White</asp:ListItem>
            <asp:ListItem Value="blue">Blue</asp:ListItem>
@@ -82,6 +87,7 @@
            <asp:ListItem Value="Yellow">Yellow</asp:ListItem>
        </asp:DropDownList>
        <asp:DropDownList ID="mensize" runat="server">
+           <asp:ListItem Value="nullmens">Mens Size</asp:ListItem>
            <asp:ListItem Value="menxsmall">Mens X-Small - $</asp:ListItem>
            <asp:ListItem Value="mensm">Small - $</asp:ListItem>
            <asp:ListItem Value="menmed">Medium - $</asp:ListItem>
@@ -91,6 +97,7 @@
            <asp:ListItem Value="men3xlg">3X Large - $</asp:ListItem>
        </asp:DropDownList>
        <asp:DropDownList ID="womensize" runat="server">
+           <asp:ListItem Value="nullwomens">Womens Size</asp:ListItem>
            <asp:ListItem Value="womenxsmall">Womens X-Small - $</asp:ListItem>
            <asp:ListItem Value="womensm">Small - $</asp:ListItem>
            <asp:ListItem Value="womenmed">Medium - $</asp:ListItem>
@@ -100,6 +107,7 @@
            <asp:ListItem Value="women3xlg">3X Large - $</asp:ListItem>
        </asp:DropDownList>
        <asp:DropDownList ID="youthsize" runat="server">
+           <asp:ListItem Value="nullyouth">Youth Size</asp:ListItem>
            <asp:ListItem Value="youthxsmall">Youth X-Small - $</asp:ListItem>
            <asp:ListItem Value="youthsm">Small - $</asp:ListItem>
            <asp:ListItem Value="youthmed">Medium - $</asp:ListItem>
@@ -116,6 +124,7 @@
                 personalization, additional letters are <br />
                 just $0.25 ach.<br /> 
         <asp:DropDownList ID="plaquesize" runat="server">
+            <asp:ListItem Value="nullplaque">Plaque Size</asp:ListItem>
             <asp:ListItem Value="smplaque">7x9" Plaque - $</asp:ListItem>
             <asp:ListItem Value="medplaque">8x10" Plaque - $</asp:ListItem>
             <asp:ListItem Value="lgplaque">9x12" Plaque - $</asp:ListItem>
@@ -128,11 +137,13 @@
                 to let your special message show through! Your choice of <br />
                 gold, silver, or bronze. <br />
         <asp:DropDownList ID="teachersize" runat="server">
+            <asp:ListItem Value="nullteachersize">Teacher Size</asp:ListItem>
             <asp:ListItem Value="teachersmall">Small - $</asp:ListItem>
             <asp:ListItem Value="teachermed">Medium - $</asp:ListItem>
             <asp:ListItem Value="teacherlarge">Large - $</asp:ListItem>
         </asp:DropDownList>
         <asp:DropDownList ID="teachercolor" runat="server">
+            <asp:ListItem Value="nullteachercolor">Color</asp:ListItem>
             <asp:ListItem Value="teachergold">Gold</asp:ListItem>
             <asp:ListItem Value="teachersilver">Silver</asp:ListItem>
             <asp:ListItem Value="teacherbronze">Bronze</asp:ListItem>
@@ -145,6 +156,7 @@
                 title plate, additional letters are just $0.25 each. <br />
                 Individual plate personalization is $4.00 per plate.<br />
         <asp:DropDownList ID="perpetualplaque" runat="server">
+            <asp:ListItem Value="nullcolor">Plate Color</asp:ListItem>
             <asp:ListItem Value="bronze">Bronze Plate - $</asp:ListItem>
             <asp:ListItem Value="silver">Silver Plate - $</asp:ListItem>
         </asp:DropDownList>
