@@ -108,8 +108,8 @@ public class clsBusinessLayer
     }
 
     public void ConfirmUpdate(string lblUserName, string txtFirstName, string txtLastName,
-        string txtEmail, string txtAddress1, string txtAddress2, string txtCity,
-        string txtState, string txtzip, string txtPhoneNum, int userID)
+        string txtAddress1, string txtAddress2, string txtCity,
+        string txtState, string txtzip, string txtEmail, string txtPhoneNum, int userID)
     {
         myDataLayer.Update(lblUserName, txtFirstName, txtLastName, 
             txtAddress1, txtAddress2, txtCity, txtState, txtzip, txtEmail, txtPhoneNum, userID);
@@ -121,5 +121,11 @@ public class clsBusinessLayer
     {
         myDataLayer.InsertUser(txtUserName, txtPassword, txtFirstname, txtLastname, txtAddress1, 
             txtAddress2, txtCity, txtState, txtZipCode, txtEmail, txtPhoneNumber);      
+    }
+
+    //Select User for gridview method - TMatson MIGHT NOT BE NEEDED NOW
+    public dsDatabase SelectUsers()
+    {
+        return myDataLayer.SelectUsers();
     }
 }
