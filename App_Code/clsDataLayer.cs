@@ -211,19 +211,5 @@ public class clsDataLayer
 
         //Closes DB connection
         dbConnection.Close();        
-    }
-
-    //Get User Accounts Method - TMatson MIGHT NOT BE NEEDED NOW
-    public dsDatabase SelectUsers()
-    {
-        //Query Data from tblCompApps For ID
-        OleDbDataAdapter sqlDataAdapter = new OleDbDataAdapter("select * from tblUserAcct order by CustomerID asc;", dbConnection);
-
-        //Retrieves Data From Table
-        dsDatabase gridDataSet = new dsDatabase();
-        sqlDataAdapter.Fill(gridDataSet.tblUserAcctGV);
-
-        //Returns Data from Table
-        return gridDataSet;
-    }
+    }        
 }

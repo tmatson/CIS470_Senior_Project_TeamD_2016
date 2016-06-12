@@ -121,11 +121,5 @@ public class clsBusinessLayer
     {
         myDataLayer.InsertUser(txtUserName, txtPassword, txtFirstname, txtLastname, txtAddress1, 
             txtAddress2, txtCity, txtState, txtZipCode, txtEmail, txtPhoneNumber);      
-    }
-
-    //Select User for gridview method - TMatson MIGHT NOT BE NEEDED NOW
-    public dsDatabase SelectUsers()
-    {
-        return myDataLayer.SelectUsers();
-    }
+    }    
 }

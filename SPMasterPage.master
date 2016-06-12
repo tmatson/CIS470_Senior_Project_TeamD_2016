@@ -21,7 +21,7 @@
                 
                 <!-- Navigation bar & links-->
 		        <div class="navbar">
-				    <ul style="height: 10px; margin-bottom: 4px; width: 500px;">                                               
+				    <ul style="height: 10px; margin-bottom: 4px; width: 674px; margin-left: 15px;">                                               
 					    <li><asp:LinkButton ID="lbLogin" runat="server" CssClass="headerLink" PostBackUrl="~/pgLogin.aspx">Log In</asp:LinkButton></li>
 					    <li><asp:LinkButton ID="lbAcctCreate" runat="server" CssClass="headerLink" PostBackUrl="~/pgAcctCreate.aspx">Create Account</asp:LinkButton></li>
                         <li><asp:LinkButton ID="lbAcctInfo" runat="server" CssClass="headerLink" PostBackUrl="~/pgAcctInfo.aspx"> 
@@ -29,7 +29,8 @@
                             </asp:LinkButton></li> 
 					    <li><asp:LinkButton ID="lbOrderStatus" runat="server" CssClass="headerLink" PostBackUrl="~/pgOrderStatus.aspx">Order Status</asp:LinkButton></li>
                         <li><asp:LinkButton ID="lbReview" runat="server" CssClass="headerLink" PostBackUrl="~/pgReview.aspx">Feedback</asp:LinkButton></li>
-                        <li><asp:LinkButton ID="lbLogout" runat="server" CssClass="headerLink" OnClick="lbLogout_Click">Log Out</asp:LinkButton></li>	                  
+                        <li><asp:LinkButton ID="lbLogout" runat="server" CssClass="headerLink" OnClick="lbLogout_Click">Log Out</asp:LinkButton></li>	    
+                        <li><asp:LinkButton ID="lbAdmin" runat="server" CssClass="headerLink" PostBackUrl="~/pgAdminClient.aspx">Admin Controls</asp:LinkButton></li>              
 				    </ul>
 		        </div> 
             </div>            
@@ -67,7 +68,7 @@
 
             <!-- Company link buttons --> 
             <div class="content">
-                <ul style="width: 167px">
+                <ul style="width: 188px">
                     <li><strong>Company</strong></li><!-- Suggest moving this to a footer??-->
                     <li><asp:LinkButton ID="lbIndexFooter" runat="server" CssClass="footerLink" PostBackUrl="~/pgIndex.aspx">Home</asp:LinkButton></li>
                     <li><asp:LinkButton ID="lbProductFooter" runat="server" CssClass="footerLink" PostBackUrl="~/pgProduct.aspx">Product Catalog</asp:LinkButton></li>
@@ -79,7 +80,7 @@
 
             <!-- My account link buttons --> 
             <div class="content">
-                <ul style="width: 140px; height: 209px; margin-right: 14px;">
+                <ul style="width: 159px; height: 209px; margin-right: 11px;">
                     <li><strong>My Account</strong></li>
                     <li><asp:LinkButton ID="lbLoginFooter" runat="server" CssClass="footerLink" PostBackUrl="~/pgLogin.aspx">Log In</asp:LinkButton></li>
                     <li><asp:LinkButton ID="lbAcctCreateFooter" runat="server" CssClass="footerLink" PostBackUrl="~/pgAcctCreate.aspx">Create Account</asp:LinkButton></li>
