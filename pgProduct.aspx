@@ -21,9 +21,9 @@
                 per trophy.<br />
             <asp:DropDownList ID="academicsize" runat="server">
                 <asp:ListItem Value="nullacad">Trophy Size</asp:ListItem>
-                <asp:ListItem Value="smacad">Small - $15.00</asp:ListItem>
-                <asp:ListItem Value="medadad">Medium - $20.00</asp:ListItem>
-                <asp:ListItem Value="lgacad">Large - $25.00</asp:ListItem>
+                <asp:ListItem Value="1">Small - $15.00</asp:ListItem>
+                <asp:ListItem Value="2">Medium - $20.00</asp:ListItem>
+                <asp:ListItem Value="3">Large - $25.00</asp:ListItem>
             </asp:DropDownList></center><br />
         </div>
         <%--Image and description for 2nd trophy --%>
@@ -40,9 +40,9 @@
                 personalization per trophy.<br />
             <asp:DropDownList ID="baseballsize" runat="server">
                 <asp:ListItem Value="nullbase">Baseball Size</asp:ListItem>
-                <asp:ListItem Value="smbase">Small - $15.00</asp:ListItem>
-                <asp:ListItem Value="medbase">Medium - $20.00</asp:ListItem>
-                <asp:ListItem Value="lgbase">Large - $25.00</asp:ListItem>
+                <asp:ListItem Value="4">Small - $15.00</asp:ListItem>
+                <asp:ListItem Value="5">Medium - $20.00</asp:ListItem>
+                <asp:ListItem Value="6">Large - $25.00</asp:ListItem>
             </asp:DropDownList></center><br />
         </div>
         <%--Image and description for 3rd trophy --%>
@@ -56,9 +56,9 @@
                 free personalization per trophy.<br />
             <asp:DropDownList ID="basketballsize" runat="server">
                 <asp:ListItem Value="nullbasket">Basketball Size</asp:ListItem>
-                <asp:ListItem Value="smbasket">Small - $15.00</asp:ListItem>
-                <asp:ListItem Value="medbasket">Medium - $20.00</asp:ListItem>
-                <asp:ListItem Value="lgbasket">Large - $25.00</asp:ListItem>
+                <asp:ListItem Value="10">Small - $15.00</asp:ListItem>
+                <asp:ListItem Value="11">Medium - $20.00</asp:ListItem>
+                <asp:ListItem Value="12">Large - $25.00</asp:ListItem>
             </asp:DropDownList></center><br />
         </div>
         <%--Image and description for 4th trophy --%>
@@ -72,9 +72,9 @@
                 40 letters of free personalization <br />
             <asp:DropDownList ID="golfsize" runat="server">
                 <asp:ListItem Value="nullgolf">Golf Size</asp:ListItem>
-                <asp:ListItem Value="smgolf">Small - $15.00</asp:ListItem>
-                <asp:ListItem Value="medgolf">Medium - $20.00</asp:ListItem>
-                <asp:ListItem Value="lggolf">Large - $25.00</asp:ListItem>
+                <asp:ListItem Value="13">Small - $15.00</asp:ListItem>
+                <asp:ListItem Value="14">Medium - $20.00</asp:ListItem>
+                <asp:ListItem Value="15">Large - $25.00</asp:ListItem>
             </asp:DropDownList></center><br />
         </div>
     </div>
@@ -114,27 +114,27 @@
        </asp:DropDownList>
        <asp:DropDownList ID="mensize" runat="server">
            <asp:ListItem Value="nullmens">Mens Size</asp:ListItem>
-           <asp:ListItem Value="menxsmall">Mens X-Small - $25.00</asp:ListItem>
-           <asp:ListItem Value="mensm">Small - $25.00</asp:ListItem>
-           <asp:ListItem Value="menmed">Medium - $25.00</asp:ListItem>
-           <asp:ListItem Value="menlg">Large - $25.00</asp:ListItem>
-           <asp:ListItem Value="menxlg">X Large - $25.00</asp:ListItem>
-           <asp:ListItem Value="men2xlg">2X Large - $28.00</asp:ListItem>
-           <asp:ListItem Value="men3xlg">3X Large - $28.00</asp:ListItem>
+           <asp:ListItem Value="16">Mens X-Small - $25.00</asp:ListItem>
+           <asp:ListItem Value="17">Small - $25.00</asp:ListItem>
+           <asp:ListItem Value="18">Medium - $25.00</asp:ListItem>
+           <asp:ListItem Value="19">Large - $25.00</asp:ListItem>
+           <asp:ListItem Value="20">X Large - $25.00</asp:ListItem>
+           <asp:ListItem Value="21">2X Large - $28.00</asp:ListItem>
+           <asp:ListItem Value="22">3X Large - $28.00</asp:ListItem>
            <asp:ListItem Value="nullwomens">Womens Size</asp:ListItem>
-           <asp:ListItem Value="womenxsmall">Womens X-Small - $25.00</asp:ListItem>
-           <asp:ListItem Value="womensm">Small - $25.00</asp:ListItem>
-           <asp:ListItem Value="womenmed">Medium - $25.00</asp:ListItem>
-           <asp:ListItem Value="womenlg">Large - $25.00</asp:ListItem>
-           <asp:ListItem Value="womenxlg">X Large - $25.00</asp:ListItem>
-           <asp:ListItem Value="women2xlg">2X Large - $28.00</asp:ListItem>
-           <asp:ListItem Value="women3xlg">3X Large - $28.00</asp:ListItem>
+           <asp:ListItem Value="23">Womens X-Small - $25.00</asp:ListItem>
+           <asp:ListItem Value="24">Small - $25.00</asp:ListItem>
+           <asp:ListItem Value="25">Medium - $25.00</asp:ListItem>
+           <asp:ListItem Value="26">Large - $25.00</asp:ListItem>
+           <asp:ListItem Value="27">X Large - $25.00</asp:ListItem>
+           <asp:ListItem Value="28">2X Large - $28.00</asp:ListItem>
+           <asp:ListItem Value="29">3X Large - $28.00</asp:ListItem>
            <asp:ListItem Value="nullyouth">Youth Size</asp:ListItem>
-           <asp:ListItem Value="youthxsmall">Youth X-Small - $20.00</asp:ListItem>
-           <asp:ListItem Value="youthsm">Small - $20.00</asp:ListItem>
-           <asp:ListItem Value="youthmed">Medium - $20.00</asp:ListItem>
-           <asp:ListItem Value="youthlg">Large - $20.00</asp:ListItem>
-           <asp:ListItem Value="youthxlg">X Large - $20.00</asp:ListItem>
+           <asp:ListItem Value="30">Youth X-Small - $20.00</asp:ListItem>
+           <asp:ListItem Value="31">Small - $20.00</asp:ListItem>
+           <asp:ListItem Value="32">Medium - $20.00</asp:ListItem>
+           <asp:ListItem Value="33">Large - $20.00</asp:ListItem>
+           <asp:ListItem Value="34">X Large - $20.00</asp:ListItem>
        </asp:DropDownList>
     </div>
     <div class="plaques" style="height:475px; width:1200px; float:left; padding:25px; border:solid; margin-top:5px">
@@ -150,9 +150,9 @@
                 just $0.25 ach.<br /> 
             <asp:DropDownList ID="plaquesize" runat="server">
                 <asp:ListItem Value="nullplaque">Plaque Size</asp:ListItem>
-                <asp:ListItem Value="smplaque">7x9" Plaque - $15.00</asp:ListItem>
-                <asp:ListItem Value="medplaque">8x10" Plaque - $20.00</asp:ListItem>
-                <asp:ListItem Value="lgplaque">9x12" Plaque - $25.00</asp:ListItem>
+                <asp:ListItem Value="35">7x9" Plaque - $15.00</asp:ListItem>
+                <asp:ListItem Value="36">8x10" Plaque - $20.00</asp:ListItem>
+                <asp:ListItem Value="37">9x12" Plaque - $25.00</asp:ListItem>
             </asp:DropDownList></center><br />
         </div>
         <%-- Image and Description for 2nd plaque --%>
@@ -166,9 +166,9 @@
                 gold, silver, or bronze. <br />
             <asp:DropDownList ID="teachersize" runat="server">
                 <asp:ListItem Value="nullteachersize">Teacher Size</asp:ListItem>
-                <asp:ListItem Value="teachersmall">Small - $15.00</asp:ListItem>
-                <asp:ListItem Value="teachermed">Medium - $20.00</asp:ListItem>
-                <asp:ListItem Value="teacherlarge">Large - $25.00</asp:ListItem>
+                <asp:ListItem Value="38">Small - $15.00</asp:ListItem>
+                <asp:ListItem Value="39">Medium - $20.00</asp:ListItem>
+                <asp:ListItem Value="40">Large - $25.00</asp:ListItem>
             </asp:DropDownList>
             <asp:DropDownList ID="teachercolor" runat="server">
                 <asp:ListItem Value="nullteachercolor">Color</asp:ListItem>
@@ -188,8 +188,8 @@
                 Individual plate personalization is $4.00 per plate.<br />
             <asp:DropDownList ID="perpetualplaque" runat="server">
                 <asp:ListItem Value="nullcolor">Plate Color</asp:ListItem>
-                <asp:ListItem Value="bronze">Bronze Plate - $25.00</asp:ListItem>
-                <asp:ListItem Value="silver">Silver Plate - $25.00</asp:ListItem>
+                <asp:ListItem Value="41">Bronze Plate - $25.00</asp:ListItem>
+                <asp:ListItem Value="42">Silver Plate - $25.00</asp:ListItem>
             </asp:DropDownList></center>
         </div>
     </div>
