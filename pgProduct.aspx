@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">  
             <h1>Trophies, Tee-shirts, and Plaques</h1>
     
-    <div class="trophy" style="height:475px; width:1200px; float:left; padding:25px; border:solid">
+    <div class="trophy" style="height:500px; width:1200px; float:left; padding:25px; border:solid">
         <h2>Trophies</h2>
         <div class="trophy1" style="float:left; padding:20px">
         <%--Image and description for first trophy --%>

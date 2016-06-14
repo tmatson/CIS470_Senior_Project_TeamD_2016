@@ -291,3 +291,8 @@ a.footerLink:active {
 }
 
 .GridViewEditRow {width:5px;} 
+
+.trophy, .trophy1, .trophy2, .trophy3, .trophy4, .Teeshirt, .plaques, .plaque1, .plaque2, .plaque3{
+    color: darkblue;
+    background-color: white;
+}
