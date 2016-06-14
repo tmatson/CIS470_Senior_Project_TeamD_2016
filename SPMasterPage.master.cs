@@ -23,6 +23,25 @@ public partial class SPMasterPage : System.Web.UI.MasterPage
             lbOrderStatusFooter.Visible = false;
             lbReview.Visible = false;
             lbReviewFooter.Visible = false;
+            lbAdmin.Visible = false;
+        }
+        else if (Request.Cookies["SecurityLevel"].Value == "A")
+        {
+            lbLogin.Visible = false;
+            lbLoginFooter.Visible = false;
+            lbLogout.Visible = true;
+            lbLogoutFooter.Visible = true;
+            lblUserName.Visible = true;
+            lblUserName.Text = Request.Cookies["User"].Value;
+            lblUserNameFooter.Visible = true;
+            lblUserNameFooter.Text = Request.Cookies["User"].Value;
+            lbAcctCreate.Visible = false;
+            lbAcctCreateFooter.Visible = false;
+            lbOrderStatus.Visible = true;
+            lbOrderStatusFooter.Visible = true;
+            lbReview.Visible = true;
+            lbReviewFooter.Visible = true;
+            lbAdmin.Visible = true;
         }
         else
         {
@@ -40,6 +59,7 @@ public partial class SPMasterPage : System.Web.UI.MasterPage
             lbOrderStatusFooter.Visible = true;
             lbReview.Visible = true;
             lbReviewFooter.Visible = true;
+            lbAdmin.Visible = false;
         }
     }
 

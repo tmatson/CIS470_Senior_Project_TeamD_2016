@@ -37,12 +37,23 @@ public class clsBusinessLayer
         currentSession[username] = userAttempts;
 
         //If Statement Whether to Lock Account
-        if ((userAttempts >= 3) || (totalAttempts >= 6))
+//       if ((userAttempts >= 3) || (totalAttempts >= 6))
+//       {
+//            currentSession["LockedSession"] = true;
+//            myDataLayer.LockUserAccount(username);
+//        }
+
+        //
+        //  Chris Gormley
+        //  06/12/2016
+        //  Changed logic so that after total attempts does not lock out user.
+        //
+        if (((userAttempts >= 3) || (totalAttempts >= 6)) && (!isValid))
         {
             currentSession["LockedSession"] = true;
             myDataLayer.LockUserAccount(username);
         }
-        return isValid;
+            return isValid;
     }
 
     //Stores and Finds user information upon login or creating account
@@ -121,11 +132,5 @@ public class clsBusinessLayer
     {
         myDataLayer.InsertUser(txtUserName, txtPassword, txtFirstname, txtLastname, txtAddress1, 
             txtAddress2, txtCity, txtState, txtZipCode, txtEmail, txtPhoneNumber);      
-    }
-
-    //Select User for gridview method - TMatson MIGHT NOT BE NEEDED NOW
-    public dsDatabase SelectUsers()
-    {
-        return myDataLayer.SelectUsers();
-    }
+    }    
 }
