@@ -34,7 +34,7 @@
         <p id="message3" runat="server" style="color:red" visible="false">You did not pick a Media Type!</p>
         <p id="message4" runat="server" style="color:red" visible="false">You did not enter a Review!</p>
     </div>
-    <div id="reviews">
+    <div id="reviews" runat="server">
         <h3 id="emptyMessage">Sorry! Looks like no reviews have been submitted. Be the first to review our services!</h3>
     </div>
 </asp:Content>
