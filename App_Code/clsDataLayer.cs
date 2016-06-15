@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.OleDb;
 using System.Net;
 using System.Data;
+using System.Data.SqlClient;
 
 /// <summary>
 /// Summary description for clsDataLayer
@@ -87,7 +88,21 @@ public class clsDataLayer
         //Returns Data from Table
         return userDataSet;
     }
-    
+
+    //Convenient method to get username *FOR USE WITH GetReview*
+    public string GetUsername(int customerID)
+    {
+        string username;
+        string sqlStmt = "SELECT Username FROM tblUserAcct WHERE CustomerID = @cid";
+
+        //retrieve username
+        OleDbCommand command = new OleDbCommand(sqlStmt, dbConnection);
+        command.Parameters.Add(new OleDbParameter("@cid", customerID));
+        username = (string)command.ExecuteScalar();
+
+        return username;
+    }
+
     //Store review information, also runs a query to get customer id and product id
     public void StoreReview(string username, string jobType, string mediaType, string comment)
     {
@@ -129,7 +144,30 @@ public class clsDataLayer
         dbConnection.Close();
     }
 
-    
+    //Get rows from tblReview to populate pgReview upon loadup
+    public List<Review> GetReview()
+    {
+        var listOfReview = new List<Review>();
+        int reviewAmt = 0;
+
+        dbConnection.Open();
+        string sqlStmt = "SELECT * FROM tblReview ORDER BY CustomerID";
+        OleDbCommand command = new OleDbCommand(sqlStmt, dbConnection);
+        var reader = command.ExecuteReader();
+        while (reader.Read() && reviewAmt < 5)
+        {
+            var review = new Review();
+            review.customerID = (int)reader["CustomerID"];
+            review.username = this.GetUsername(review.customerID);
+            review.comment = (string)reader["Comments"];
+            review.reviewDate = (DateTime)reader["ReviewDate"];
+            reviewAmt++;
+            listOfReview.Add(review);
+        }
+        dbConnection.Close();
+
+        return listOfReview;
+    }
 
     //Updates **EXISTING** user in tblUserAccts - Matt S.
     public void Update(string username, string firstname, string lastname,
@@ -212,4 +250,13 @@ public class clsDataLayer
         //Closes DB connection
         dbConnection.Close();        
     }        
+}
+
+//Object representing a review
+public class Review
+{
+    public int customerID { get; set; }
+    public string username { get; set; }
+    public string comment { get; set; }
+    public DateTime reviewDate { get; set; }
 }

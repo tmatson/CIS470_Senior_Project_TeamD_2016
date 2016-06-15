@@ -10,7 +10,17 @@ public partial class pgReview : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //This will eventually include database pulls that populate the page with reviews upon loadup
+        string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|/WSCDatabase_mdb.mdb";
 
+        //Declaring new instance of data layer
+        clsDataLayer myDataLayer = new clsDataLayer(connectionString);
+
+        List<Review> review = myDataLayer.GetReview();
+
+        for(int i = 0; i < review.Count; i++)
+        {
+            //still thinking about how exactly I want to populate the page
+        }
     }
 
     protected void btnSubmitReview_Click(object sender, EventArgs e)
