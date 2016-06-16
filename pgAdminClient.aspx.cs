@@ -147,8 +147,11 @@ public partial class pgAdminClient : System.Web.UI.Page
         //Adding columns to gridview
         BoundField DField = new BoundField(); DField.DataField = "OrderID"; DField.HeaderText = "OrderID"; DField.InsertVisible = false; DField.ReadOnly = true; DField.SortExpression = "OrderID"; gvUniversal.Columns.Add(DField);
         DField = new BoundField(); DField.DataField = "CustomerID"; DField.HeaderText = "CustomerID"; DField.SortExpression = "CustomerID"; gvUniversal.Columns.Add(DField);
+        DField = new BoundField(); DField.DataField = "Username"; DField.HeaderText = "Username"; DField.SortExpression = "Username"; gvUniversal.Columns.Add(DField);
         DField = new BoundField(); DField.DataField = "OrderDate"; DField.HeaderText = "OrderDate"; DField.SortExpression = "OrderDate"; gvUniversal.Columns.Add(DField);
         DField = new BoundField(); DField.DataField = "OrderStatus"; DField.HeaderText = "OrderStatus"; DField.SortExpression = "OrderStatus"; gvUniversal.Columns.Add(DField);
+        DField = new BoundField(); DField.DataField = "ShipDate"; DField.HeaderText = "ShipDate"; DField.SortExpression = "ShipDate"; gvUniversal.Columns.Add(DField);
+        DField = new BoundField(); DField.DataField = "TotalCost"; DField.HeaderText = "TotalCost"; DField.SortExpression = "TotalCost"; gvUniversal.Columns.Add(DField);
 
         //Edit and delete columns
         CommandField CField = new CommandField(); CField.ShowEditButton = true; gvUniversal.Columns.Add(CField);
@@ -171,9 +174,11 @@ public partial class pgAdminClient : System.Web.UI.Page
         //Adding columns to gridview
         BoundField DField = new BoundField(); DField.DataField = "OrderID"; DField.HeaderText = "OrderID"; DField.InsertVisible = false; DField.ReadOnly = true; DField.SortExpression = "OrderID"; gvUniversal.Columns.Add(DField);
         DField = new BoundField(); DField.DataField = "CustomerID"; DField.HeaderText = "CustomerID"; DField.SortExpression = "CustomerID"; gvUniversal.Columns.Add(DField);
+        DField = new BoundField(); DField.DataField = "Username"; DField.HeaderText = "Username"; DField.SortExpression = "Username"; gvUniversal.Columns.Add(DField);
         DField = new BoundField(); DField.DataField = "OrderDate"; DField.HeaderText = "OrderDate"; DField.SortExpression = "OrderDate"; gvUniversal.Columns.Add(DField);
         DField = new BoundField(); DField.DataField = "OrderStatus"; DField.HeaderText = "OrderStatus"; DField.SortExpression = "OrderStatus"; gvUniversal.Columns.Add(DField);
-
+        DField = new BoundField(); DField.DataField = "ShipDate"; DField.HeaderText = "ShipDate"; DField.SortExpression = "ShipDate"; gvUniversal.Columns.Add(DField);
+        DField = new BoundField(); DField.DataField = "TotalCost"; DField.HeaderText = "TotalCost"; DField.SortExpression = "TotalCost"; gvUniversal.Columns.Add(DField);
         //Edit and delete columns
         CommandField CField = new CommandField(); CField.ShowEditButton = true; gvUniversal.Columns.Add(CField);
         CField = new CommandField(); CField.ShowDeleteButton = true; gvUniversal.Columns.Add(CField);
@@ -195,8 +200,11 @@ public partial class pgAdminClient : System.Web.UI.Page
         //Adding columns to gridview
         BoundField DField = new BoundField(); DField.DataField = "OrderID"; DField.HeaderText = "OrderID"; DField.InsertVisible = false; DField.ReadOnly = true; DField.SortExpression = "OrderID"; gvUniversal.Columns.Add(DField);
         DField = new BoundField(); DField.DataField = "CustomerID"; DField.HeaderText = "CustomerID"; DField.SortExpression = "CustomerID"; gvUniversal.Columns.Add(DField);
+        DField = new BoundField(); DField.DataField = "Username"; DField.HeaderText = "Username"; DField.SortExpression = "Username"; gvUniversal.Columns.Add(DField);
         DField = new BoundField(); DField.DataField = "OrderDate"; DField.HeaderText = "OrderDate"; DField.SortExpression = "OrderDate"; gvUniversal.Columns.Add(DField);
         DField = new BoundField(); DField.DataField = "OrderStatus"; DField.HeaderText = "OrderStatus"; DField.SortExpression = "OrderStatus"; gvUniversal.Columns.Add(DField);
+        DField = new BoundField(); DField.DataField = "ShipDate"; DField.HeaderText = "ShipDate"; DField.SortExpression = "ShipDate"; gvUniversal.Columns.Add(DField);
+        DField = new BoundField(); DField.DataField = "TotalCost"; DField.HeaderText = "TotalCost"; DField.SortExpression = "TotalCost"; gvUniversal.Columns.Add(DField);
 
         //Edit and delete columns
         CommandField CField = new CommandField(); CField.ShowEditButton = true; gvUniversal.Columns.Add(CField);
@@ -219,14 +227,44 @@ public partial class pgAdminClient : System.Web.UI.Page
         //Adding columns to gridview
         BoundField DField = new BoundField(); DField.DataField = "OrderID"; DField.HeaderText = "OrderID"; DField.InsertVisible = false; DField.ReadOnly = true; DField.SortExpression = "OrderID"; gvUniversal.Columns.Add(DField);
         DField = new BoundField(); DField.DataField = "CustomerID"; DField.HeaderText = "CustomerID"; DField.SortExpression = "CustomerID"; gvUniversal.Columns.Add(DField);
+        DField = new BoundField(); DField.DataField = "Username"; DField.HeaderText = "Username"; DField.SortExpression = "Username"; gvUniversal.Columns.Add(DField);
         DField = new BoundField(); DField.DataField = "OrderDate"; DField.HeaderText = "OrderDate"; DField.SortExpression = "OrderDate"; gvUniversal.Columns.Add(DField);
         DField = new BoundField(); DField.DataField = "OrderStatus"; DField.HeaderText = "OrderStatus"; DField.SortExpression = "OrderStatus"; gvUniversal.Columns.Add(DField);
+        DField = new BoundField(); DField.DataField = "ShipDate"; DField.HeaderText = "ShipDate"; DField.SortExpression = "ShipDate"; gvUniversal.Columns.Add(DField);
+        DField = new BoundField(); DField.DataField = "TotalCost"; DField.HeaderText = "TotalCost"; DField.SortExpression = "TotalCost"; gvUniversal.Columns.Add(DField);
 
         //Edit and delete columns
         CommandField CField = new CommandField(); CField.ShowEditButton = true; gvUniversal.Columns.Add(CField);
         CField = new CommandField(); CField.ShowDeleteButton = true; gvUniversal.Columns.Add(CField);
 
         gvUniversal.DataSourceID = "SDSComOrder";
+        gvUniversal.DataBind();
+    }
+
+    //Button Click - Get orders by username for gridview
+    protected void btnOrderByUser_Click(object sender, EventArgs e)
+    {
+        //Clear Gridview
+        gvUniversal.Columns.Clear();
+
+        //Gridview properties
+        gvUniversal.AutoGenerateColumns = false;
+        gvUniversal.DataKeyNames = new string[] { "OrderID" };
+
+        //Adding columns to gridview
+        BoundField DField = new BoundField(); DField.DataField = "OrderID"; DField.HeaderText = "OrderID"; DField.InsertVisible = false; DField.ReadOnly = true; DField.SortExpression = "OrderID"; gvUniversal.Columns.Add(DField);
+        DField = new BoundField(); DField.DataField = "CustomerID"; DField.HeaderText = "CustomerID"; DField.SortExpression = "CustomerID"; gvUniversal.Columns.Add(DField);
+        DField = new BoundField(); DField.DataField = "Username"; DField.HeaderText = "Username"; DField.SortExpression = "Username"; gvUniversal.Columns.Add(DField);
+        DField = new BoundField(); DField.DataField = "OrderDate"; DField.HeaderText = "OrderDate"; DField.SortExpression = "OrderDate"; gvUniversal.Columns.Add(DField);
+        DField = new BoundField(); DField.DataField = "OrderStatus"; DField.HeaderText = "OrderStatus"; DField.SortExpression = "OrderStatus"; gvUniversal.Columns.Add(DField);
+        DField = new BoundField(); DField.DataField = "ShipDate"; DField.HeaderText = "ShipDate"; DField.SortExpression = "ShipDate"; gvUniversal.Columns.Add(DField);
+        DField = new BoundField(); DField.DataField = "TotalCost"; DField.HeaderText = "TotalCost"; DField.SortExpression = "TotalCost"; gvUniversal.Columns.Add(DField);
+
+        //Edit and delete columns
+        CommandField CField = new CommandField(); CField.ShowEditButton = true; gvUniversal.Columns.Add(CField);
+        CField = new CommandField(); CField.ShowDeleteButton = true; gvUniversal.Columns.Add(CField);
+
+        gvUniversal.DataSourceID = "SDSOrderByUser";
         gvUniversal.DataBind();
     }
 
@@ -244,6 +282,7 @@ public partial class pgAdminClient : System.Web.UI.Page
         BoundField DField = new BoundField(); DField.DataField = "OrderID"; DField.HeaderText = "OrderID"; DField.InsertVisible = false; DField.ReadOnly = true; DField.SortExpression = "OrderID"; gvUniversal.Columns.Add(DField);
         DField = new BoundField(); DField.DataField = "ProductID"; DField.HeaderText = "ProductID"; DField.InsertVisible = false; DField.ReadOnly = true; DField.SortExpression = "ProductID"; gvUniversal.Columns.Add(DField);
         DField = new BoundField(); DField.DataField = "MessageContent"; DField.HeaderText = "MessageContent"; DField.SortExpression = "MessageContent"; gvUniversal.Columns.Add(DField);
+        DField = new BoundField(); DField.DataField = "Color"; DField.HeaderText = "Color"; DField.SortExpression = "Color"; gvUniversal.Columns.Add(DField);
         DField = new BoundField(); DField.DataField = "Quantity"; DField.HeaderText = "Quantity"; DField.SortExpression = "Quantity"; gvUniversal.Columns.Add(DField);
         DField = new BoundField(); DField.DataField = "Price"; DField.HeaderText = "Price"; DField.SortExpression = "Price"; gvUniversal.Columns.Add(DField);
 
