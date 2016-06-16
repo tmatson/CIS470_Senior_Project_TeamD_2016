@@ -9,7 +9,7 @@ public partial class pgReview : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //This will eventually include database pulls that populate the page with reviews upon loadup
+        //populate the page with reviews upon loadup
         string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|/WSCDatabase_mdb.mdb";
         string username;
         string comment;
@@ -20,13 +20,17 @@ public partial class pgReview : System.Web.UI.Page
 
         List<Review> review = myDataLayer.GetReview();
 
-        for(int i = 0; i < review.Count; i++)
+        if (review.Count == 0) { reviews.InnerHtml = "<h3>Sorry! Looks like no reviews have been submitted. Be the first to review our services!</h3>"; }
+        else
         {
-            //still thinking about how exactly I want to populate the page
-            username = review[i].username;
-            comment = review[i].comment;
-            reviewDate = review[i].reviewDate;
-            reviews.InnerHtml = reviews.InnerHtml + "";
+            reviews.InnerHtml = "";
+            for (int i = 0; i < review.Count; i++)
+            {
+                username = review[i].username;
+                comment = review[i].comment;
+                reviewDate = review[i].reviewDate;
+                reviews.InnerHtml = reviews.InnerHtml + "<p>" + username + " " + reviewDate + "</p>" + "<p>" + comment + "</p><br />";
+            }
         }
     }
 
@@ -47,10 +51,8 @@ public partial class pgReview : System.Web.UI.Page
         if (rbtnJob.SelectedValue == "1") { jobType = "Printing"; }
         else if (rbtnJob.SelectedValue == "2") { jobType = "Engraving"; }
 
-        //Set the mediaType based on selected value in radio button
-        if (rbtnMedia.SelectedValue == "1") { mediaType = "Clothing"; }
-        else if (rbtnMedia.SelectedValue == "2") { mediaType = "Plaque"; }
-        else if (rbtnMedia.SelectedValue == "3") { mediaType = "Trophy"; }
+        //Set the mediaType based on the dropdownlist selection
+        mediaType = ddlMedia.SelectedValue.ToString();
 
         //Set the comment based on the text entered in the textarea
         if(Request.Form["txtComment"] != null) { comment = Request.Form["txtComment"]; }
