@@ -13,12 +13,51 @@
             <asp:ListItem Text="Engraving" Value="2"></asp:ListItem>
         </asp:RadioButtonList>
         <br />
-        <asp:Label ID="lblMedia" runat="server" Text="Media Type"></asp:Label>
-        <asp:RadioButtonList ID="rbtnMedia" runat="server" RepeatDirection="Horizontal" align="center">
-            <asp:ListItem Text="Clothing" Value="1"></asp:ListItem>
-            <asp:ListItem Text="Plaque" Value="2"></asp:ListItem>
-            <asp:ListItem Text="Trophy" Value="3"></asp:ListItem>
-        </asp:RadioButtonList>
+        <asp:Label ID="lblMedia" runat="server" Text="Media Type: "></asp:Label>
+        <asp:DropDownList ID ="ddlMedia" runat="server">
+            <asp:ListItem>Small Academic Trophy</asp:ListItem>
+            <asp:ListItem>Medium Academic Trophy</asp:ListItem>
+            <asp:ListItem>Large Academic Trophy</asp:ListItem>
+            <asp:ListItem>Small Baseball Player Trophy</asp:ListItem>
+            <asp:ListItem>Medium Baseball Player Trophy</asp:ListItem>
+            <asp:ListItem>Large Baseball Player Trophy</asp:ListItem>
+            <asp:ListItem>Small Baseball Trophy</asp:ListItem>
+            <asp:ListItem>Medium Baseball Trophy</asp:ListItem>
+            <asp:ListItem>Large Baseball Trophy</asp:ListItem>
+            <asp:ListItem>Small Basketball Trophy</asp:ListItem>
+            <asp:ListItem>Medium Basketball Trophy</asp:ListItem>
+            <asp:ListItem>Large Basketball Trophy</asp:ListItem>
+            <asp:ListItem>Small Golf Trophy</asp:ListItem>
+            <asp:ListItem>Medium Golf Trophy</asp:ListItem>
+            <asp:ListItem>Large Golf Trophy</asp:ListItem>
+            <asp:ListItem>X-Small Men&#39;s T-Shirt</asp:ListItem>
+            <asp:ListItem>Small Men&#39;s T-shirt</asp:ListItem>
+            <asp:ListItem>Medium Men&#39;s T-Shirt</asp:ListItem>
+            <asp:ListItem>Large Men&#39;s T-Shirt</asp:ListItem>
+            <asp:ListItem>X-Large Men&#39;s T-Shirt</asp:ListItem>
+            <asp:ListItem>2XL Men&#39;s T-Shirt</asp:ListItem>
+            <asp:ListItem>3XL Men&#39;s T-Shirt</asp:ListItem>
+            <asp:ListItem>X-Small Women&#39;s T-Shirt</asp:ListItem>
+            <asp:ListItem>Small Women&#39;s T-Shirt</asp:ListItem>
+            <asp:ListItem>Medium Women&#39;s T-Shirt</asp:ListItem>
+            <asp:ListItem>Large Women&#39;s T-Shirt</asp:ListItem>
+            <asp:ListItem>X-Large Women&#39;s T-Shirt</asp:ListItem>
+            <asp:ListItem>2XL Women&#39;s T-Shirt</asp:ListItem>
+            <asp:ListItem>3XL Women&#39;s T-Shirt</asp:ListItem>
+            <asp:ListItem>X-Small Youth T-Shirt</asp:ListItem>
+            <asp:ListItem>Small Youth T-Shirt</asp:ListItem>
+            <asp:ListItem>Medium Youth T-Shirt</asp:ListItem>
+            <asp:ListItem>Large Youth T-Shirt</asp:ListItem>
+            <asp:ListItem>X-Large Youth T-Shirt</asp:ListItem>
+            <asp:ListItem>Small Classic Plaque</asp:ListItem>
+            <asp:ListItem>Medium Classic Plaque</asp:ListItem>
+            <asp:ListItem>Large Classic Plaque</asp:ListItem>
+            <asp:ListItem>Small Golden Apple Plaque</asp:ListItem>
+            <asp:ListItem>Medium Golden Apple Plaque</asp:ListItem>
+            <asp:ListItem>Large Golden Apple Plaque</asp:ListItem>
+            <asp:ListItem>Bronze Honoree of the Month</asp:ListItem>
+            <asp:ListItem>Silver Honoree of the Month</asp:ListItem>
+        </asp:DropDownList>
         <br />
         <asp:Label ID="lblComment" runat="server" Text="Enter Your Comment Here:"></asp:Label>
         <br />
