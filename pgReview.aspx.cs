@@ -29,7 +29,7 @@ public partial class pgReview : System.Web.UI.Page
                 username = review[i].username;
                 comment = review[i].comment;
                 reviewDate = review[i].reviewDate;
-                reviews.InnerHtml = reviews.InnerHtml + "<p>" + username + " " + reviewDate + "</p>" + "<p>" + comment + "</p><br />";
+                reviews.InnerHtml = reviews.InnerHtml + "<p>" + username + " " + reviewDate + "<br />" + comment + "</p>";
             }
         }
     }

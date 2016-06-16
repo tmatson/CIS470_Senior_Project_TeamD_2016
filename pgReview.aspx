@@ -61,7 +61,7 @@
         <br />
         <asp:Label ID="lblComment" runat="server" Text="Enter Your Comment Here:"></asp:Label>
         <br />
-        <textarea id="txtComment" name="txtComment" cols="20" rows="2"></textarea>
+        <textarea id="txtComment" name="txtComment" cols="20" rows="2" maxlength="255"></textarea>
         <br />
         <asp:Button ID="btnSubmitReview" runat="server" Text="Submit" OnClick="btnSubmitReview_Click" />
         <br />
