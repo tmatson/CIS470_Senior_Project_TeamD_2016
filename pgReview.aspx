@@ -3,16 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <!-- Pretty straightforward; labels, textboxes and radio buttons in order to capture data for a review. -->
     <div style="margin:auto; text-align:center">
         <h1>Did you like our service? Share your experience with our product!</h1>
         <br />
-<%--        <asp:Label ID="lblJob" runat="server" Text="Job Type"></asp:Label>
-        <asp:RadioButtonList ID="rbtnJob" runat="server" RepeatDirection="Horizontal" align="center">
-            <asp:ListItem Text="Printing" Value="1"></asp:ListItem>
-            <asp:ListItem Text="Engraving" Value="2"></asp:ListItem>
-        </asp:RadioButtonList>
-        <br />--%>
         <asp:Label ID="lblMedia" runat="server" Text="Media Type: "></asp:Label>
         <asp:DropDownList ID ="ddlMedia" runat="server">
             <asp:ListItem>Small Academic Trophy</asp:ListItem>
@@ -75,6 +68,12 @@
     </div>
     <div id="reviews" runat="server">
         <h3 id="emptyMessage">Sorry! Looks like no reviews have been submitted. Be the first to review our services!</h3>
+    </div>
+    <div>
+        <asp:GridView ID="gvAllReviews" runat="server" HorizontalAlign="Center" style="margin-top: 10px"></asp:GridView>
+        <asp:SqlDataSource ID="SDSReviews" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT tblReview.CustomerID, tblReview.ProductID, tblReview.MediaType, tblreview.Comments, tblReview.ReviewDate, tblUserAcct.Username FROM tblReview INNER JOIN tblUserAcct ON tblReview.CustomerID = tblUserAcct.CustomerID" />
+        <asp:Button ID="btnReviewGrid" runat="server" Text="All Reviews" OnClick="btnReviewGrid_Click" />
+        <asp:Button ID="btnHideGrid" runat="server" Text="Hide Grid" Visible="false" OnClick="btnHideGrid_Click" />
     </div>
 </asp:Content>
 
