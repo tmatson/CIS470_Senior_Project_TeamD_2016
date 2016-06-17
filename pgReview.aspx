@@ -7,12 +7,12 @@
     <div style="margin:auto; text-align:center">
         <h1>Did you like our service? Share your experience with our product!</h1>
         <br />
-        <asp:Label ID="lblJob" runat="server" Text="Job Type"></asp:Label>
+<%--        <asp:Label ID="lblJob" runat="server" Text="Job Type"></asp:Label>
         <asp:RadioButtonList ID="rbtnJob" runat="server" RepeatDirection="Horizontal" align="center">
             <asp:ListItem Text="Printing" Value="1"></asp:ListItem>
             <asp:ListItem Text="Engraving" Value="2"></asp:ListItem>
         </asp:RadioButtonList>
-        <br />
+        <br />--%>
         <asp:Label ID="lblMedia" runat="server" Text="Media Type: "></asp:Label>
         <asp:DropDownList ID ="ddlMedia" runat="server">
             <asp:ListItem>Small Academic Trophy</asp:ListItem>
