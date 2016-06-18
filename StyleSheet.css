@@ -296,3 +296,10 @@ a.footerLink:active {
     color: darkblue;
     background-color: white;
 }
+
+/* Added CSS for centering the order page - Chris Gormley */
+#order_content {
+    width: 700px; 
+    margin-left: auto;
+    margin-right: auto;
+}

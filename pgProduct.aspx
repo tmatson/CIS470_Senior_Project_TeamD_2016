@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">  
             <h1>Trophies, Tee-shirts, and Plaques</h1>
     
-    <div class="trophy" style="height:500px; width:1200px; float:left; padding:25px; border:solid">
+    <div class="trophy" style="height:620px; width:1200px; float:left; padding:25px; border:solid">
         <h2>Trophies</h2>
         <div class="trophy1" style="float:left; padding:20px">
         <%--Image and description for first trophy --%>
@@ -19,12 +19,18 @@
                 customizable for your needs. Includes <br />
                 40 letters of free personalization <br />
                 per trophy.<br />
+                <asp:TextBox ID="AcamedicPersonalization" runat="server" TextMode="MultiLine" Rows="3" Columns="26" />
+                <br /><br />
             <asp:DropDownList ID="academicsize" runat="server">
                 <asp:ListItem Value="nullacad">Trophy Size</asp:ListItem>
                 <asp:ListItem Value="1">Small - $15.00</asp:ListItem>
                 <asp:ListItem Value="2">Medium - $20.00</asp:ListItem>
                 <asp:ListItem Value="3">Large - $25.00</asp:ListItem>
-            </asp:DropDownList></center><br />
+            </asp:DropDownList>&nbsp;
+                <asp:Label ID="AcademicQtyLabel" runat="server" Text="Quantity: " CssClass="quantityLabel"/>&nbsp;
+                <asp:TextBox ID="AcademicQuantity" runat="server" MaxLength="3" Text="1" Width="20" /><br /><br />
+                <asp:Button ID="AcademicAddButton" runat="server" Text="Add to Cart" OnClick="AcademicAddButton_Click" />
+            </center><br />
         </div>
         <%--Image and description for 2nd trophy --%>
         <div class="trophy2" style="float:left; padding:20px">
@@ -38,12 +44,17 @@
                 the large size is perfect for personal <br />
                 awards. Includes 40 letters of free <br />
                 personalization per trophy.<br />
+                <asp:TextBox ID="BaseballPersonalization" runat="server" TextMode="MultiLine" Rows="3" Columns="26" /><br /><br />
             <asp:DropDownList ID="baseballsize" runat="server">
                 <asp:ListItem Value="nullbase">Baseball Size</asp:ListItem>
                 <asp:ListItem Value="4">Small - $15.00</asp:ListItem>
                 <asp:ListItem Value="5">Medium - $20.00</asp:ListItem>
                 <asp:ListItem Value="6">Large - $25.00</asp:ListItem>
-            </asp:DropDownList></center><br />
+            </asp:DropDownList>
+                &nbsp;<asp:Label ID="BaseBallQtyLabel" runat="server" Text="Quantity: " CssClass="quantityLabel" />&nbsp;
+                <asp:TextBox ID="BaseballQuantity" runat="server" Text="1" Width="20" MaxLength="3" /><br /><br />
+                <asp:Button ID="BaseballAddButton" runat="server" Text="Add to Cart" OnClick="BaseballAddButton_Click" />
+            </center><br />
         </div>
         <%--Image and description for 3rd trophy --%>
         <div class="trophy3" style="float:left; padding:20px">
@@ -54,12 +65,17 @@
                 finish plate, & detailed basketball <br />
                 on riser. Includes 40 letters of <br />
                 free personalization per trophy.<br />
+                <asp:TextBox ID="BasketballPersonalization" runat="server" TextMode="MultiLine" Rows="3" Columns="26" /><br /><br />
             <asp:DropDownList ID="basketballsize" runat="server">
                 <asp:ListItem Value="nullbasket">Basketball Size</asp:ListItem>
                 <asp:ListItem Value="10">Small - $15.00</asp:ListItem>
                 <asp:ListItem Value="11">Medium - $20.00</asp:ListItem>
                 <asp:ListItem Value="12">Large - $25.00</asp:ListItem>
-            </asp:DropDownList></center><br />
+            </asp:DropDownList>
+                 &nbsp;<asp:Label ID="BasketBallQtyLabel" runat="server" Text="Quantity: " CssClass="quantityLabel" />&nbsp;
+                <asp:TextBox ID="BasketballQuantity" runat="server" Text="1" Width="20" MaxLength="3" /><br /><br />
+                <asp:Button ID="BasketballAddButton" runat="server" Text="Add to Cart" OnClick="BasketballAddButton_Click" />
+            </center><br />
         </div>
         <%--Image and description for 4th trophy --%>
         <div class="trophy4" style="float:left; padding:20px">
@@ -70,15 +86,20 @@
                 costing much more! Set upon a smooth <br />
                 mahogany-finish base featuring <br />
                 40 letters of free personalization <br />
+                <asp:TextBox ID="GolfPersonalization" runat="server" TextMode="MultiLine" Rows="3" Columns="26" /><br /><br />
             <asp:DropDownList ID="golfsize" runat="server">
                 <asp:ListItem Value="nullgolf">Golf Size</asp:ListItem>
                 <asp:ListItem Value="13">Small - $15.00</asp:ListItem>
                 <asp:ListItem Value="14">Medium - $20.00</asp:ListItem>
-                <asp:ListItem Value="15">Large - $25.00</asp:ListItem>
-            </asp:DropDownList></center><br />
+                <asp:ListItem Value="15">Large - $25.00</asp:ListItem>          
+            </asp:DropDownList>
+                &nbsp;<asp:Label ID="GolfQtyLabel" runat="server" Text="Quantity: " CssClass="quantityLabel" />&nbsp;
+                <asp:TextBox ID="GolfQuantity" runat="server" Text="1" Width="20" MaxLength="3" /><br /><br />
+                <asp:Button ID="GolfAddButton" runat="server" Text="Add to Cart" OnClick="GolfAddButton_Click" />
+            </center><br />
         </div>
     </div>
-   <div class="Teeshirt" style="height:520px; width:1200px; float:left; padding:25px; border:solid; margin-top:5px">
+   <div class="Teeshirt" style="height:600px; width:1200px; float:left; padding:25px; border:solid; margin-top:5px">
        <h2>Tee shirts</h2>
        <%--Image and description for first tee shirt --%>
        <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/Product Images/gray tee.jpg" Height="166px" Width="125px" />
@@ -100,6 +121,7 @@
                 <li>Double-needle stitched for durability</li>
                 <li>Tagless label for comfort</li>
             </ul>
+       <asp:TextBox ID="ShirtPersonalization" runat="server" TextMode="MultiLine" Rows="3" Columns="26" /><br /><br />
        <asp:DropDownList ID="teeshirtcolor" runat="server">
            <asp:ListItem Value="nullcolor">Color</asp:ListItem>
            <asp:ListItem Value="lsgrey">Long Sleeve Gray</asp:ListItem>
@@ -112,7 +134,7 @@
            <asp:ListItem Value="huntgreen">Short Sleeve Pocket Hunter Green</asp:ListItem>
            <asp:ListItem Value="purple">Short Sleeve Purple</asp:ListItem>
        </asp:DropDownList>
-       <asp:DropDownList ID="mensize" runat="server">
+       <asp:DropDownList ID="shirtsize" runat="server">
            <asp:ListItem Value="nullmens">Mens Size</asp:ListItem>
            <asp:ListItem Value="16">Mens X-Small - $25.00</asp:ListItem>
            <asp:ListItem Value="17">Small - $25.00</asp:ListItem>
@@ -136,8 +158,11 @@
            <asp:ListItem Value="33">Large - $20.00</asp:ListItem>
            <asp:ListItem Value="34">X Large - $20.00</asp:ListItem>
        </asp:DropDownList>
+       &nbsp;<asp:Label ID="ShirtQtyLabel" runat="server" Text="Quantity: " CssClass="quantityLabel" />&nbsp;
+       <asp:TextBox ID="ShirtQuantity" runat="server" Text="1" Width="20" MaxLength="3" /><br /><br />
+       <asp:Button ID="ShirtAddButton" runat="server" Text="Add to Cart" OnClick="ShirtAddButton_Click" />
     </div>
-    <div class="plaques" style="height:475px; width:1200px; float:left; padding:25px; border:solid; margin-top:5px">
+    <div class="plaques" style="height:580px; width:1200px; float:left; padding:25px; border:solid; margin-top:5px">
         <%-- Image and descriptions for first plaque --%>
         <h2>Plaques</h2>
         <div class="plaque1" style="float:left; padding:20px">
@@ -148,12 +173,17 @@
                 walnut-tone board. 50 letters of free <br />
                 personalization, additional letters are <br />
                 just $0.25 ach.<br /> 
+                <asp:TextBox ID="PlaguePersonalization" runat="server" TextMode="MultiLine" Rows="3" Columns="26" /><br /><br />
             <asp:DropDownList ID="plaquesize" runat="server">
                 <asp:ListItem Value="nullplaque">Plaque Size</asp:ListItem>
                 <asp:ListItem Value="35">7x9" Plaque - $15.00</asp:ListItem>
                 <asp:ListItem Value="36">8x10" Plaque - $20.00</asp:ListItem>
                 <asp:ListItem Value="37">9x12" Plaque - $25.00</asp:ListItem>
-            </asp:DropDownList></center><br />
+            </asp:DropDownList>
+                &nbsp;<asp:Label ID="PlagueQtyLabel" runat="server" Text="Quantity: " CssClass="quantityLabel" />&nbsp;
+                <asp:TextBox ID="PlagueQuantity" runat="server" Text="1" Width="20" MaxLength="3" /><br /><br />
+                <asp:Button ID="PlagueAddButton" runat="server" Text="Add to Cart" OnClick="PlagueAddButton_Click" />
+            </center><br />
         </div>
         <%-- Image and Description for 2nd plaque --%>
         <div class="plaque2" style="float:left; padding:20px">
@@ -164,18 +194,24 @@
                 of free personalization ($0.10 per additional character) <br />
                 to let your special message show through! Your choice of <br />
                 gold, silver, or bronze. <br />
+                <asp:TextBox ID="TeacherPersonalization" runat="server" TextMode="MultiLine" Rows="3" Columns="26" /><br /><br />
             <asp:DropDownList ID="teachersize" runat="server">
                 <asp:ListItem Value="nullteachersize">Teacher Size</asp:ListItem>
                 <asp:ListItem Value="38">Small - $15.00</asp:ListItem>
                 <asp:ListItem Value="39">Medium - $20.00</asp:ListItem>
                 <asp:ListItem Value="40">Large - $25.00</asp:ListItem>
             </asp:DropDownList>
+            &nbsp;
             <asp:DropDownList ID="teachercolor" runat="server">
                 <asp:ListItem Value="nullteachercolor">Color</asp:ListItem>
                 <asp:ListItem Value="teachergold">Gold</asp:ListItem>
                 <asp:ListItem Value="teachersilver">Silver</asp:ListItem>
                 <asp:ListItem Value="teacherbronze">Bronze</asp:ListItem>
-            </asp:DropDownList></center><br />
+            </asp:DropDownList>
+                &nbsp;<asp:Label ID="TeacherQtyLabel" runat="server" Text="Quantity: " CssClass="quantityLabel" />&nbsp;
+                <asp:TextBox ID="TeacherQauntity" runat="server" Text="1" Width="20" MaxLength="3" /><br /><br />
+                <asp:Button ID="TeacherAddButton" runat="server" Text="Add to Cart" OnClick="TeacherAddButton_Click" />
+            </center><br />
         </div>
         <%-- Image and Description of 3rd Plaque --%>
         <div class="plaque3" style="float:left; padding:20px">
@@ -186,11 +222,16 @@
                 or silver plates.  50 letters of free personalization on the <br />
                 title plate, additional letters are just $0.25 each. <br />
                 Individual plate personalization is $4.00 per plate.<br />
+                <asp:TextBox ID="PlatePersonalization" runat="server" TextMode="MultiLine" Rows="3" Columns="26" /><br /><br />
             <asp:DropDownList ID="perpetualplaque" runat="server">
                 <asp:ListItem Value="nullcolor">Plate Color</asp:ListItem>
                 <asp:ListItem Value="41">Bronze Plate - $25.00</asp:ListItem>
                 <asp:ListItem Value="42">Silver Plate - $25.00</asp:ListItem>
-            </asp:DropDownList></center>
+            </asp:DropDownList>
+                &nbsp;<asp:label ID="PerpetualQtyLabel" runat="server" Text="Quantity: " CssClass="quantityLabel" />&nbsp;
+                <asp:TextBox ID="PerpetualQuantity" runat="server" Text="1" Width="20" MaxLength="3" /><br /><br />
+                <asp:Button ID="PerpetualAddButton" runat="server" Text="Add to Cart" OnClick="PerpetualAddButton_Click" />
+            </center>
         </div>
     </div>
 </asp:Content>

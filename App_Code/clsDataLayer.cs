@@ -249,8 +249,47 @@ public class clsDataLayer
 
         //Closes DB connection
         dbConnection.Close();        
-    }        
+    }
+
+    public clsProduct getProduct(string id)
+    {
+        string sqlStmt = "SELECT * FROM tblProducts WHERE ProductID = " + id;
+//        OleDbDataReader reader = new OleDbDataReader();
+        //
+        // Retrieve product information based on ProductID.
+        //
+        try
+        {
+            dbConnection = new OleDbConnection("PROVIDER=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|/WSCDatabase_mdb.mdb");
+
+            OleDbCommand dbCommand = new OleDbCommand(sqlStmt, dbConnection);
+            dbCommand.CommandType = CommandType.Text;
+
+           // dbCommand.Parameters.Add(new OleDbParameter("@id", id));
+
+            dbConnection.Open();
+
+            var reader = dbCommand.ExecuteReader();
+            reader.Read();
+            string jobType = (string)reader["JobType"];
+            string mediaType = (string)reader["MediaType"];
+            decimal cost = (decimal)reader["Cost"];
+
+            reader.Close();
+            dbConnection.Close();
+
+            return new clsProduct(jobType, mediaType, cost);
+        }
+        catch (OleDbException ex)
+        {
+            //reader.Close();
+            dbConnection.Close();
+
+            return null;
+        }
+    }
 }
+
 
 //Object representing a review
 public class Review
