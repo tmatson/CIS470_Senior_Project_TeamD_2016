@@ -173,16 +173,16 @@
                 walnut-tone board. 50 letters of free <br />
                 personalization, additional letters are <br />
                 just $0.25 ach.<br /> 
-                <asp:TextBox ID="PlaguePersonalization" runat="server" TextMode="MultiLine" Rows="3" Columns="26" /><br /><br />
+                <asp:TextBox ID="PlaquePersonalization" runat="server" TextMode="MultiLine" Rows="3" Columns="26" /><br /><br />
             <asp:DropDownList ID="plaquesize" runat="server">
                 <asp:ListItem Value="nullplaque">Plaque Size</asp:ListItem>
                 <asp:ListItem Value="35">7x9" Plaque - $15.00</asp:ListItem>
                 <asp:ListItem Value="36">8x10" Plaque - $20.00</asp:ListItem>
                 <asp:ListItem Value="37">9x12" Plaque - $25.00</asp:ListItem>
             </asp:DropDownList>
-                &nbsp;<asp:Label ID="PlagueQtyLabel" runat="server" Text="Quantity: " CssClass="quantityLabel" />&nbsp;
-                <asp:TextBox ID="PlagueQuantity" runat="server" Text="1" Width="20" MaxLength="3" /><br /><br />
-                <asp:Button ID="PlagueAddButton" runat="server" Text="Add to Cart" OnClick="PlagueAddButton_Click" />
+                &nbsp;<asp:Label ID="PlaqueQtyLabel" runat="server" Text="Quantity: " CssClass="quantityLabel" />&nbsp;
+                <asp:TextBox ID="PlaqueQuantity" runat="server" Text="1" Width="20" MaxLength="3" /><br /><br />
+                <asp:Button ID="PlaqueAddButton" runat="server" Text="Add to Cart" OnClick="PlaqueAddButton_Click" />
             </center><br />
         </div>
         <%-- Image and Description for 2nd plaque --%>
