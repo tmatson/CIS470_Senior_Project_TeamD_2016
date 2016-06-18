@@ -11,7 +11,7 @@ public class clsProduct
     int productID;
     string jobType;
     string mediaType;
-    decimal cost;
+    float cost;
 
     public clsProduct()
     {
@@ -21,14 +21,14 @@ public class clsProduct
         cost = 0;
     }
 
-    public clsProduct(string jobType, string mediaType, decimal cost)
+    public clsProduct(string jobType, string mediaType, float cost)
     {
         this.jobType = jobType;
         this.mediaType = mediaType;
         this.cost = cost;
     }
 
-    public clsProduct(int productID, string jobType, string mediaType, decimal cost)
+    public clsProduct(int productID, string jobType, string mediaType, float cost)
     {
         this.productID = productID;
         this.jobType = jobType;
@@ -47,7 +47,7 @@ public class clsProduct
         return mediaType;
     }
 
-    public decimal getCost()
+    public float getCost()
     {
         return cost;
     }

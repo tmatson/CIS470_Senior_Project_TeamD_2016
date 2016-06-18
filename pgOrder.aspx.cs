@@ -20,6 +20,8 @@ public partial class pgOrder : System.Web.UI.Page
         }
         else
         {
+            float orderTotal = 0;
+
             DataSet dsItemCart = new DataSet();
 
             DataTable dtItemCart = new DataTable();
@@ -30,6 +32,7 @@ public partial class pgOrder : System.Web.UI.Page
             dtItemCart.Columns.Add("Color");
             dtItemCart.Columns.Add("Quantity");
             dtItemCart.Columns.Add("Cost");
+            dtItemCart.Columns.Add("TotalCost");
 
             itemCart = new ArrayList();
             itemCart = Session["itemCart"] as ArrayList;
@@ -37,25 +40,29 @@ public partial class pgOrder : System.Web.UI.Page
             string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|/WSCDatabase_mdb.mdb";
             clsDataLayer dlProduct = new clsDataLayer(connectionString);
 
+            float totalCost = 0;
             for (int i = 0; i < itemCart.Count; ++i)
             {
                 itemList = (clsItemCart)itemCart[i];
                 string personal = itemList.getPersonalization();
-
+                
                 DataRow row = dtItemCart.NewRow();
-                //                row["ProductID"] = itemList.getProductID();
 
-               
                 clsProduct product = dlProduct.getProduct(itemList.getProductID());
 
                 row["MediaType"] = product.getMediaType();
                 row["Personalization"] = itemList.getPersonalization();
                 row["Color"] = itemList.getColor();
                 row["Quantity"] = itemList.getQuantity();
-                row["Cost"] = product.getCost();
+                row["Cost"] = string.Format("{0:C}", Decimal.Parse(product.getCost().ToString()));
+                totalCost = float.Parse(itemList.getQuantity()) * product.getCost();
+                row["TotalCost"] = string.Format("{0:C}", Decimal.Parse(totalCost.ToString()));
                 dtItemCart.Rows.Add(row);
+
+                orderTotal += float.Parse(itemList.getQuantity()) * product.getCost();
             }
 
+            OrderTotal.Text = string.Format("{0:C}", Decimal.Parse(orderTotal.ToString()));
             GridView1.DataSource = dtItemCart;
             GridView1.DataBind();
         }

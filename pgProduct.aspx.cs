@@ -143,8 +143,9 @@ public partial class pgProduct : System.Web.UI.Page
         personalization = TeacherPersonalization.Text;
         productID = teachersize.SelectedItem.Value;
         quantity = TeacherQauntity.Text;
+        color = teachercolor.Text;
 
-        addItem(productID, personalization, null, quantity);
+        addItem(productID, personalization, color, quantity);
 
         Session["itemCart"] = itemCart;
         Response.Redirect("~/pgOrder.aspx");

@@ -303,3 +303,7 @@ a.footerLink:active {
     margin-left: auto;
     margin-right: auto;
 }
+
+#order_total {
+    text-align: right;
+}

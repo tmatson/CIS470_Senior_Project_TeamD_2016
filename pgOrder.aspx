@@ -15,7 +15,8 @@
                 <asp:BoundField DataField="Personalization" HeaderText="Personalization" />
                 <asp:BoundField DataField="Color" HeaderText="Color" />
                 <asp:BoundField DataField="Quantity" HeaderText="Quantiity" />
-                <asp:BoundField DataField="Cost" HeaderText="Cost" ReadOnly="True" SortExpression="Cost" DataFormatString="${0:F2}" />
+                <asp:BoundField DataField="Cost" HeaderText="Cost" ReadOnly="True" DataFormatString="{0:C}" HtmlEncode="False" />
+                <asp:BoundField DataField="TotalCost" HeaderText="Total Cost" ReadOnly="True" DataFormatString="{0:C}" HtmlEncode="False"  />
             </Columns>
             <FooterStyle BackColor="#CCCC99" />
             <HeaderStyle Font-Size="0.9em" ForeColor="White" BackColor="#6B696B" Font-Bold="True" />
@@ -29,6 +30,8 @@
             <SortedDescendingHeaderStyle BackColor="#575357" />
         </asp:GridView>
         <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"></asp:ObjectDataSource>
+        <br />
+        Order Total = <asp:Label ID="OrderTotal" runat="server" Text="" />
         <br /><br />
         <asp:Button ID="continueShopping" runat="server" Text="Continue Shopping" OnClick="continueShopping_Click" />&nbsp;&nbsp;&nbsp;
         <asp:Button ID="checkout" runat="server" Text="Checkout" />

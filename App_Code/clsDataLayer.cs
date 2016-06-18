@@ -281,14 +281,14 @@ public class clsDataLayer
 
             var reader = dbCommand.ExecuteReader();
             reader.Read();
-            string jobType = (string)reader["JobType"];
-            string mediaType = (string)reader["MediaType"];
-            decimal cost = (decimal)reader["Cost"];
+            string jobType = reader["JobType"].ToString();
+            string mediaType = reader["MediaType"].ToString();
+            string cost = reader["Cost"].ToString();
 
             reader.Close();
             dbConnection.Close();
 
-            return new clsProduct(jobType, mediaType, cost);
+            return new clsProduct(jobType, mediaType, float.Parse(cost,System.Globalization.NumberStyles.AllowDecimalPoint ));
         }
         catch (OleDbException ex)
         {
