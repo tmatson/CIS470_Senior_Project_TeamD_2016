@@ -160,7 +160,7 @@ public class clsDataLayer
         int reviewAmt = 0;
 
         dbConnection.Open();
-        string sqlStmt = "SELECT * FROM tblReview ORDER BY ReviewDate";
+        string sqlStmt = "SELECT * FROM tblReview ORDER BY ReviewDate DESC";
         OleDbCommand command = new OleDbCommand(sqlStmt, dbConnection);
         var reader = command.ExecuteReader();
         while (reader.Read() && reviewAmt < 5)

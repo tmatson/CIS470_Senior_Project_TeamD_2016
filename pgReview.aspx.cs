@@ -62,13 +62,13 @@ public partial class pgReview : System.Web.UI.Page
         if(Request.Form["txtComment"] != null) { comment = Request.Form["txtComment"]; }
 
         //Set username based on cookie, otherwise display a message and make submit button invisible
-        //If username is not null, check other variables; checking them otherwise it is unnecessary.
+        //If username is not null, check other variables; checking them otherwise is unnecessary.
         if (Request.Cookies["User"] == null) { btnSubmitReview.Visible = false; btnLoginRedirect.Visible = true; message1.Visible = true; }
         else {
             username = Request.Cookies["User"].Value;
             if (mediaType == null) { message3.Visible = true; }
             if (comment == null) { message4.Visible = true; }
-       }
+        }
 
         //Set refresh to true if all strings are populated
         if (comment != null && mediaType != null && username != null) { refresh = true; }
@@ -106,6 +106,7 @@ public partial class pgReview : System.Web.UI.Page
     protected void btnHideGrid_Click(object sender, EventArgs e)
     {
         gvAllReviews.Columns.Clear();
+        btnHideGrid.Visible = false;
     }
 }
 
