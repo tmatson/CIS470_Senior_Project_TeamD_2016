@@ -120,19 +120,27 @@ public class clsDataLayer
 
         dbConnection.Close();
 
-        sqlStmt = "SELECT ProductID FROM tblProducts WHERE JobType = @job AND MediaType = @media";
+        //sqlStmt = "SELECT ProductID, MediaType FROM tblProducts WHERE JobType = @job AND MediaType = @media";
+        sqlStmt = "SELECT ProductID, MediaType FROM tblProducts WHERE MediaType = @media";
 
         //retrieve product id to put into review table
         command = new OleDbCommand(sqlStmt, dbConnection);
         dbConnection.Open();
-        command.Parameters.Add(new OleDbParameter("@job", jobType));
+        //command.Parameters.Add(new OleDbParameter("@job", jobType));
         command.Parameters.Add(new OleDbParameter("@media", mediaType));
-        productId = (int)command.ExecuteScalar();
+        //productId = (int)command.ExecuteScalar();
+        OleDbDataReader reader = command.ExecuteReader();
+
+        while (reader.Read())
+        {
+            productId = (int)reader["ProductID"];
+            mediaType = (string)reader["MediaType"];
+        }
 
         dbConnection.Close();
 
         //insert review data into table
-        sqlStmt = "INSERT INTO tblReview (ProductID, CustomerID, ReviewDate, Comments) VALUES (@pid, @cid, @date, @comment)";
+        sqlStmt = "INSERT INTO tblReview (ProductID, CustomerID, ReviewDate, Comments, MediaType) VALUES (@pid, @cid, @date, @comment, @media)";
 
         command = new OleDbCommand(sqlStmt, dbConnection);
         dbConnection.Open();
@@ -140,6 +148,7 @@ public class clsDataLayer
         command.Parameters.Add(new OleDbParameter("@cid", customerId));
         command.Parameters.Add(new OleDbParameter("@date", DateTime.Now.ToShortDateString()));
         command.Parameters.Add(new OleDbParameter("@comment", comment));
+        command.Parameters.Add(new OleDbParameter("@media", mediaType));
         command.ExecuteNonQuery();
         dbConnection.Close();
     }
@@ -151,13 +160,14 @@ public class clsDataLayer
         int reviewAmt = 0;
 
         dbConnection.Open();
-        string sqlStmt = "SELECT * FROM tblReview ORDER BY CustomerID";
+        string sqlStmt = "SELECT * FROM tblReview ORDER BY ReviewDate DESC";
         OleDbCommand command = new OleDbCommand(sqlStmt, dbConnection);
         var reader = command.ExecuteReader();
         while (reader.Read() && reviewAmt < 5)
         {
             var review = new Review();
             review.customerID = (int)reader["CustomerID"];
+            review.mediaType = (string)reader["MediaType"];
             review.username = this.GetUsername(review.customerID);
             review.comment = (string)reader["Comments"];
             review.reviewDate = (DateTime)reader["ReviewDate"];
@@ -295,6 +305,7 @@ public class clsDataLayer
 public class Review
 {
     public int customerID { get; set; }
+    public string mediaType { get; set; }
     public string username { get; set; }
     public string comment { get; set; }
     public DateTime reviewDate { get; set; }

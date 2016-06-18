@@ -78,8 +78,8 @@ public partial class pgAcctCreate : System.Web.UI.Page
             {
                 //If an error ocurs...
                 userAddError = true;
-                string message = "Error adding information, please contact administrator.";
-                Master.UserFeedBack.Text = message + error.Message;
+                string message = "Username is already taken, please try again.";
+                Master.UserFeedBack.Text = message;
             }
 
             if (!userAddError)
