@@ -27,6 +27,7 @@ public partial class pgOrder : System.Web.UI.Page
             //dtItemCart.Columns.Add("ProductID");
             dtItemCart.Columns.Add("MediaType");
             dtItemCart.Columns.Add("Personalization");
+            dtItemCart.Columns.Add("Color");
             dtItemCart.Columns.Add("Quantity");
             dtItemCart.Columns.Add("Cost");
 

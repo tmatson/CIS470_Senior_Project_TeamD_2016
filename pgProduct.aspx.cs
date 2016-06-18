@@ -122,11 +122,11 @@ public partial class pgProduct : System.Web.UI.Page
     //  Adding Plague Button Clicked
     //  Chris Gormley
     //
-    protected void PlagueAddButton_Click(object sender, EventArgs e)
+    protected void PlaqueAddButton_Click(object sender, EventArgs e)
     {
-        personalization = PlaguePersonalization.Text;
+        personalization = PlaquePersonalization.Text;
         productID = plaquesize.SelectedItem.Value;
-        quantity = PlagueQuantity.Text;
+        quantity = PlaqueQuantity.Text;
 
         addItem(productID, personalization, null, quantity);
 
