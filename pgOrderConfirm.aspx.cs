@@ -9,6 +9,7 @@ public partial class pgOrderConfirm : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        lblEmail.Text = Request.Cookies["E-mail"].Value;
+        lblOrderNum.Text = Request.Cookies["OrderID"].Value;
     }
 }
