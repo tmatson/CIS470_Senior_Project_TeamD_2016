@@ -6,6 +6,8 @@ using System.Data.OleDb;
 using System.Net;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 /// <summary>
 /// Summary description for clsDataLayer
@@ -298,7 +300,74 @@ public class clsDataLayer
             return null;
         }
     }
+
+    //Place order function
+    public string InsertOrder(string CID, string User, string Date, string Status, string TotalCost)
+    {
+        //Opens Database connection
+        dbConnection.Open();
+
+        //SQL INSERT statement
+        string sqlStemt = "INSERT INTO tblOrderHeader (CustomerID, Username, OrderDate, OrderStatus, TotalCost)"; //OUTPUT INSERTED.OrderID";
+        sqlStemt += "VALUES (@cid, @username, @orderdate, @orderstatus, @totalcost)";
+        string sqlStemt2 = "Select @@Identity";
+
+        //Access Database
+        OleDbCommand dbCommand = new OleDbCommand(sqlStemt, dbConnection);
+
+        //Adds parameters for insert statement
+        OleDbParameter param = new OleDbParameter("@cid", CID);
+        dbCommand.Parameters.Add(param);
+        dbCommand.Parameters.Add(new OleDbParameter("@username", User));
+        dbCommand.Parameters.Add(new OleDbParameter("@orderdate", Date));
+        dbCommand.Parameters.Add(new OleDbParameter("@orderstatus", Status));
+        //dbCommand.Parameters.Add(new OleDbParameter("@shipdate", ShipDate));
+        dbCommand.Parameters.Add(new OleDbParameter("@totalcost", TotalCost));        
+        
+        //Executes insert statement
+        dbCommand.ExecuteNonQuery();
+
+        dbCommand.CommandText = sqlStemt2;
+        int newId = (int)dbCommand.ExecuteScalar();
+
+        //Int32 newId = (Int32)dbCommand.ExecuteScalar();
+
+        //Closes DB connection
+        dbConnection.Close();
+
+        return newId.ToString();        
+    }
+
+    //Insert order details function
+    public void InsertOrderDetails(int OrderID, string MediaType, string Personalization, string Color, int Quantity, string TotalCostItems)
+    {
+        //Opens Database connection
+        dbConnection.Open();
+
+        //SQL INSERT statement
+        string sqlStemt = "INSERT INTO tblOrderDetail (OrderID, MediaType, MessageContent, Color, Quantity, Price)";
+        sqlStemt += "VALUES (@orderid, @mediatype, @messagecontent, @color, @quantity, @price)";
+
+        //Access Database
+        OleDbCommand dbCommand = new OleDbCommand(sqlStemt, dbConnection);
+
+        //Adds parameters for insert statement
+        OleDbParameter param = new OleDbParameter("@orderid", OrderID);
+        dbCommand.Parameters.Add(param);
+        dbCommand.Parameters.Add(new OleDbParameter("@mediatype", MediaType));
+        dbCommand.Parameters.Add(new OleDbParameter("@messagecontent", Personalization));
+        dbCommand.Parameters.Add(new OleDbParameter("@color", Color));
+        dbCommand.Parameters.Add(new OleDbParameter("@quantity", Quantity));
+        dbCommand.Parameters.Add(new OleDbParameter("@price", TotalCostItems));        
+
+        //Executes insert statement
+        dbCommand.ExecuteNonQuery();
+
+        //Closes DB connection
+        dbConnection.Close();        
+    }
 }
+
 
 
 //Object representing a review

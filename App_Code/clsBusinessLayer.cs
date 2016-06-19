@@ -108,16 +108,9 @@ public class clsBusinessLayer
                 userRecord["SecurityLevel"] = emptyFiller;
         }
         return dsUserInfo;
-    }
+    }   
 
-
-    public clsBusinessLayer()
-    {
-        //
-        // TODO: Add constructor logic here
-        //
-    }
-
+    //Update customer method
     public void ConfirmUpdate(string lblUserName, string txtFirstName, string txtLastName,
         string txtAddress1, string txtAddress2, string txtCity,
         string txtState, string txtzip, string txtEmail, string txtPhoneNum, int userID)
@@ -126,11 +119,33 @@ public class clsBusinessLayer
             txtAddress1, txtAddress2, txtCity, txtState, txtzip, txtEmail, txtPhoneNum, userID);
     }
 
+    //Insert customer method
     public void InsertUser(string txtUserName, string txtPassword, string txtFirstname,
         string txtLastname, string txtAddress1, string txtAddress2, string txtCity,
         string txtState, string txtZipCode, string txtEmail, string txtPhoneNumber)         
     {
         myDataLayer.InsertUser(txtUserName, txtPassword, txtFirstname, txtLastname, txtAddress1, 
             txtAddress2, txtCity, txtState, txtZipCode, txtEmail, txtPhoneNumber);      
-    }    
+    }
+
+    //Place order method
+    public string InsertOrder(string CID, string User, string Date, string Status, string TotalCost)
+    {
+        string OrderID = myDataLayer.InsertOrder(CID, User, Date, Status, TotalCost);
+
+        return OrderID;      
+    }
+
+    //Insert order details method
+    public void InsertOrderDetails(int OrderID, string MediaType, string Personalization, string Color, int Quantity, string TotalCostItems)
+    {
+        myDataLayer.InsertOrderDetails(OrderID, MediaType, Personalization, Color, Quantity, TotalCostItems);
+    }
+
+    public clsBusinessLayer()
+    {
+        //
+        // TODO: Add constructor logic here
+        //
+    }
 }

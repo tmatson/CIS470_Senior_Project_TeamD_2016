@@ -15,8 +15,8 @@ public partial class pgOrder : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Request.Cookies["User"] == null)
-        {            
-            Response.Redirect("~/pgLogin.aspx");                     
+        {
+            Response.Redirect("~/pgLogin.aspx");
         }
         else
         {
@@ -45,7 +45,7 @@ public partial class pgOrder : System.Web.UI.Page
             {
                 itemList = (clsItemCart)itemCart[i];
                 string personal = itemList.getPersonalization();
-                
+
                 DataRow row = dtItemCart.NewRow();
 
                 clsProduct product = dlProduct.getProduct(itemList.getProductID());
@@ -71,5 +71,57 @@ public partial class pgOrder : System.Web.UI.Page
     protected void continueShopping_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/pgProduct.aspx");
+    }
+
+    protected void checkout_Click(object sender, EventArgs e)
+    {
+        //Sets productAddError to false
+        bool productAddError = false;
+
+        //Declaring new instance if clsBusinessLayer
+        clsBusinessLayer myBusinessLayer = new clsBusinessLayer(Server.MapPath("~/"));        
+
+        string CID = Request.Cookies["CID"].Value;
+        string User = Request.Cookies["User"].Value;
+        string Date = DateTime.Now.ToString("M, d, yyyy");
+        string Status = "PENDING";       
+        string TotalCost = OrderTotal.Text;
+
+        //Make order
+        try
+        {
+            string OrderID = myBusinessLayer.InsertOrder(CID, User, Date, Status, TotalCost);
+            Response.Cookies["OrderID"].Value = OrderID;
+        }
+        catch (Exception error)
+        {
+            //If an error ocurs...
+            productAddError = true;
+            string message = "ERROR!!!!!!.";
+            Master.UserFeedBack.Text = message + error.Message;
+        }
+
+        //Order details
+        try
+        {
+            for (int i = 0; i < GridView1.Rows.Count; i++)
+            {
+                string MediaType = GridView1.Rows[i].Cells[0].Text;
+                string Personalization = GridView1.Rows[i].Cells[1].Text;
+                string Color = GridView1.Rows[i].Cells[2].Text;
+                string Quantity = GridView1.Rows[i].Cells[3].Text;
+                string TotalCostItems = GridView1.Rows[i].Cells[5].Text;
+                string OrderID = Request.Cookies["OrderID"].Value;
+
+                myBusinessLayer.InsertOrderDetails(Convert.ToInt32(OrderID), MediaType, Personalization, Color, Convert.ToInt32(Quantity), TotalCostItems);
+            }
+        }
+        catch (Exception error)
+        {
+            //If an error ocurs...
+            productAddError = true;
+            string message = "ERROR!!!!!!.";
+            Master.UserFeedBack.Text = message + error.Message;
+        }
     }
 }
