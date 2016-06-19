@@ -115,6 +115,7 @@ public partial class pgOrder : System.Web.UI.Page
 
                 myBusinessLayer.InsertOrderDetails(Convert.ToInt32(OrderID), MediaType, Personalization, Color, Convert.ToInt32(Quantity), TotalCostItems);
             }
+            Response.Redirect("~/pgOrderConfirm.aspx");
         }
         catch (Exception error)
         {
