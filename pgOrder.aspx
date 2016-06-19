@@ -40,11 +40,47 @@
         <asp:Image ID="imgVisa" runat="server" ImageUrl="~/Images/visa_logo.gif" Height="38px" />&nbsp;
         <asp:Image ID="imgMasterCard" runat="server" ImageUrl="~/Images/mastercard_logo.gif" Height="38px" />&nbsp
         <asp:Image ID="imgDiscover" runat="server"  ImageUrl="~/Images/discover_logo.gif" Height="38px" />&nbsp;
-        <asp:Image ID="imgAmerExpress" runat="server" ImageUrl="~/Images/american_express_logo.gif" Height="38px" />
-        <br /><br />
+        <asp:Image ID="imgAmerExpress" runat="server" ImageUrl="~/Images/american_express_logo.gif" Height="38px" /><br />
+        <asp:RadioButtonList id=RadioButtonList1 runat="server" RepeatDirection="Horizontal" Width="281px">
+            <asp:ListItem Value="VISA"></asp:ListItem>
+            <asp:ListItem Value="MC"></asp:ListItem>
+            <asp:ListItem Value="DC"></asp:ListItem>
+            <asp:ListItem Value="AMEX"></asp:ListItem>            
+        </asp:RadioButtonList>
+        <br />
+        <asp:Label ID="lblCardName" runat="server" Text="Name on card" CssClass="card_info" />&nbsp;
+        <asp:TextBox ID="TextBox1" runat="server" Width="197px" />
+        <br />
         <asp:Label ID="lblCardNumber" runat="server" Text="Card Number" CssClass="card_info" />&nbsp;
         <asp:TextBox ID="txtCardNumber" runat="server" Width="200" />
-       
+        <br />
+        <asp:Label ID="lblCardExp" runat="server" Text="Card Expiration" CssClass="card_info" />&nbsp;
+        <asp:DropDownList ID="DropDownList1" runat="server">
+            <asp:ListItem Value="1">January</asp:ListItem>
+            <asp:ListItem Value="2">Febuary</asp:ListItem>
+            <asp:ListItem Value="3">March</asp:ListItem>
+            <asp:ListItem Value="4">April</asp:ListItem>
+            <asp:ListItem Value="5">May</asp:ListItem>
+            <asp:ListItem Value="6">June</asp:ListItem>
+            <asp:ListItem Value="7">July</asp:ListItem>
+            <asp:ListItem Value="8">August</asp:ListItem>
+            <asp:ListItem Value="9">September</asp:ListItem>
+            <asp:ListItem Value="10">October</asp:ListItem>
+            <asp:ListItem Value="11">November</asp:ListItem>
+            <asp:ListItem Value="12">December</asp:ListItem>
+        </asp:DropDownList>
+        <asp:DropDownList ID="DropDownList2" runat="server">
+            <asp:ListItem>2016</asp:ListItem>
+            <asp:ListItem>2017</asp:ListItem>
+            <asp:ListItem>2018</asp:ListItem>
+            <asp:ListItem>2019</asp:ListItem>
+            <asp:ListItem>2020</asp:ListItem>
+            <asp:ListItem>2021</asp:ListItem>
+            <asp:ListItem>2022</asp:ListItem>
+            <asp:ListItem Value="2023"></asp:ListItem>
+            <asp:ListItem Value="2024"></asp:ListItem>
+            <asp:ListItem>2025</asp:ListItem>
+        </asp:DropDownList>   
         <br /><br />
         <asp:Button ID="continueShopping" runat="server" Text="Continue Shopping" OnClick="continueShopping_Click" />&nbsp;&nbsp;&nbsp;
         <asp:Button ID="checkout" runat="server" Text="Checkout" OnClick="checkout_Click" />
