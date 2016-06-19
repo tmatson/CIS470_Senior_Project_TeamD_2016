@@ -145,6 +145,22 @@ public partial class pgProduct : System.Web.UI.Page
         quantity = TeacherQauntity.Text;
         color = teachercolor.Text;
 
+        switch(teachercolor.Text)
+        {
+            case "teachergold":
+                color = "Gold";
+                break;
+            case "teachersilver":
+                color = "Silver";
+                break;
+            case "teacherbronze":
+                color = "Bronze";
+                break;
+            default:
+                color = string.Empty;
+                break;
+        }
+
         addItem(productID, personalization, color, quantity);
 
         Session["itemCart"] = itemCart;
