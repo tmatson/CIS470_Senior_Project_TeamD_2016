@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">  
             <h1>Trophies, Tee-shirts, and Plaques</h1>
     
-    <div class="trophy" style="height:620px; width:1200px; float:left; padding:25px; border:solid">
+    <div class="trophy" style="height:650px; width:1200px; float:left; padding:25px; border:solid">
         <h2>Trophies</h2>
         <div class="trophy1" style="float:left; padding:20px">
         <%--Image and description for first trophy --%>
@@ -99,7 +99,7 @@
             </center><br />
         </div>
     </div>
-   <div class="Teeshirt" style="height:600px; width:1200px; float:left; padding:25px; border:solid; margin-top:5px">
+   <div class="Teeshirt" style="height:640px; width:1200px; float:left; padding:25px; border:solid; margin-top:5px">
        <h2>Tee shirts</h2>
        <%--Image and description for first tee shirt --%>
        <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/Product Images/gray tee.jpg" Height="166px" Width="125px" />
@@ -162,7 +162,7 @@
        <asp:TextBox ID="ShirtQuantity" runat="server" Text="1" Width="20" MaxLength="3" /><br /><br />
        <asp:Button ID="ShirtAddButton" runat="server" Text="Add to Cart" OnClick="ShirtAddButton_Click" />
     </div>
-    <div class="plaques" style="height:580px; width:1200px; float:left; padding:25px; border:solid; margin-top:5px">
+    <div class="plaques" style="height:600px; width:1200px; float:left; padding:25px; border:solid; margin-top:5px">
         <%-- Image and descriptions for first plaque --%>
         <h2>Plaques</h2>
         <div class="plaque1" style="float:left; padding:20px">
