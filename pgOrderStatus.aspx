@@ -19,7 +19,7 @@
     </div>
 
     <%-- Datasource Current Orders By User --%>
-    <asp:SqlDataSource ID="SDSCurrentOrders" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT [OrderID], [OrderDate], [OrderStatus], [ShipDate], [TotalCost] FROM [tblOrderHeader] WHERE (([Username] = ?) AND ([OrderStatus] = ?) OR ([OrderStatus] = ?)) ORDER BY [OrderID]">
+    <asp:SqlDataSource ID="SDSCurrentOrders" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT [OrderID], [OrderDate], [OrderStatus], [ShipDate], [TotalCost], [COD] FROM [tblOrderHeader] WHERE (([Username] = ?) AND ([OrderStatus] = ?) OR ([OrderStatus] = ?)) ORDER BY [OrderID]">
         <SelectParameters>
             <asp:CookieParameter CookieName="User" Name="Username" Type="String" />
             <asp:Parameter DefaultValue="PENDING" Name="OrderStatus" Type="String" />
@@ -28,7 +28,7 @@
     </asp:SqlDataSource>
 
     <%-- Datasource Complete Orders By User --%>
-    <asp:SqlDataSource ID="SDSOrderByUser" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT [OrderID], [OrderDate], [OrderStatus], [ShipDate], [TotalCost] FROM [tblOrderHeader] WHERE (([OrderStatus] = ?) AND ([Username] = ?)) ORDER BY [OrderID]">
+    <asp:SqlDataSource ID="SDSOrderByUser" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT [OrderID], [OrderDate], [OrderStatus], [ShipDate], [TotalCost], [COD] FROM [tblOrderHeader] WHERE (([OrderStatus] = ?) AND ([Username] = ?)) ORDER BY [OrderID]">
         <SelectParameters>
             <asp:Parameter DefaultValue="Complete" Name="OrderStatus" Type="String" />
             <asp:CookieParameter CookieName="User" Name="Username" Type="String" />
@@ -36,7 +36,7 @@
     </asp:SqlDataSource>  
     
    <%-- Datasource Order Details By ID --%> 
-    <asp:SqlDataSource ID="SDSOrderDetails" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [tblOrderDetail] WHERE ([OrderID] = ?) ORDER BY [ProductID]">
+    <asp:SqlDataSource ID="SDSOrderDetails" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [tblOrderDetail] WHERE ([OrderID] = ?)">
         <SelectParameters>
             <asp:ControlParameter ControlID="txtOrderNum" Name="OrderID" PropertyName="Text" Type="Int32" />
         </SelectParameters>

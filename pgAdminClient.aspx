@@ -150,35 +150,38 @@
             </asp:SqlDataSource>
 
             <%-- Credit Cards --%>
-            <asp:SqlDataSource ID="SDSCCards" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" DeleteCommand="DELETE FROM [tblCCard] WHERE [CustomerID] = ?" InsertCommand="INSERT INTO [tblCCard] ([CustomerID], [CreditCardNumber], [CreditCardType], [CardOwner], [CreditCardCode], [CreditCardExpDate]) VALUES (?, ?, ?, ?, ?, ?)" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [tblCCard] ORDER BY [CustomerID]" UpdateCommand="UPDATE [tblCCard] SET [CreditCardNumber] = ?, [CreditCardType] = ?, [CardOwner] = ?, [CreditCardCode] = ?, [CreditCardExpDate] = ? WHERE [CustomerID] = ?">
+            <asp:SqlDataSource ID="SDSCCards" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" DeleteCommand="DELETE FROM [tblCCard] WHERE [OrderID] = ?" InsertCommand="INSERT INTO [tblCCard] ([CustomerID], [OrderID], [CreditCardNumber], [CreditCardType], [CardOwner], [CreditCardCode], [CreditCardExpDate]) VALUES (?, ?, ?, ?, ?, ?, ?)" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [tblCCard] ORDER BY [OrderID]" UpdateCommand="UPDATE [tblCCard] SET [CustomerID] = ?, [CreditCardNumber] = ?, [CreditCardType] = ?, [CardOwner] = ?, [CreditCardCode] = ?, [CreditCardExpDate] = ? WHERE [OrderID] = ?">
                 <DeleteParameters>
-                    <asp:Parameter Name="CustomerID" Type="Int32" />
+                    <asp:Parameter Name="OrderID" Type="Int32" />
                 </DeleteParameters>
                 <InsertParameters>
                     <asp:Parameter Name="CustomerID" Type="Int32" />
-                    <asp:Parameter Name="CreditCardNumber" Type="String" />
-                    <asp:Parameter Name="CreditCardType" Type="String" />
-                    <asp:Parameter Name="CardOwner" Type="String" />
-                    <asp:Parameter Name="CreditCardCode" Type="String" />
-                    <asp:Parameter Name="CreditCardExpDate" Type="String" />
-                </InsertParameters>
-                <UpdateParameters>
+                    <asp:Parameter Name="OrderID" Type="Int32" />
                     <asp:Parameter Name="CreditCardNumber" Type="String" />
                     <asp:Parameter Name="CreditCardType" Type="String" />
                     <asp:Parameter Name="CardOwner" Type="String" />
                     <asp:Parameter Name="CreditCardCode" Type="String" />
                     <asp:Parameter Name="CreditCardExpDate" Type="DateTime" />
+                </InsertParameters>
+                <UpdateParameters>
                     <asp:Parameter Name="CustomerID" Type="Int32" />
+                    <asp:Parameter Name="CreditCardNumber" Type="String" />
+                    <asp:Parameter Name="CreditCardType" Type="String" />
+                    <asp:Parameter Name="CardOwner" Type="String" />
+                    <asp:Parameter Name="CreditCardCode" Type="String" />
+                    <asp:Parameter Name="CreditCardExpDate" Type="DateTime" />
+                    <asp:Parameter Name="OrderID" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
 
             <%-- Credit Cards by Username --%>
-            <asp:SqlDataSource ID="SDSCCardByCustID" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" DeleteCommand="DELETE FROM [tblCCard] WHERE [CustomerID] = ?" InsertCommand="INSERT INTO [tblCCard] ([CustomerID], [CreditCardNumber], [CreditCardType], [CardOwner], [CreditCardCode], [CreditCardExpDate]) VALUES (?, ?, ?, ?, ?, ?)" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [tblCCard] WHERE ([CustomerID] = ?)" UpdateCommand="UPDATE [tblCCard] SET [CreditCardNumber] = ?, [CreditCardType] = ?, [CardOwner] = ?, [CreditCardCode] = ?, [CreditCardExpDate] = ? WHERE [CustomerID] = ?">
+            <asp:SqlDataSource ID="SDSCCardByCustID" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" DeleteCommand="DELETE FROM [tblCCard] WHERE [OrderID] = ?" InsertCommand="INSERT INTO [tblCCard] ([CustomerID], [OrderID], [CreditCardNumber], [CreditCardType], [CardOwner], [CreditCardCode], [CreditCardExpDate]) VALUES (?, ?, ?, ?, ?, ?, ?)" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [tblCCard] WHERE ([CustomerID] = ?) ORDER BY [OrderID]" UpdateCommand="UPDATE [tblCCard] SET [CustomerID] = ?, [CreditCardNumber] = ?, [CreditCardType] = ?, [CardOwner] = ?, [CreditCardCode] = ?, [CreditCardExpDate] = ? WHERE [OrderID] = ?">
                 <DeleteParameters>
-                    <asp:Parameter Name="CustomerID" Type="Int32" />
+                    <asp:Parameter Name="OrderID" Type="Int32" />
                 </DeleteParameters>
                 <InsertParameters>
                     <asp:Parameter Name="CustomerID" Type="Int32" />
+                    <asp:Parameter Name="OrderID" Type="Int32" />
                     <asp:Parameter Name="CreditCardNumber" Type="String" />
                     <asp:Parameter Name="CreditCardType" Type="String" />
                     <asp:Parameter Name="CardOwner" Type="String" />
@@ -189,17 +192,18 @@
                     <asp:ControlParameter ControlID="txtCCardByCustID" Name="CustomerID" PropertyName="Text" Type="Int32" />
                 </SelectParameters>
                 <UpdateParameters>
+                    <asp:Parameter Name="CustomerID" Type="Int32" />
                     <asp:Parameter Name="CreditCardNumber" Type="String" />
                     <asp:Parameter Name="CreditCardType" Type="String" />
                     <asp:Parameter Name="CardOwner" Type="String" />
                     <asp:Parameter Name="CreditCardCode" Type="String" />
                     <asp:Parameter Name="CreditCardExpDate" Type="DateTime" />
-                    <asp:Parameter Name="CustomerID" Type="Int32" />
+                    <asp:Parameter Name="OrderID" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
     
             <%-- Orders --%>
-            <asp:SqlDataSource ID="SDSOrders" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" DeleteCommand="DELETE FROM [tblOrderHeader] WHERE [OrderID] = ?" InsertCommand="INSERT INTO [tblOrderHeader] ([OrderID], [CustomerID], [Username], [OrderDate], [OrderStatus], [ShipDate], [TotalCost]) VALUES (?, ?, ?, ?, ?, ?, ?)" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [tblOrderHeader] ORDER BY [OrderID]" UpdateCommand="UPDATE [tblOrderHeader] SET [CustomerID] = ?, [Username] = ?, [OrderDate] = ?, [OrderStatus] = ?, [ShipDate] = ?, [TotalCost] = ? WHERE [OrderID] = ?">
+            <asp:SqlDataSource ID="SDSOrders" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" DeleteCommand="DELETE FROM [tblOrderHeader] WHERE [OrderID] = ?" InsertCommand="INSERT INTO [tblOrderHeader] ([OrderID], [CustomerID], [Username], [OrderDate], [OrderStatus], [ShipDate], [TotalCost], [COD]) VALUES (?, ?, ?, ?, ?, ?, ?, ?)" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [tblOrderHeader] ORDER BY [OrderID]" UpdateCommand="UPDATE [tblOrderHeader] SET [CustomerID] = ?, [Username] = ?, [OrderDate] = ?, [OrderStatus] = ?, [ShipDate] = ?, [TotalCost] = ?, [COD] = ? WHERE [OrderID] = ?">
                 <DeleteParameters>
                     <asp:Parameter Name="OrderID" Type="Int32" />
                 </DeleteParameters>
@@ -211,6 +215,7 @@
                     <asp:Parameter Name="OrderStatus" Type="String" />
                     <asp:Parameter Name="ShipDate" Type="DateTime" />
                     <asp:Parameter Name="TotalCost" Type="Decimal" />
+                    <asp:Parameter Name="COD" Type="Boolean" />
                 </InsertParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="CustomerID" Type="Int32" />
@@ -219,12 +224,13 @@
                     <asp:Parameter Name="OrderStatus" Type="String" />
                     <asp:Parameter Name="ShipDate" Type="DateTime" />
                     <asp:Parameter Name="TotalCost" Type="Decimal" />
+                    <asp:Parameter Name="COD" Type="Boolean" />
                     <asp:Parameter Name="OrderID" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
 
             <%-- Pending Orders --%>
-            <asp:SqlDataSource ID="SDSPenOrder" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" DeleteCommand="DELETE FROM [tblOrderHeader] WHERE [OrderID] = ?" InsertCommand="INSERT INTO [tblOrderHeader] ([OrderID], [CustomerID], [Username], [OrderDate], [OrderStatus], [ShipDate], [TotalCost]) VALUES (?, ?, ?, ?, ?, ?, ?)" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [tblOrderHeader] WHERE ([OrderStatus] = ?) ORDER BY [OrderID]" UpdateCommand="UPDATE [tblOrderHeader] SET [CustomerID] = ?, [Username] = ?, [OrderDate] = ?, [OrderStatus] = ?, [ShipDate] = ?, [TotalCost] = ? WHERE [OrderID] = ?">
+            <asp:SqlDataSource ID="SDSPenOrder" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" DeleteCommand="DELETE FROM [tblOrderHeader] WHERE [OrderID] = ?" InsertCommand="INSERT INTO [tblOrderHeader] ([OrderID], [CustomerID], [Username], [OrderDate], [OrderStatus], [ShipDate], [TotalCost], [COD]) VALUES (?, ?, ?, ?, ?, ?, ?, ?)" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [tblOrderHeader] WHERE ([OrderStatus] = ?) ORDER BY [OrderID]" UpdateCommand="UPDATE [tblOrderHeader] SET [CustomerID] = ?, [Username] = ?, [OrderDate] = ?, [OrderStatus] = ?, [ShipDate] = ?, [TotalCost] = ?, [COD] = ? WHERE [OrderID] = ?">
                 <DeleteParameters>
                     <asp:Parameter Name="OrderID" Type="Int32" />
                 </DeleteParameters>
@@ -236,6 +242,7 @@
                     <asp:Parameter Name="OrderStatus" Type="String" />
                     <asp:Parameter Name="ShipDate" Type="DateTime" />
                     <asp:Parameter Name="TotalCost" Type="Decimal" />
+                    <asp:Parameter Name="COD" Type="Boolean" />
                 </InsertParameters>
                 <SelectParameters>
                     <asp:Parameter DefaultValue="PENDING" Name="OrderStatus" Type="String" />
@@ -247,12 +254,13 @@
                     <asp:Parameter Name="OrderStatus" Type="String" />
                     <asp:Parameter Name="ShipDate" Type="DateTime" />
                     <asp:Parameter Name="TotalCost" Type="Decimal" />
+                    <asp:Parameter Name="COD" Type="Boolean" />
                     <asp:Parameter Name="OrderID" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
 
             <%-- Shipped Orders --%>
-            <asp:SqlDataSource ID="SDSShipOrder" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" DeleteCommand="DELETE FROM [tblOrderHeader] WHERE [OrderID] = ?" InsertCommand="INSERT INTO [tblOrderHeader] ([OrderID], [CustomerID], [Username], [OrderDate], [OrderStatus], [ShipDate], [TotalCost]) VALUES (?, ?, ?, ?, ?, ?, ?)" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [tblOrderHeader] WHERE ([OrderStatus] = ?) ORDER BY [OrderID]" UpdateCommand="UPDATE [tblOrderHeader] SET [CustomerID] = ?, [Username] = ?, [OrderDate] = ?, [OrderStatus] = ?, [ShipDate] = ?, [TotalCost] = ? WHERE [OrderID] = ?">
+            <asp:SqlDataSource ID="SDSShipOrder" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" DeleteCommand="DELETE FROM [tblOrderHeader] WHERE [OrderID] = ?" InsertCommand="INSERT INTO [tblOrderHeader] ([OrderID], [CustomerID], [Username], [OrderDate], [OrderStatus], [ShipDate], [TotalCost], [COD]) VALUES (?, ?, ?, ?, ?, ?, ?, ?)" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [tblOrderHeader] WHERE ([OrderStatus] = ?) ORDER BY [OrderID]" UpdateCommand="UPDATE [tblOrderHeader] SET [CustomerID] = ?, [Username] = ?, [OrderDate] = ?, [OrderStatus] = ?, [ShipDate] = ?, [TotalCost] = ?, [COD] = ? WHERE [OrderID] = ?">
                 <DeleteParameters>
                     <asp:Parameter Name="OrderID" Type="Int32" />
                 </DeleteParameters>
@@ -264,6 +272,7 @@
                     <asp:Parameter Name="OrderStatus" Type="String" />
                     <asp:Parameter Name="ShipDate" Type="DateTime" />
                     <asp:Parameter Name="TotalCost" Type="Decimal" />
+                    <asp:Parameter Name="COD" Type="Boolean" />
                 </InsertParameters>
                 <SelectParameters>
                     <asp:Parameter DefaultValue="SHIPPED" Name="OrderStatus" Type="String" />
@@ -275,12 +284,13 @@
                     <asp:Parameter Name="OrderStatus" Type="String" />
                     <asp:Parameter Name="ShipDate" Type="DateTime" />
                     <asp:Parameter Name="TotalCost" Type="Decimal" />
+                    <asp:Parameter Name="COD" Type="Boolean" />
                     <asp:Parameter Name="OrderID" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
 
             <%-- Completed Orders --%>
-            <asp:SqlDataSource ID="SDSComOrder" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" DeleteCommand="DELETE FROM [tblOrderHeader] WHERE [OrderID] = ?" InsertCommand="INSERT INTO [tblOrderHeader] ([OrderID], [CustomerID], [Username], [OrderDate], [OrderStatus], [ShipDate], [TotalCost]) VALUES (?, ?, ?, ?, ?, ?, ?)" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [tblOrderHeader] WHERE ([OrderStatus] = ?) ORDER BY [OrderID]" UpdateCommand="UPDATE [tblOrderHeader] SET [CustomerID] = ?, [Username] = ?, [OrderDate] = ?, [OrderStatus] = ?, [ShipDate] = ?, [TotalCost] = ? WHERE [OrderID] = ?">
+            <asp:SqlDataSource ID="SDSComOrder" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" DeleteCommand="DELETE FROM [tblOrderHeader] WHERE [OrderID] = ?" InsertCommand="INSERT INTO [tblOrderHeader] ([OrderID], [CustomerID], [Username], [OrderDate], [OrderStatus], [ShipDate], [TotalCost], [COD]) VALUES (?, ?, ?, ?, ?, ?, ?, ?)" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [tblOrderHeader] WHERE ([OrderStatus] = ?) ORDER BY [OrderID]" UpdateCommand="UPDATE [tblOrderHeader] SET [CustomerID] = ?, [Username] = ?, [OrderDate] = ?, [OrderStatus] = ?, [ShipDate] = ?, [TotalCost] = ?, [COD] = ? WHERE [OrderID] = ?">
                 <DeleteParameters>
                     <asp:Parameter Name="OrderID" Type="Int32" />
                 </DeleteParameters>
@@ -292,6 +302,7 @@
                     <asp:Parameter Name="OrderStatus" Type="String" />
                     <asp:Parameter Name="ShipDate" Type="DateTime" />
                     <asp:Parameter Name="TotalCost" Type="Decimal" />
+                    <asp:Parameter Name="COD" Type="Boolean" />
                 </InsertParameters>
                 <SelectParameters>
                     <asp:Parameter DefaultValue="COMPLETE" Name="OrderStatus" Type="String" />
@@ -303,12 +314,13 @@
                     <asp:Parameter Name="OrderStatus" Type="String" />
                     <asp:Parameter Name="ShipDate" Type="DateTime" />
                     <asp:Parameter Name="TotalCost" Type="Decimal" />
+                    <asp:Parameter Name="COD" Type="Boolean" />
                     <asp:Parameter Name="OrderID" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
             
             <%-- Orders By User --%>
-            <asp:SqlDataSource ID="SDSOrderByUser" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" DeleteCommand="DELETE FROM [tblOrderHeader] WHERE [OrderID] = ?" InsertCommand="INSERT INTO [tblOrderHeader] ([OrderID], [CustomerID], [Username], [OrderDate], [OrderStatus], [ShipDate], [TotalCost]) VALUES (?, ?, ?, ?, ?, ?, ?)" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [tblOrderHeader] WHERE ([Username] = ?) ORDER BY [OrderID]" UpdateCommand="UPDATE [tblOrderHeader] SET [CustomerID] = ?, [Username] = ?, [OrderDate] = ?, [OrderStatus] = ?, [ShipDate] = ?, [TotalCost] = ? WHERE [OrderID] = ?">
+            <asp:SqlDataSource ID="SDSOrderByUser" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" DeleteCommand="DELETE FROM [tblOrderHeader] WHERE [OrderID] = ?" InsertCommand="INSERT INTO [tblOrderHeader] ([OrderID], [CustomerID], [Username], [OrderDate], [OrderStatus], [ShipDate], [TotalCost], [COD]) VALUES (?, ?, ?, ?, ?, ?, ?, ?)" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [tblOrderHeader] WHERE ([Username] = ?) ORDER BY [OrderID]" UpdateCommand="UPDATE [tblOrderHeader] SET [CustomerID] = ?, [Username] = ?, [OrderDate] = ?, [OrderStatus] = ?, [ShipDate] = ?, [TotalCost] = ?, [COD] = ? WHERE [OrderID] = ?">
                 <DeleteParameters>
                     <asp:Parameter Name="OrderID" Type="Int32" />
                 </DeleteParameters>
@@ -320,6 +332,7 @@
                     <asp:Parameter Name="OrderStatus" Type="String" />
                     <asp:Parameter Name="ShipDate" Type="DateTime" />
                     <asp:Parameter Name="TotalCost" Type="Decimal" />
+                    <asp:Parameter Name="COD" Type="Boolean" />
                 </InsertParameters>
                 <SelectParameters>
                     <asp:ControlParameter ControlID="txtOrderByUser" Name="Username" PropertyName="Text" Type="String" />
@@ -331,19 +344,19 @@
                     <asp:Parameter Name="OrderStatus" Type="String" />
                     <asp:Parameter Name="ShipDate" Type="DateTime" />
                     <asp:Parameter Name="TotalCost" Type="Decimal" />
+                    <asp:Parameter Name="COD" Type="Boolean" />
                     <asp:Parameter Name="OrderID" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
 
             <%-- Orders Details --%>
-            <asp:SqlDataSource ID="SDSDetailedOrder" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" DeleteCommand="DELETE FROM [tblOrderDetail] WHERE (([OrderID] = ?) OR ([OrderID] IS NULL AND ? IS NULL)) AND [ProductID] = ?" InsertCommand="INSERT INTO [tblOrderDetail] ([OrderID], [ProductID], [MessageContent], [Color], [Quantity], [Price]) VALUES (?, ?, ?, ?, ?, ?)" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [tblOrderDetail] WHERE ([OrderID] = ?) ORDER BY [ProductID]" UpdateCommand="UPDATE [tblOrderDetail] SET [MessageContent] = ?, [Color] = ?, [Quantity] = ?, [Price] = ? WHERE (([OrderID] = ?) OR ([OrderID] IS NULL AND ? IS NULL)) AND [ProductID] = ?">
+            <asp:SqlDataSource ID="SDSDetailedOrder" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" DeleteCommand="DELETE FROM [tblOrderDetail] WHERE [OrderID] = ?" InsertCommand="INSERT INTO [tblOrderDetail] ([OrderID], [MediaType], [MessageContent], [Color], [Quantity], [Price]) VALUES (?, ?, ?, ?, ?, ?)" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [tblOrderDetail] WHERE ([OrderID] = ?) ORDER BY [MediaType]" UpdateCommand="UPDATE [tblOrderDetail] SET [MediaType] = ?, [MessageContent] = ?, [Color] = ?, [Quantity] = ?, [Price] = ? WHERE [OrderID] = ?">
                 <DeleteParameters>
-                    <asp:Parameter Name="OrderID" Type="Int32" />
-                    <asp:Parameter Name="ProductID" Type="Int32" />
+                    <asp:Parameter Name="OrderID" Type="Int32" />                    
                 </DeleteParameters>
                 <InsertParameters>
                     <asp:Parameter Name="OrderID" Type="Int32" />
-                    <asp:Parameter Name="ProductID" Type="Int32" />
+                    <asp:Parameter Name="MediaType" Type="String" />
                     <asp:Parameter Name="MessageContent" Type="String" />
                     <asp:Parameter Name="Color" Type="String" />
                     <asp:Parameter Name="Quantity" Type="Int32" />
@@ -353,12 +366,12 @@
                     <asp:ControlParameter ControlID="txtOrderNum" Name="OrderID" PropertyName="Text" Type="Int32" />
                 </SelectParameters>
                 <UpdateParameters>
+                    <asp:Parameter Name="MediaType" Type="String" />
                     <asp:Parameter Name="MessageContent" Type="String" />
                     <asp:Parameter Name="Color" Type="String" />
                     <asp:Parameter Name="Quantity" Type="Int32" />
                     <asp:Parameter Name="Price" Type="Decimal" />
-                    <asp:Parameter Name="OrderID" Type="Int32" />
-                    <asp:Parameter Name="ProductID" Type="Int32" />
+                    <asp:Parameter Name="OrderID" Type="Int32" />                    
                 </UpdateParameters>
             </asp:SqlDataSource>
 
