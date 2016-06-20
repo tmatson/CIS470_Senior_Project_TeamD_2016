@@ -90,7 +90,7 @@ public partial class pgOrder : System.Web.UI.Page
         //Make order
         try
         {
-            string OrderID = myBusinessLayer.InsertOrder(CID, User, Date, Status, TotalCost);
+            string OrderID = myBusinessLayer.InsertOrder(CID, User, Date, Status, TotalCost, cbCOD.Checked);
             Response.Cookies["OrderID"].Value = OrderID;
         }
         catch (Exception error)
@@ -98,7 +98,7 @@ public partial class pgOrder : System.Web.UI.Page
             //If an error ocurs...
             productAddError = true;
             string message = "ERROR!!!!!!.";
-            Master.UserFeedBack.Text = message + error.Message;
+            Master.UserFeedBack.Text = message;
         }
 
         //Order details
@@ -111,18 +111,47 @@ public partial class pgOrder : System.Web.UI.Page
                 string Color = GridView1.Rows[i].Cells[2].Text;
                 string Quantity = GridView1.Rows[i].Cells[3].Text;
                 string TotalCostItems = GridView1.Rows[i].Cells[5].Text;
-                string OrderID = Request.Cookies["OrderID"].Value;
+                string OrderID = Request.Cookies["OrderID"].Value;                
 
                 myBusinessLayer.InsertOrderDetails(Convert.ToInt32(OrderID), MediaType, Personalization, Color, Convert.ToInt32(Quantity), TotalCostItems);
-            }
-            Response.Redirect("~/pgOrderConfirm.aspx");
+            }            
         }
         catch (Exception error)
         {
             //If an error ocurs...
             productAddError = true;
             string message = "ERROR!!!!!!.";
-            Master.UserFeedBack.Text = message + error.Message;
+            Master.UserFeedBack.Text = message;
         }
+
+        //Credit Card
+        try
+        {
+            string OrderID = Request.Cookies["OrderID"].Value;
+            string CustID = Request.Cookies["CID"].Value;
+            string Username = Request.Cookies["User"].Value;
+            string ExpDate = ddlMonth.SelectedValue + "/1/" + ddlYear.SelectedValue;
+
+            myBusinessLayer.InsertCreditCard(Convert.ToInt32(CustID), Convert.ToInt32(OrderID), txtCardNumber.Text, rblCreditCard.SelectedValue,
+                txtCardName.Text, txtCardCode.Text, ExpDate);
+        }
+        catch (Exception error)
+        {
+            productAddError = true;
+            string message = "ERROR!!!!!!.";
+            Master.UserFeedBack.Text = message;
+        }
+
+        if (productAddError == false)
+        {
+            Response.Redirect("~/pgOrderConfirm.aspx");
+        }
+    }
+
+    protected void cbCOD_CheckedChanged(object sender, EventArgs e)
+    {
+        //double TenPercent = 0.1;
+        //double OrderTotalInt = double.Parse(OrderTotal.Text) * TenPercent;
+        //OrderTotal.Text = OrderTotalInt.ToString();
     }
 }

@@ -129,9 +129,9 @@ public class clsBusinessLayer
     }
 
     //Place order method
-    public string InsertOrder(string CID, string User, string Date, string Status, string TotalCost)
+    public string InsertOrder(string CID, string User, string Date, string Status, string TotalCost, bool COD)
     {
-        string OrderID = myDataLayer.InsertOrder(CID, User, Date, Status, TotalCost);
+        string OrderID = myDataLayer.InsertOrder(CID, User, Date, Status, TotalCost, COD);
 
         return OrderID;      
     }
@@ -140,6 +140,14 @@ public class clsBusinessLayer
     public void InsertOrderDetails(int OrderID, string MediaType, string Personalization, string Color, int Quantity, string TotalCostItems)
     {
         myDataLayer.InsertOrderDetails(OrderID, MediaType, Personalization, Color, Quantity, TotalCostItems);
+    }
+
+    //Insert credit card method
+    public void InsertCreditCard(int CustID, int OrderID, string txtCardNumber, string rblCreditCard,
+                string txtCardName, string txtCardCode, string ExpDate)
+    {
+        myDataLayer.InsertCreditCard(CustID, OrderID, txtCardNumber, rblCreditCard,
+                txtCardName, txtCardCode, ExpDate);
     }
 
     public clsBusinessLayer()

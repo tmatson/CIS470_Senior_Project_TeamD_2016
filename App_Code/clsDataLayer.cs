@@ -302,14 +302,14 @@ public class clsDataLayer
     }
 
     //Place order function
-    public string InsertOrder(string CID, string User, string Date, string Status, string TotalCost)
+    public string InsertOrder(string CID, string User, string Date, string Status, string TotalCost, bool COD)
     {
         //Opens Database connection
         dbConnection.Open();
 
         //SQL INSERT statement
-        string sqlStemt = "INSERT INTO tblOrderHeader (CustomerID, Username, OrderDate, OrderStatus, TotalCost)"; //OUTPUT INSERTED.OrderID";
-        sqlStemt += "VALUES (@cid, @username, @orderdate, @orderstatus, @totalcost)";
+        string sqlStemt = "INSERT INTO tblOrderHeader (CustomerID, Username, OrderDate, OrderStatus, TotalCost, COD)"; //OUTPUT INSERTED.OrderID";
+        sqlStemt += "VALUES (@cid, @username, @orderdate, @orderstatus, @totalcost, @cod)";
         string sqlStemt2 = "Select @@Identity";
 
         //Access Database
@@ -320,10 +320,10 @@ public class clsDataLayer
         dbCommand.Parameters.Add(param);
         dbCommand.Parameters.Add(new OleDbParameter("@username", User));
         dbCommand.Parameters.Add(new OleDbParameter("@orderdate", Date));
-        dbCommand.Parameters.Add(new OleDbParameter("@orderstatus", Status));
-        //dbCommand.Parameters.Add(new OleDbParameter("@shipdate", ShipDate));
-        dbCommand.Parameters.Add(new OleDbParameter("@totalcost", TotalCost));        
-        
+        dbCommand.Parameters.Add(new OleDbParameter("@orderstatus", Status));        
+        dbCommand.Parameters.Add(new OleDbParameter("@totalcost", TotalCost));
+        dbCommand.Parameters.Add(new OleDbParameter("@cod", COD));
+
         //Executes insert statement
         dbCommand.ExecuteNonQuery();
 
@@ -365,6 +365,37 @@ public class clsDataLayer
 
         //Closes DB connection
         dbConnection.Close();        
+    }
+
+    //Insert credit card function
+    public void InsertCreditCard(int CustID, int OrderID, string txtCardNumber, string rblCreditCard,
+                string txtCardName, string txtCardCode, string ExpDate)
+    {
+        //Opens Database connection
+        dbConnection.Open();
+
+        //SQL INSERT statement
+        string sqlStemt = "INSERT INTO tblCCard (CustomerID, OrderID, CreditCardNumber, CreditCardType, CardOwner, CreditCardCode, CreditCardExpDate)";
+        sqlStemt += "VALUES (@custid, @orderid, @cardnum, @cardtype, @cardowner, @cardcode, @cardexpdate)";
+
+        //Access Database
+        OleDbCommand dbCommand = new OleDbCommand(sqlStemt, dbConnection);
+
+        //Adds parameters for insert statement
+        OleDbParameter param = new OleDbParameter("@custid", CustID);
+        dbCommand.Parameters.Add(param);
+        dbCommand.Parameters.Add(new OleDbParameter("@orderid", OrderID));
+        dbCommand.Parameters.Add(new OleDbParameter("@cardnum", txtCardNumber));
+        dbCommand.Parameters.Add(new OleDbParameter("@cardtype", rblCreditCard));
+        dbCommand.Parameters.Add(new OleDbParameter("@cardowner", txtCardName));
+        dbCommand.Parameters.Add(new OleDbParameter("@cardcode", txtCardCode));
+        dbCommand.Parameters.Add(new OleDbParameter("@cardexpdate", ExpDate));        
+
+        //Executes insert statement
+        dbCommand.ExecuteNonQuery();
+
+        //Closes DB connection
+        dbConnection.Close();
     }
 }
 
