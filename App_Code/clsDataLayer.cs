@@ -399,8 +399,6 @@ public class clsDataLayer
     }
 }
 
-
-
 //Object representing a review
 public class Review
 {

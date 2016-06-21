@@ -24,7 +24,7 @@ public partial class pgOrderStatus : System.Web.UI.Page
         DField = new BoundField(); DField.DataField = "OrderStatus"; DField.HeaderText = "OrderStatus"; DField.SortExpression = "OrderStatus"; gvCurrentOrders.Columns.Add(DField);
         DField = new BoundField(); DField.DataField = "ShipDate"; DField.HeaderText = "ShipDate"; DField.SortExpression = "ShipDate"; gvCurrentOrders.Columns.Add(DField);
         DField = new BoundField(); DField.DataField = "TotalCost"; DField.HeaderText = "TotalCost"; DField.SortExpression = "TotalCost"; gvCurrentOrders.Columns.Add(DField);
-        DField = new BoundField(); DField.DataField = "COD"; DField.HeaderText = "Charge on Delivery"; DField.SortExpression = "COD"; gvCurrentOrders.Columns.Add(DField);
+        DField = new CheckBoxField(); DField.DataField = "COD"; DField.HeaderText = "Charge on Delivery"; DField.SortExpression = "COD"; gvCurrentOrders.Columns.Add(DField);
         gvCurrentOrders.DataSourceID = "SDSCurrentOrders";
         gvCurrentOrders.DataBind();
 
@@ -43,7 +43,7 @@ public partial class pgOrderStatus : System.Web.UI.Page
         EField = new BoundField(); EField.DataField = "OrderStatus"; EField.HeaderText = "OrderStatus"; EField.SortExpression = "OrderStatus"; gvOrderHistory.Columns.Add(EField);
         EField = new BoundField(); EField.DataField = "ShipDate"; EField.HeaderText = "ShipDate"; EField.SortExpression = "ShipDate"; gvOrderHistory.Columns.Add(EField);
         EField = new BoundField(); EField.DataField = "TotalCost"; EField.HeaderText = "TotalCost"; EField.SortExpression = "TotalCost"; gvOrderHistory.Columns.Add(EField);
-        EField = new BoundField(); EField.DataField = "COD"; EField.HeaderText = "Charge on Delivery"; EField.SortExpression = "COD"; gvOrderHistory.Columns.Add(EField);
+        EField = new CheckBoxField(); EField.DataField = "COD"; EField.HeaderText = "Charge on Delivery"; EField.SortExpression = "COD"; gvOrderHistory.Columns.Add(EField);
 
         gvOrderHistory.DataSourceID = "SDSOrderByUser";
         gvOrderHistory.DataBind();

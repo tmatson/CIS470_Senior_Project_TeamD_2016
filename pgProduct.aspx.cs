@@ -46,8 +46,9 @@ public partial class pgProduct : System.Web.UI.Page
         personalization = AcamedicPersonalization.Text;
         productID = academicsize.SelectedItem.Value;
         quantity = AcademicQuantity.Text;
+        string colorString = "-";
 
-        addItem(productID, personalization, string.Empty, quantity);
+        addItem(productID, personalization, colorString, quantity);
 
         Session["itemCart"] = itemCart;
         Response.Redirect("~/pgOrder.aspx");
@@ -62,8 +63,9 @@ public partial class pgProduct : System.Web.UI.Page
         personalization = BaseballPersonalization.Text;
         productID = baseballsize.SelectedItem.Value;
         quantity = BaseballQuantity.Text;
+        string colorString = "-";
 
-        addItem(productID, personalization, string.Empty, quantity);
+        addItem(productID, personalization, colorString, quantity);
 
         Session["itemCart"] = itemCart;
         Response.Redirect("~/pgOrder.aspx");
@@ -78,8 +80,9 @@ public partial class pgProduct : System.Web.UI.Page
         personalization = BasketballPersonalization.Text;
         productID = basketballsize.SelectedItem.Value;
         quantity = BasketballQuantity.Text;
+        string colorString = "-";
 
-        addItem(productID, personalization, string.Empty, quantity);
+        addItem(productID, personalization, colorString, quantity);
 
         Session["itemCart"] = itemCart;
         Response.Redirect("~/pgOrder.aspx");
@@ -94,8 +97,9 @@ public partial class pgProduct : System.Web.UI.Page
         personalization = GolfPersonalization.Text;
         productID = golfsize.SelectedItem.Value;
         quantity = GolfQuantity.Text;
+        string colorString = "-";
 
-        addItem(productID, personalization, string.Empty, quantity);
+        addItem(productID, personalization, colorString, quantity);
 
         Session["itemCart"] = itemCart;
         Response.Redirect("~/pgOrder.aspx");
@@ -127,8 +131,9 @@ public partial class pgProduct : System.Web.UI.Page
         personalization = PlaquePersonalization.Text;
         productID = plaquesize.SelectedItem.Value;
         quantity = PlaqueQuantity.Text;
+        string colorString = "-";
 
-        addItem(productID, personalization, null, quantity);
+        addItem(productID, personalization, colorString, quantity);
 
         Session["itemCart"] = itemCart;
         Response.Redirect("~/pgOrder.aspx");
@@ -176,8 +181,9 @@ public partial class pgProduct : System.Web.UI.Page
         personalization = PlatePersonalization.Text;
         productID = perpetualplaque.SelectedItem.Value;
         quantity = PerpetualQuantity.Text;
+        string colorString = "-";
 
-        addItem(productID, personalization, null, quantity);
+        addItem(productID, personalization, colorString, quantity);
 
         Session["itemCart"] = itemCart;
         Response.Redirect("~/pgOrder.aspx");

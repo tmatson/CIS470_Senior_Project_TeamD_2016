@@ -222,6 +222,12 @@ div#footer ul li strong {
     height: auto;
 }
 
+.center2 {	  
+    display: inline-block;
+    text-align: center; 
+    margin: auto;
+}
+
 .userFeedbackCenter {	
     display: inline-block;   
     margin: auto;
@@ -299,7 +305,7 @@ a.footerLink:active {
 
 /* Added CSS for centering the order page - Chris Gormley */
 #order_content {
-    width: 700px; 
+    width: 526px; 
     margin-left: auto;
     margin-right: auto;
 }

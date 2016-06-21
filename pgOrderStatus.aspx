@@ -19,11 +19,12 @@
     </div>
 
     <%-- Datasource Current Orders By User --%>
-    <asp:SqlDataSource ID="SDSCurrentOrders" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT [OrderID], [OrderDate], [OrderStatus], [ShipDate], [TotalCost], [COD] FROM [tblOrderHeader] WHERE (([Username] = ?) AND ([OrderStatus] = ?) OR ([OrderStatus] = ?)) ORDER BY [OrderID]">
+    <asp:SqlDataSource ID="SDSCurrentOrders" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT [OrderID], [Username], [OrderDate], [OrderStatus], [ShipDate], [TotalCost], [COD] FROM [tblOrderHeader] WHERE (([Username] = ?) AND ([OrderStatus] = ?) OR ([OrderStatus] = ?) AND ([Username] = ?)) ORDER BY [OrderDate]">
         <SelectParameters>
             <asp:CookieParameter CookieName="User" Name="Username" Type="String" />
             <asp:Parameter DefaultValue="PENDING" Name="OrderStatus" Type="String" />
             <asp:Parameter DefaultValue="SHIPPED" Name="OrderStatus2" Type="String" />
+            <asp:CookieParameter CookieName="User" Name="Username2" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
 

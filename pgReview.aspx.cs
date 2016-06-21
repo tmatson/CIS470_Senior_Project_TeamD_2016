@@ -37,7 +37,7 @@ public partial class pgReview : System.Web.UI.Page
                 reviewDateDay = review[i].reviewDate.Day;
                 reviewDateMonth = review[i].reviewDate.Month;
                 reviewDate = reviewDateMonth + "/" + reviewDateDay + "/" + reviewDateYear;
-                reviews.InnerHtml = reviews.InnerHtml + "<p>" + username + " " + reviewDate + "<br />" + mediaType + "<br />" + comment + "</p>";
+                reviews.InnerHtml = reviews.InnerHtml + "<p>" + "USER: " + username + "&nbsp;&nbsp;&nbsp; DATE: " + reviewDate + "&nbsp;&nbsp;&nbsp; PRODUCT: " + mediaType + "<br />" + comment + "<br /><br />" + "</p>";
             }
         }
     }
@@ -95,8 +95,8 @@ public partial class pgReview : System.Web.UI.Page
         gvAllReviews.DataKeyNames = new string[] { "CustomerID", "ProductID" };
 
         BoundField DField = new BoundField(); DField.DataField = "ReviewDate"; DField.HeaderText = "Date"; DField.InsertVisible = false; DField.ReadOnly = true; DField.SortExpression = "OrderID"; gvAllReviews.Columns.Add(DField);
-        DField = new BoundField(); DField.DataField = "Username"; DField.HeaderText = "Username"; DField.InsertVisible = false; DField.ReadOnly = true; DField.SortExpression = "Username"; gvAllReviews.Columns.Add(DField);
-        DField = new BoundField(); DField.DataField = "MediaType"; DField.HeaderText = "Media Type"; DField.InsertVisible = false; DField.ReadOnly = true; DField.SortExpression = "MediaType"; gvAllReviews.Columns.Add(DField);
+        DField = new BoundField(); DField.DataField = "Username"; DField.HeaderText = "User"; DField.InsertVisible = false; DField.ReadOnly = true; DField.SortExpression = "Username"; gvAllReviews.Columns.Add(DField);
+        DField = new BoundField(); DField.DataField = "MediaType"; DField.HeaderText = "Product"; DField.InsertVisible = false; DField.ReadOnly = true; DField.SortExpression = "MediaType"; gvAllReviews.Columns.Add(DField);
         DField = new BoundField(); DField.DataField = "Comments"; DField.HeaderText = "Comment"; DField.InsertVisible = false; DField.ReadOnly = true; DField.SortExpression = "Comments"; gvAllReviews.Columns.Add(DField);
 
         gvAllReviews.DataSourceID = "SDSReviews";

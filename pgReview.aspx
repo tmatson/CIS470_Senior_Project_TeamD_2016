@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div style="margin:auto; text-align:center">
+    <div style="margin:auto; text-align:center; color: darkblue;">
         <h1>Did you like our service? Share your experience with our product!</h1>
         <br />
         <asp:Label ID="lblMedia" runat="server" Text="Media Type: "></asp:Label>
@@ -51,11 +51,11 @@
             <asp:ListItem>Bronze Honoree of the Month</asp:ListItem>
             <asp:ListItem>Silver Honoree of the Month</asp:ListItem>
         </asp:DropDownList>
-        <br />
+        <br /><br />
         <asp:Label ID="lblComment" runat="server" Text="Enter Your Comment Here:"></asp:Label>
         <br />
         <textarea id="txtComment" name="txtComment" cols="20" rows="2" maxlength="255"></textarea>
-        <br />
+        <br /><br />
         <asp:Button ID="btnSubmitReview" runat="server" Text="Submit" OnClick="btnSubmitReview_Click" />
         <br />
         <br />
@@ -66,14 +66,19 @@
         <p id="message3" runat="server" style="color:red" visible="false">You did not pick a Media Type!</p>
         <p id="message4" runat="server" style="color:red" visible="false">You did not enter a Review!</p>
     </div>
-    <div id="reviews" runat="server">
+    <div id="reviews" runat="server" style="text-align: center; font-size: large; color: darkblue;">
         <h3 id="emptyMessage">Sorry! Looks like no reviews have been submitted. Be the first to review our services!</h3>
     </div>
     <div>
         <asp:GridView ID="gvAllReviews" runat="server" HorizontalAlign="Center" style="margin-top: 10px"></asp:GridView>
         <asp:SqlDataSource ID="SDSReviews" runat="server" ConnectionString="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString %>" ProviderName="<%$ ConnectionStrings:WSCDatabase_mdbConnectionString.ProviderName %>" SelectCommand="SELECT tblReview.CustomerID, tblReview.ProductID, tblReview.MediaType, tblreview.Comments, tblReview.ReviewDate, tblUserAcct.Username FROM tblReview INNER JOIN tblUserAcct ON tblReview.CustomerID = tblUserAcct.CustomerID" />
-        <asp:Button ID="btnReviewGrid" runat="server" Text="All Reviews" OnClick="btnReviewGrid_Click" />
-        <asp:Button ID="btnHideGrid" runat="server" Text="Hide Grid" Visible="false" OnClick="btnHideGrid_Click" />
+        
+        <div class="loginCenter">
+            <div class="login">
+                <asp:Button ID="btnReviewGrid" runat="server" Text="All Reviews" OnClick="btnReviewGrid_Click" />
+                <asp:Button ID="btnHideGrid" runat="server" Text="Hide Grid" Visible="false" OnClick="btnHideGrid_Click" />
+            </div>
+        </div>        
     </div>
 </asp:Content>
 

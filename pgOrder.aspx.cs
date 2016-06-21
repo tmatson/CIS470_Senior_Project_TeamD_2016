@@ -18,6 +18,10 @@ public partial class pgOrder : System.Web.UI.Page
         {
             Response.Redirect("~/pgLogin.aspx");
         }
+        else if (Session["itemCart"] == null)
+        {
+            Response.Redirect("~/pgProduct.aspx");
+        }
         else
         {
             float orderTotal = 0;
