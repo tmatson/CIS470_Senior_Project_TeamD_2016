@@ -90,7 +90,7 @@
         <asp:TextBox ID="txtCardCode" runat="server" Width="60px" />
         <br />   
         <br /><br />
-        <asp:Button ID="continueShopping" runat="server" Text="Continue Shopping" OnClick="continueShopping_Click" />&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="continueShopping" runat="server" Text="Continue Shopping" OnClick="continueShopping_Click" CausesValidation="False" />&nbsp;&nbsp;&nbsp;
         <asp:Button ID="checkout" runat="server" Text="Checkout" OnClick="checkout_Click" />
     </div>
 </asp:Content>

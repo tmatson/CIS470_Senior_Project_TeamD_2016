@@ -32,9 +32,9 @@ public partial class SPMasterPage : System.Web.UI.MasterPage
             lbLogout.Visible = true;
             lbLogoutFooter.Visible = true;
             lblUserName.Visible = true;
-            lblUserName.Text = Request.Cookies["User"].Value;
+            lblUserName.Text = Request.Cookies["User"].Value.ToUpper();
             lblUserNameFooter.Visible = true;
-            lblUserNameFooter.Text = Request.Cookies["User"].Value;
+            lblUserNameFooter.Text = Request.Cookies["User"].Value.ToUpper();
             lbAcctCreate.Visible = false;
             lbAcctCreateFooter.Visible = false;
             lbOrderStatus.Visible = true;
@@ -50,9 +50,9 @@ public partial class SPMasterPage : System.Web.UI.MasterPage
             lbLogout.Visible = true;
             lbLogoutFooter.Visible = true;
             lblUserName.Visible = true;
-            lblUserName.Text = Request.Cookies["User"].Value;
+            lblUserName.Text = Request.Cookies["User"].Value.ToUpper();
             lblUserNameFooter.Visible = true;
-            lblUserNameFooter.Text = Request.Cookies["User"].Value;
+            lblUserNameFooter.Text = Request.Cookies["User"].Value.ToUpper();
             lbAcctCreate.Visible = false;
             lbAcctCreateFooter.Visible = false;
             lbOrderStatus.Visible = true;
@@ -84,6 +84,8 @@ public partial class SPMasterPage : System.Web.UI.MasterPage
         Response.Cookies["E-mail"].Expires = DateTime.Now.AddMinutes(-60);
         Response.Cookies["Phonenumber"].Expires = DateTime.Now.AddMinutes(-60);
         Response.Cookies["SecurityLevel"].Expires = DateTime.Now.AddMinutes(-60);
+
+        Session["itemCart"] = null;
 
         Response.Redirect("~/pgIndex.aspx");
     }

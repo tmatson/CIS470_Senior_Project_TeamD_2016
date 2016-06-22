@@ -112,7 +112,7 @@ public partial class pgAcctInfo : System.Web.UI.Page
     protected void Page_PreRender(object sender, EventArgs e)
     {
         //Loads and Displays Information From User Input Fields                
-        lblUserName.Text = Request.Cookies["User"].Value;
+        lblUserName.Text = Request.Cookies["User"].Value.ToUpper();
         txtFirstName.Text = Request.Cookies["Firstname"].Value;
         txtLastName.Text = Request.Cookies["Lastname"].Value;
         txtEmail.Text = Request.Cookies["E-mail"].Value;
