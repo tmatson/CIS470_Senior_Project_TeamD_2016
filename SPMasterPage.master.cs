@@ -85,6 +85,9 @@ public partial class SPMasterPage : System.Web.UI.MasterPage
         Response.Cookies["Phonenumber"].Expires = DateTime.Now.AddMinutes(-60);
         Response.Cookies["SecurityLevel"].Expires = DateTime.Now.AddMinutes(-60);
 
+        //  If user logs out, then set the cart session to null to clear the out the item cart.
+        Session["itemCart"] = null;
+
         Response.Redirect("~/pgIndex.aspx");
     }
 }

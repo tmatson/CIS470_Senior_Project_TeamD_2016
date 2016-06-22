@@ -313,3 +313,16 @@ a.footerLink:active {
 #order_total {
     text-align: right;
 }
+
+#cc_content input {
+    display: inline-block;
+    float: left;
+}
+
+#cc_content label {
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: right;
+}

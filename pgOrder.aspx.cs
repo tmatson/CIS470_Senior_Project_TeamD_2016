@@ -146,9 +146,17 @@ public partial class pgOrder : System.Web.UI.Page
             Master.UserFeedBack.Text = message;
         }
 
+        //
+        //  If there is an error, redirect to the Order Confirmation page, else clear out the item cart.
         if (productAddError == false)
         {
+            //  Redirect to pgOrderConfirm page.
             Response.Redirect("~/pgOrderConfirm.aspx");
+        }
+        else
+        {
+            //  Set the cart session to null to clear the out the item cart.
+            Session["itemCart"] = null;
         }
     }
 
