@@ -26,7 +26,7 @@ public partial class pgProduct : System.Web.UI.Page
 
         //
         //  Check to see if the ItemCart session variable exists.  If so,
-        //  then get the itemCart ArrayList.  If not, create a new ArrayList.
+        //  then get the itemCart ArrayList. If not, create a new ArrayList.
         //
         if (Session["ItemCart"] == null)
         {
@@ -131,7 +131,7 @@ public partial class pgProduct : System.Web.UI.Page
         personalization = PlaquePersonalization.Text;
         productID = plaquesize.SelectedItem.Value;
         quantity = PlaqueQuantity.Text;
-        string colorString = "-";
+        string colorString = string.Empty; 
 
         addItem(productID, personalization, colorString, quantity);
 

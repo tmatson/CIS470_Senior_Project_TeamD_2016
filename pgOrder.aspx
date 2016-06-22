@@ -35,6 +35,7 @@
         Order Total = <asp:Label ID="OrderTotal" runat="server" Text="" />
         <br />
         <br />
+        
         <asp:Label ID="lblCOD" runat="server" Text="Charge on Delivery Option (10% Deposit)"></asp:Label>
         <asp:CheckBox ID="cbCOD" runat="server" OnCheckedChanged="cbCOD_CheckedChanged" />
         <br />
@@ -45,18 +46,22 @@
         <asp:Image ID="imgMasterCard" runat="server" ImageUrl="~/Images/mastercard_logo.gif" Height="38px" />&nbsp
         <asp:Image ID="imgDiscover" runat="server"  ImageUrl="~/Images/discover_logo.gif" Height="38px" />&nbsp;
         <asp:Image ID="imgAmerExpress" runat="server" ImageUrl="~/Images/american_express_logo.gif" Height="38px" /><br />
-        <asp:RadioButtonList id=rblCreditCard runat="server" RepeatDirection="Horizontal" Width="281px">
+        <asp:RadioButtonList id="rblCreditCard" runat="server" RepeatDirection="Horizontal" Width="281px" required="required" 
+            title="Please select one.">
             <asp:ListItem Value="VISA"></asp:ListItem>
             <asp:ListItem Value="MC"></asp:ListItem>
             <asp:ListItem Value="DC"></asp:ListItem>
             <asp:ListItem Value="AMEX"></asp:ListItem>            
         </asp:RadioButtonList>        
         <br />
+        <div class="cc_content">
         <asp:Label ID="lblCardName" runat="server" Text="Name on card" CssClass="card_info" />&nbsp;
-        <asp:TextBox ID="txtCardName" runat="server" Width="197px" />
+        <asp:TextBox ID="txtCardName" runat="server" Width="197px" required="required" title="Please enter the name on the card."/>
         <br />
         <asp:Label ID="lblCardNumber" runat="server" Text="Card Number" CssClass="card_info" />&nbsp;
-        <asp:TextBox ID="txtCardNumber" runat="server" Width="200" />
+        <asp:TextBox ID="txtCardNumber" runat="server" Width="200" required="required" 
+            title="Please enter your credit card number."
+            pattern="^\d{4}-\d{4}-\d{4}-\d{4}$"/>
         <br />
         <asp:Label ID="lblCardExp" runat="server" Text="Card Expiration" CssClass="card_info" />&nbsp;
         <asp:DropDownList ID="ddlMonth" runat="server">
@@ -85,9 +90,10 @@
             <asp:ListItem Value="2024"></asp:ListItem>
             <asp:ListItem>2025</asp:ListItem>
         </asp:DropDownList>
-        <br />
-        <asp:Label ID="lblCardCode" runat="server" Text="CVV Code (Back of Card)" CssClass="card_info" />&nbsp;
-        <asp:TextBox ID="txtCardCode" runat="server" Width="60px" />
+            <br />
+            <asp:Label ID="lblCardCode" runat="server" Text="CVV Code (Back of Card)" CssClass="card_info" />&nbsp;
+            <asp:TextBox ID="txtCardCode" runat="server" Width="60px" required="required" title="Please Enter security number."/>
+        </div>
         <br />   
         <br /><br />
         <asp:Button ID="continueShopping" runat="server" Text="Continue Shopping" OnClick="continueShopping_Click" CausesValidation="False" />&nbsp;&nbsp;&nbsp;

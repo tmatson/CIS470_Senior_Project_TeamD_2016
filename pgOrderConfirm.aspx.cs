@@ -11,5 +11,8 @@ public partial class pgOrderConfirm : System.Web.UI.Page
     {
         lblEmail.Text = Request.Cookies["E-mail"].Value;
         lblOrderNum.Text = Request.Cookies["OrderID"].Value;
+
+        //  Clear out the session item cart.
+        Session["itemCart"] = null;
     }
 }
