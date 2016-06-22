@@ -46,8 +46,7 @@
         <asp:Image ID="imgMasterCard" runat="server" ImageUrl="~/Images/mastercard_logo.gif" Height="38px" />&nbsp
         <asp:Image ID="imgDiscover" runat="server"  ImageUrl="~/Images/discover_logo.gif" Height="38px" />&nbsp;
         <asp:Image ID="imgAmerExpress" runat="server" ImageUrl="~/Images/american_express_logo.gif" Height="38px" /><br />
-        <asp:RadioButtonList id="rblCreditCard" runat="server" RepeatDirection="Horizontal" Width="281px" required="required" 
-            title="Please select one.">
+        <asp:RadioButtonList id="rblCreditCard" runat="server" RepeatDirection="Horizontal" Width="281px">
             <asp:ListItem Value="VISA"></asp:ListItem>
             <asp:ListItem Value="MC"></asp:ListItem>
             <asp:ListItem Value="DC"></asp:ListItem>
@@ -56,12 +55,10 @@
         <br />
         <div class="cc_content">
         <asp:Label ID="lblCardName" runat="server" Text="Name on card" CssClass="card_info" />&nbsp;
-        <asp:TextBox ID="txtCardName" runat="server" Width="197px" required="required" title="Please enter the name on the card."/>
+        <asp:TextBox ID="txtCardName" runat="server" Width="197px" />
         <br />
         <asp:Label ID="lblCardNumber" runat="server" Text="Card Number" CssClass="card_info" />&nbsp;
-        <asp:TextBox ID="txtCardNumber" runat="server" Width="200" required="required" 
-            title="Please enter your credit card number."
-            pattern="^\d{4}-\d{4}-\d{4}-\d{4}$"/>
+        <asp:TextBox ID="txtCardNumber" runat="server" Width="200" />
         <br />
         <asp:Label ID="lblCardExp" runat="server" Text="Card Expiration" CssClass="card_info" />&nbsp;
         <asp:DropDownList ID="ddlMonth" runat="server">
@@ -92,7 +89,7 @@
         </asp:DropDownList>
             <br />
             <asp:Label ID="lblCardCode" runat="server" Text="CVV Code (Back of Card)" CssClass="card_info" />&nbsp;
-            <asp:TextBox ID="txtCardCode" runat="server" Width="60px" required="required" title="Please Enter security number."/>
+            <asp:TextBox ID="txtCardCode" runat="server" Width="60px" />
         </div>
         <br />   
         <br /><br />
