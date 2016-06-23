@@ -91,79 +91,86 @@ public partial class pgOrder : System.Web.UI.Page
         string Status = "PENDING";       
         string TotalCost = OrderTotal.Text;
 
-        //Make order
-        try
+        if (rblCreditCard.Text != string.Empty && txtCardName.Text != string.Empty && txtCardNumber.Text != string.Empty && txtCardCode.Text != string.Empty)
         {
-            string OrderID = myBusinessLayer.InsertOrder(CID, User, Date, Status, TotalCost, cbCOD.Checked);
-            Response.Cookies["OrderID"].Value = OrderID;
-        }
-        catch (Exception error)
-        {
-            //If an error ocurs...
-            productAddError = true;
-            string message = "ERROR!!!!!!.";
-            Master.UserFeedBack.Text = message;
-        }
-
-        //Order details
-        try
-        {
-            for (int i = 0; i < GridView1.Rows.Count; i++)
+            //Make order
+            try
             {
-                string MediaType = GridView1.Rows[i].Cells[0].Text;
-                string Personalization = GridView1.Rows[i].Cells[1].Text;
-                string Color = GridView1.Rows[i].Cells[2].Text;
-                string Quantity = GridView1.Rows[i].Cells[3].Text;
-                string TotalCostItems = GridView1.Rows[i].Cells[5].Text;
-                string OrderID = Request.Cookies["OrderID"].Value;                
+                string OrderID = myBusinessLayer.InsertOrder(CID, User, Date, Status, TotalCost, cbCOD.Checked);
+                Response.Cookies["OrderID"].Value = OrderID;
+            }
+            catch (Exception error)
+            {
+                //If an error ocurs...
+                productAddError = true;
+                string message = "ERROR!!!!!!.";
+                Master.UserFeedBack.Text = message;
+            }
 
-                myBusinessLayer.InsertOrderDetails(Convert.ToInt32(OrderID), MediaType, Personalization, Color, Convert.ToInt32(Quantity), TotalCostItems);
-            }            
-        }
-        catch (Exception error)
-        {
-            //If an error ocurs...
-            productAddError = true;
-            string message = "ERROR!!!!!!.";
-            Master.UserFeedBack.Text = message;
-        }
+            //Order details
+            try
+            {
+                for (int i = 0; i < GridView1.Rows.Count; i++)
+                {
+                    string MediaType = GridView1.Rows[i].Cells[0].Text;
+                    string Personalization = GridView1.Rows[i].Cells[1].Text;
+                    string Color = GridView1.Rows[i].Cells[2].Text;
+                    string Quantity = GridView1.Rows[i].Cells[3].Text;
+                    string TotalCostItems = GridView1.Rows[i].Cells[5].Text;
+                    string OrderID = Request.Cookies["OrderID"].Value;
 
-        //Credit Card
-        try
-        {
-            string OrderID = Request.Cookies["OrderID"].Value;
-            string CustID = Request.Cookies["CID"].Value;
-            string Username = Request.Cookies["User"].Value;
-            string ExpDate = ddlMonth.SelectedValue + "/1/" + ddlYear.SelectedValue;
+                    myBusinessLayer.InsertOrderDetails(Convert.ToInt32(OrderID), MediaType, Personalization, Color, Convert.ToInt32(Quantity), TotalCostItems);
+                }
+            }
+            catch (Exception error)
+            {
+                //If an error ocurs...
+                productAddError = true;
+                string message = "ERROR!!!!!!.";
+                Master.UserFeedBack.Text = message;
+            }
 
-            myBusinessLayer.InsertCreditCard(Convert.ToInt32(CustID), Convert.ToInt32(OrderID), txtCardNumber.Text, rblCreditCard.SelectedValue,
-                txtCardName.Text, txtCardCode.Text, ExpDate);
-        }
-        catch (Exception error)
-        {
-            productAddError = true;
-            string message = "ERROR!!!!!!.";
-            Master.UserFeedBack.Text = message;
-        }
+            //Credit Card
+            try
+            {
+                string OrderID = Request.Cookies["OrderID"].Value;
+                string CustID = Request.Cookies["CID"].Value;
+                string Username = Request.Cookies["User"].Value;
+                string ExpDate = ddlMonth.SelectedValue + "/1/" + ddlYear.SelectedValue;
 
-        //
-        //  If there is an error, redirect to the Order Confirmation page, else clear out the item cart.
-        if (productAddError == false)
-        {
-            //  Redirect to pgOrderConfirm page.
-            Response.Redirect("~/pgOrderConfirm.aspx");
+                myBusinessLayer.InsertCreditCard(Convert.ToInt32(CustID), Convert.ToInt32(OrderID), txtCardNumber.Text, rblCreditCard.SelectedValue,
+                    txtCardName.Text, txtCardCode.Text, ExpDate);
+            }
+            catch (Exception error)
+            {
+                productAddError = true;
+                string message = "ERROR!!!!!!.";
+                Master.UserFeedBack.Text = message;
+            }
+
+            //
+            //  If there is an error, redirect to the Order Confirmation page, else clear out the item cart.
+            if (productAddError == false)
+            {
+                //  Redirect to pgOrderConfirm page.
+                Response.Redirect("~/pgOrderConfirm.aspx");
+            }
+            else
+            {
+                //  Set the cart session to null to clear the out the item cart.
+                Session["itemCart"] = null;
+            }
         }
         else
         {
-            //  Set the cart session to null to clear the out the item cart.
-            Session["itemCart"] = null;
+            Master.UserFeedBack.Text = "Error! Make sure to fill out all credit card fields";
         }
     }
 
     protected void cbCOD_CheckedChanged(object sender, EventArgs e)
     {
         //double TenPercent = 0.1;
-        //double OrderTotalInt = double.Parse(OrderTotal.Text) * TenPercent;
+        //double OrderTotalInt = (double)OrderTotal.Text * TenPercent;
         //OrderTotal.Text = OrderTotalInt.ToString();
     }
 }
